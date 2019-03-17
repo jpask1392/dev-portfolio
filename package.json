@@ -1,0 +1,19 @@
+{
+  "name": "node_playground",
+  "version": "1.0.0",
+  "description": "Practice run of a project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpask1392/node-playground.git"
+  },
+  "author": "Jamie Pask",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jpask1392/node-playground/issues"
+  },
+  "homepage": "https://github.com/jpask1392/node-playground#readme"
+}
