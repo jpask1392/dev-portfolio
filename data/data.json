@@ -1,0 +1,24 @@
+{
+
+	"projects": [
+
+		{
+			"id": "0",
+			"title-intro" : "Architecture Portfolio built with",
+			"title-main" : "HTML, JS, PHP, CSS, SQL",
+			"summary" : "Jamie Pask. Interest in web development started back in 2015, learning to build simple static HTML and CSS sites. This fascination quickly grew into various projects. From task automation with python scripts to building websites from front to back.Jamie Pask.",
+			"main-image-device" : "", 
+			"main-image-path" : "",
+			"sections" : [
+				{
+					"title": ".css",
+					"text" : "Jamie Pask. Interest in web development started back in 2015, learning to build simple static HTML and CSS sites. This fascination quickly grew into various projects. From task automation with python scripts to building websites from front to back.Jamie Pask. Interest in web development started back in 2015, learning to build simple static HTML and CSS sites. This fascination quickly grew into various projects. From task automation with python scripts to building websites from front to back.",
+					"images" : [
+						"path-1",
+						"path-2"
+					]
+				}
+			]
+		} 
+	]
+}

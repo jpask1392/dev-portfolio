@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+html {
+	font-family: 'Roboto', sans-serif;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	min-height: 900px
+}
+
+body {
+	height: 100%;
+	margin: 0!important;
+	padding: 0;
+}
+
+#root {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+// STYLING FOR THE GRID
+.full-height {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	width: 100%
+}
+
+#page-container {
+	width: 100%;
+	margin: auto;
+	height: 100%;
+	position: relative;
+}
+
+
+// TEXT STYLING
+
+h1 {
+	// font-size: 
+}
+
+// STLYING FOR THE NAVIGATION
+
+#nav-container {
+	width: 100%;
+	height: 150px;
+	position: fixed;
+	display: block;
+	z-index: 5;
+}
+
+.nav-button {
+	width: 60px;
+	height: 60px;
+	border-radius: 100px;
+	position: absolute;
+	right: 100px;
+	top: 50%;
+	transform:translateY(-50%);
+	box-shadow: 3px 3px 7px rgba(0,0,0,0.2);
+	overflow: hidden;
+	background-color: white
+}
+
+#burger-icon {
+	position: relative;
+	top:50%;
+	transform:translateY(-50%);
+	cursor: pointer;
+}
+
+[class^="burger-icon-line"] {
+
+	width: 25px;
+	height: 2px;
+	background-color: black;
+	display: block;
+	margin: auto;
+	
+	&[class$="one"] {
+		transition: transform 0.3s;
+	}
+	&[class$="two"] {
+		transition: transform 0.2s;
+		margin-top: 5px;
+	}
+	&[class$="three"] {
+		margin-top: 5px;
+		transition: transform 0.3s;
+	}
+
+	&[class$="one-active"] {
+		transform: translateY(2px) rotate(45deg) ;
+		transform-origin: center;
+		transition: transform 0.3s;
+	}
+	&[class$="two-active"] {
+		transform: translateX(60px);
+		transition: transform 0.3s;
+		// position: absolute;
+	}
+	&[class$="three-active"] {
+		transform: translateY(-2px) rotate(-45deg) ;
+		transform-origin: center;
+		transition: transform 0.3s;
+	}	
+}
+
+#nav-list {
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform:translate(-50%, -50%);
+	text-align: center;
+
+	li {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		float: left;
+		margin-right: 20px;
+		margin-left: 20px;
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+		width: auto;
+	}
+}
+
+// CSS-TRANSITION-GROUP COMPONENTS FOR NAV
+
+.nav-items-enter {
+  opacity: 0;
+}
+
+.nav-items-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.nav-items-exit {
+  opacity: 1;
+}
+
+.nav-items-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+#back-button {
+	height: 50px;
+	width: 50px;
+	top:50%;
+	transform: translateY(-50%);
+	left: 100px;
+	position: relative;
+	cursor: pointer;
+}
+
+#back-button-container {
+	position: absolute;
+	display: block;
+	top: 50%;
+	height: 100%;
+	width: 100%;
+	transform: translateY(-50%);
+	// background-color: blue
+	// height: 100%;
+}
+
+[class^="back-icon-line"] {
+	position: relative;
+	width: 12px;
+	height: 2px;
+	background-color: black;
+	display: block;
+	margin: auto;
+	top: 50%;
+	
+	&[class$="one"] {
+		transform: rotate(-45deg) translateX(0.5px);
+		transform-origin: center left;
+	}
+
+	&[class$="two"] {
+		width: 24px;
+		transform: translateY(-2.75px) translateX(6px);
+		left: 1px;
+	}
+
+	&[class$="three"] {
+		transform: rotate(45deg) translateX(0.5px);
+		transform-origin: center left;
+	}
+
+}
+
+a > #back-button {
+	height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+

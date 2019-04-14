@@ -1,0 +1,56 @@
+#portfolio-container {
+	height: 100%;
+	width: 100%;
+}
+
+#portfolio-inner-container {
+	max-width: 900px;
+	margin: auto;
+	margin-top: 100px;
+	margin-bottom: 100px;
+
+	> h1 {
+		font-size: 50px;
+	}
+
+	&:after {
+		content: ".";
+		display: block;
+		height: 0;
+		clear: both;
+		visibility: hidden;
+	}
+}
+
+#gallery-container {
+	margin-top: 50px;
+}
+
+[class^='project-container'] {
+	background-color: black;
+	float: left;
+	margin-top: 15px;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center; 
+	cursor: pointer ;
+
+
+	&[class$="one"] {
+		width: 100%;
+		height: 500px;
+	}
+
+	&[class$="two"] {
+		width: calc(60% - 15px);
+		height: 300px;
+		margin-right: 15px;
+	}
+
+	&[class$="three"] {
+		width: calc(40%);
+		height: 300px;
+	}
+
+
+}

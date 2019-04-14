@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
+
+#project-page-container {
+	height: 100%;
+	width: 100%;
+}
+
+#project-intro-text-container {
+	width: 330px;	
+	float:left;
+	position: absolute;
+	top:50%;
+	transform: translateY(-50%);
+	
+	 & > p {
+
+		font-family: 'Roboto', sans-serif;
+		font-weight: 300;
+		line-height: 30px;
+		color: #7E7E7E;
+	}
+
+	& > h4 {
+		text-transform: uppercase;
+		margin: 0;
+		font-weight: 100;
+	}
+
+	& > h1 {
+		font-size: 50px;
+		margin-bottom: 50px;
+	}
+
+}
+
+.section-container {
+	margin-top: 100px;
+	margin-bottom: 200px;
+}
+
+.section-content-container {
+	max-width: 900px;
+	margin: auto;
+	margin-bottom: 100px;
+
+	& > p {
+		width: 700px;
+		margin: auto;
+		font-family: 'Roboto', sans-serif;
+		font-weight: 300;
+		line-height: 30px;
+		color: #7E7E7E;
+	}
+}
+
+.full-width-container {
+	width:100%;
+}
+
+.svg-text-container {
+	position: relative;
+	text-align: center;
+	margin-bottom: 100px;
+}
+
+.svg-text-mask {
+	font-size: 200px;
+	font-family: 'Abril Fatface', cursive;
+    // paint-order: stroke;
+    stroke: currentcolor;
+    stroke-width: 1;
+    fill:none;
+}
+
+#header-image-container {
+	width: 50%;
+	float: right;
+	position: relative;
+	top:50%;
+	transform: translateY(-50%); 
+
+	> img {
+		width: 100%;
+	}
+}
+
+// Carousel styling 
+
+.carousel-mask {
+	height: 500px;
+	width: 100%;
+	position: relative;
+}
+
+.carousel-scrollable {
+	width: 100%;
+	height: 100%;
+	overflow-y: hidden;
+	overflow-x: scroll;
+	-webkit-scrollbar { display: none; };
+
+}
+
+.image-container {
+	height: 100%;
+	white-space: nowrap;
+	// overflow-y: hidden;
+	// overflow-x: scroll;
+	// -webkit-scrollbar { display: none; };
+
+	> img {
+		height: 100%;
+		margin-right: 25px;
+	}
+
+}
+
+
+[class^='carousel-button'] {
+	height: 100%;
+	width: 100px;
+	position: absolute;
+	transition: background-color 0.3s;
+	cursor: pointer;
+
+	&:hover {
+		background-color: black;
+	}
+
+	&[class$="forward"] {
+		right: 0;
+	}
+
+	&[class$="back"] {
+		left: 0;
+	}
+}
+
+
+
+
+
+
+
+
+
+

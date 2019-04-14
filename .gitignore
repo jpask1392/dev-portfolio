@@ -1,0 +1,4 @@
+dev-portfolio.sublime-project
+**/assets
+**/node_modules
+mongoDBCommands.txt
