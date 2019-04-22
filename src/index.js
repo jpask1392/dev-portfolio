@@ -5,6 +5,7 @@ import './common/common.scss';
 import Home from './entry/home.jsx';
 import Project from './portfolio/index.jsx';
 
+
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
@@ -14,13 +15,13 @@ class App extends Component {
 			<div className='full-height'>
 				<Navigation />
 				<div id='page-container'>
-						<Route path="/" exact component={Home} />
-						<Route path="/:_id" exact render={(props) => {
-							let projectId = props.location.pathname.replace('/', '');
-							return (
-								<Project projectId={projectId} /> 
-							)
-						}} />
+					<Route path="/" exact component={Home} />
+					<Route path="/:_id" exact render={(props) => {
+						let projectId = props.location.pathname.replace('/', '');
+						return (
+							<Project projectId={projectId} />
+						)
+					}} />
 				</div>
 			</div>
 		</Router>

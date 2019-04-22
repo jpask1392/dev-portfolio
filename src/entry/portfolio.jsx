@@ -34,7 +34,7 @@ export default class Portfolio extends Component {
 		var data = this.state.data;
 
 		return (
-			<div id="portfolio-container">
+			<div id="portfolio-container" className="container-max">
 				<div id="portfolio-inner-container">
 					<h1>Case Studies</h1>
 					<b>View my Github for code examples</b>

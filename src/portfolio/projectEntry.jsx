@@ -13,8 +13,8 @@ export default class projectEntry extends React.Component {
 
 	render() {
 		return (
-		<div id="landing-container">
-			<div id="project-intro-text-container">
+		<div id="project-landing-container" className="container-max">
+			<div id="project-intro-text-container" className="col lhs">
 				<h4>{this.props.data['title-intro']}</h4>
 				<h1>{this.props.data['title-main']}</h1>
 				<p>{this.props.data['summary']}</p>

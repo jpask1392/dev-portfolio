@@ -19,10 +19,12 @@
   },
   "homepage": "https://github.com/jpask1392/node-playground#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "browser-refresh": "^1.7.3",
     "browser-sync": "^2.26.3",
     "express": "^4.16.4",
     "mongodb": "^3.1.13",
+    "nodemailer": "^6.1.0",
     "nodemon": "^1.18.10",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",

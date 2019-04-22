@@ -29,7 +29,7 @@ export default class Project extends Component {
 		var data = this.state.data;
 
 		return (
-			<div id="landing-container">
+			<div id="landing-container" >
 				<div id="intro-text-container">
 					<h4>{data['title-intro']}</h4>
 					<h1>{data['title-main']}</h1>

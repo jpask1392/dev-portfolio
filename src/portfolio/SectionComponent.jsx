@@ -18,7 +18,7 @@ export default class Section extends React.Component {
 	render() {
 		return (
 			<div className="section-container">
-				<div className="section-content-container">
+				<div className="section-content-container container-max">
 					<SvgText title={this.props.title}/>
 					<SectionText text={this.props.text} />
 				</div>

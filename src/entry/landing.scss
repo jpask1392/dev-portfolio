@@ -1,26 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
-
-h1 {
-	font-family: 'Abril Fatface', cursive;
-	margin: 0;
-	padding: 0;
-	color: #151515;
-	opacity: 1;
-	transition: transform 1s, opacity 1s;
-	font-weight: 400;
-
-}
-
-body {
-	margin: 1em;
-}
-
-#landing-container {
-	max-width: 900px;
-	height: 100%;
-	margin: auto
-}
+@import "../common/common.scss";
 
 #landing-inner-container {
 	width: 100%;
@@ -28,10 +6,20 @@ body {
 	position: relative;
 	top:50%;
 	transform: translateY(-50%);
+
+	@media only screen and (max-width: $phone-large) {
+	   // margin-top: 50px
+	}
+
 }
 
-#intro-text-container {
-	width: 330px;	
+#landing-container {
+	max-width: 900px;
+	margin: auto;
+	height: 100%;
+}
+
+#intro-text-container {	
 	float:left;
 	position: absolute;
 	top:50%;
@@ -44,6 +32,13 @@ body {
 		line-height: 30px;
 		color: #7E7E7E;
 
+	}
+
+	@media only screen and (max-width: $phone-large) {
+	   position: relative;
+	   top: auto;
+	   transform: translateY(0%);
+	   margin-top: 50px;
 	}
 
 }
@@ -59,6 +54,11 @@ body {
 
 	.cls-1 {
 		fill: #8A8A8A;
+	}
+
+	@media only screen and (max-width: $phone-large) {
+	   position: static;
+	   width: 100px;
 	}
 }
 
@@ -81,12 +81,7 @@ body {
 }
 
 #header-text-container {
-	width: 330px;
-	float: right;
-	font-size: 30px;
 	line-height: 80px;
-	margin: 0;
-	padding: 0;
 
 	&:before,
 	&:after {
@@ -116,6 +111,10 @@ body {
 	&:after {
 		background-color: white; 
 		z-index: -1;
+	}
+
+	@media only screen and (max-width: $phone-large) {
+	   line-height: 40px;
 	}
 }
 
@@ -148,5 +147,18 @@ body {
 .header-mask {
 	overflow: hidden;
 	display: block;
+
+	@media only screen and (max-width: $phone-large) {
+		white-space: pre;
+	   	display: inline-block;
+	}
+}
+
+.test {
+	width: 100px;
+	height: 100px;
+	background-color: red;
+	position: fixed;
+	top: 0;
 }
 

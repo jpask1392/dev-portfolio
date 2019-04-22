@@ -68,7 +68,7 @@ export default class About extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="about-container " id='about-container'>
 
 				<div id='about-img-container' ref={this.myRef}>
 
@@ -77,7 +77,7 @@ export default class About extends Component {
 				</div>
 
 
-				<div id='about-text-container'>
+				<div className="container-max" id='about-text-container'>
 
 					<div className="col lhs question-container"> 
 						<h1>
@@ -87,15 +87,18 @@ export default class About extends Component {
 
 					<div className="col rhs feature-text">
 
-						 <br/>
+						<i className="fas fa-map-marker-alt"></i>
+						<br/>
 
 						I am Jamie Pask. Born and raised in Cardiff, United Kingdom.<br/> 
 
-						<br/>
+						<i className="fas fa-trophy"></i>
+						<br/>
 
 						started back in 2015, learning to build simple static HTML and CSS sites. This fascination quickly grew into various projects. From writing python scripts to automate tasks to building websites from front to back.<br/>
 
-						<br/>
+						<i className="fas fa-directions"></i>
+						<br/>
 
 						Jamie Pask. Interest in web development started back in 2015, learning to build simple static HTML and CSS sites. This fascination quickly grew into various projects. From writing python scripts to automate tasks to building websites from front to back.
 					</div>

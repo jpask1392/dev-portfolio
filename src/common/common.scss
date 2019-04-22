@@ -1,31 +1,52 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+
+$phone-large: 900px;
 
 html {
 	font-family: 'Roboto', sans-serif;
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	min-height: 900px
+	min-height: 900px;
+	width: 100%;
+	@media only screen and (max-width: $phone-large) {
+	   min-height: 700px;
+	}
 }
 
 body {
 	height: 100%;
 	margin: 0!important;
 	padding: 0;
+	width: 100%;
 }
 
 #root {
 	height: 100%;
 	margin: 0;
 	padding: 0;
+	width: 100%;
 }
 
 // STYLING FOR THE GRID
+.container-max {
+	max-width: 900px;
+	min-height: 100%;
+	margin: auto;
+
+	@media only screen and (max-width: $phone-large) {
+	   padding-left: 20px;
+	   padding-right: 20px;
+	   overflow: hidden;
+	}
+}
+
 .full-height {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	width: 100%
+	width: 100%;
 }
 
 #page-container {
@@ -35,11 +56,45 @@ body {
 	position: relative;
 }
 
+.col {
+	width: 330px;
+	position: relative;
+
+	@media only screen and (max-width: $phone-large) {
+	   width: 100%;
+	}
+}
+
+.rhs {
+	float: right;
+	transition: float 1s;
+	@media only screen and (max-width: $phone-large) {
+	   float: none;
+	}
+	// clear: both;
+}
+
+.lhs {
+	float: left;
+	// clear: left;
+}
+
 
 // TEXT STYLING
 
 h1 {
-	// font-size: 
+	font-size: 60px;
+	font-family: 'Abril Fatface', cursive;
+	margin: 0;
+	padding: 0;
+	color: #151515;
+	opacity: 1;
+	transition: transform 1s, opacity 1s;
+	font-weight: 400; 
+
+	@media only screen and (max-width: $phone-large) {
+	   font-size: 40px;
+	}
 }
 
 // STLYING FOR THE NAVIGATION
@@ -50,6 +105,10 @@ h1 {
 	position: fixed;
 	display: block;
 	z-index: 5;
+
+	@media only screen and (max-width: $phone-large) {
+	   height: 100px;
+	}
 }
 
 .nav-button {
@@ -62,7 +121,11 @@ h1 {
 	transform:translateY(-50%);
 	box-shadow: 3px 3px 7px rgba(0,0,0,0.2);
 	overflow: hidden;
-	background-color: white
+	background-color: white;
+
+	@media only screen and (max-width: $phone-large) {
+	   right: 50px;
+	}
 }
 
 #burger-icon {
@@ -160,6 +223,10 @@ h1 {
 	left: 100px;
 	position: relative;
 	cursor: pointer;
+
+	@media only screen and (max-width: $phone-large) {
+	   left: 20px;
+	}
 }
 
 #back-button-container {
@@ -169,8 +236,6 @@ h1 {
 	height: 100%;
 	width: 100%;
 	transform: translateY(-50%);
-	// background-color: blue
-	// height: 100%;
 }
 
 [class^="back-icon-line"] {
@@ -204,7 +269,15 @@ a > #back-button {
 	height: 100%;
 }
 
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
 
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 250ms ease-in;
+}
 
 
 

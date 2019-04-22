@@ -1,0 +1,45 @@
+@import "../common/common.scss";
+
+#form-container {
+	width: 333px;
+	background-color: #F2F4F5;
+	padding: 50px;
+	float: right;
+
+	@media only screen and (max-width: $phone-large) {
+	   width: auto;
+	   padding: 20px;
+	}
+}
+
+form {
+	width: 100%;
+}
+
+input {
+	width: 100%;
+	padding: 10px 0px 10px 0px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border: none;
+}
+
+textarea {
+	width: 100%;
+	max-width: 100%;
+	min-width: 100%;
+	border:none;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	padding: 0;
+}
+
+button {
+	width: 50px;
+	height: 50px;
+	background-color: #000000;
+	border: none;
+	border-radius: 50px;
+	cursor: pointer;
+	float: right
+}

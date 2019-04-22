@@ -1,0 +1,30 @@
+@import "../common/common.scss";
+
+#contact-container {
+	height: 100%;
+	margin: auto;
+	position: relative;
+}
+
+#contact-inner-container {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 100%;
+	max-height: 100%;
+
+	@media only screen and (max-width: $phone-large) {
+	   position: static;
+	   margin-top: 100px;
+	}
+}
+
+#contact-text-container {
+	width: 330px;
+	float: left;
+
+	@media only screen and (max-width: $phone-large) {
+	   width: auto;
+	   margin-bottom: 50px;
+	}
+}

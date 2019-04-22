@@ -4,6 +4,8 @@ import Landing from './landing.jsx';
 import About from './about.jsx';
 import Portfolio from './portfolio.jsx';
 import './about.scss';
+import { CSSTransition } from 'react-transition-group';
+import Contact from './contact.jsx';
 
 
 // SET THIS UP AS A CLASS AND TRACK WHICH COMPONENTS ARE ON THE SCREEN
@@ -34,10 +36,9 @@ export default class Home extends Component {
 		return (
 			<div className="full-height"> 
 				<Landing />
-				<div className="about-container" ref={this.aboutRef}>
-					<About />
-				</div>
+				<About />
 				<Portfolio />
+				<Contact />
 			</div>
 		)
 	}

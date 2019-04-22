@@ -12,7 +12,7 @@ export default class ProjectHeaderImageComponent extends React.Component {
 
 	render() {
 		return (
-			<div id="header-image-container">
+			<div id="header-image-container" className="col rhs">
 				<Img 	src="../../assets/projects/architecture-portfolio/archPortfolioIphone.png"
 						className='image'
 				 />

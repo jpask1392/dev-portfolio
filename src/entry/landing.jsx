@@ -6,38 +6,40 @@ import ReactSVG from 'react-svg';
 export default class Landing extends Component {
 
 	render() {
-		var words = ["Full stack", "developer,", "problem", "solver and", "digital", "design", "enthusist"];
+		var words = ["Full stack ", "developer, ", "problem ", "solver and ", "digital ", "design ", "enthusist"];
 
 
 		return (
-			<div id="landing-container">
-			<div id='landing-inner-container'>
-				<ReactSVG 	src="../../assets/circle-icon.svg" 
-							svgClassName="circle-icon-svg" />
-				<div id='intro-text-container'>
+			<div className="container-max" id="landing-container">
 
-
-					<b>Living in LA</b>
-					<p>Jamie Pask. Interest in web development started back in 2015, learning to build simple static HTML and CSS sites. This fascination quickly grew into various projects. From task automation with python scripts to building websites from front to back.
-					</p>
+				<div id='landing-inner-container'>
+					<ReactSVG 	src="../../assets/circle-icon.svg" 
+									svgClassName="circle-icon-svg"
+									 />
+					<div className="col rhs" >
+						<div id='header-text-container'>
+						{ 
+							words.map(function(word) {
+								return (
+									<span className="header-mask" key={word}>
+									<CSSTransition 	in={true} 
+													timeout={0}
+													appear={true}
+													classNames="header-words">
+										<h1>{word}</h1>
+									</CSSTransition>
+									</span>
+								)
+							}) 
+						}
+						</div>
+					</div>
+					<div className="col lhs" id='intro-text-container'>
+						<b>Living in LA</b>
+						<p>Hey! I’m Jamie, a full stack developer and a passionate tinkerer of all things software. Still learning and still growing but please take a look around. Any feedback is welcome! 
+						</p>
+					</div>
 				</div>
-				<div id='header-text-container'>
-					{ 
-						words.map(function(word) {
-							return (
-								<span className="header-mask" key={word}>
-								<CSSTransition 	in={true} 
-												timeout={0}
-												appear={true}
-												classNames="header-words">
-									<h1>{word}</h1>
-								</CSSTransition>
-								</span>
-							)
-						}) 
-					}
-				</div>
-			</div>
 			</div>
 		)
 	}
