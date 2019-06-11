@@ -1,0 +1,19 @@
+# DIRECTORIES
+
+node_modules/
+tests/
+documentation/
+src/
+.elasticbeanstalk/
+
+
+# FILES
+
+webpack.config.js
+webpack.server.config.js
+README.md
+package-lock.json
+dev-portfolio.sublime-project
+.eslintrc.json
+.babelrc
+

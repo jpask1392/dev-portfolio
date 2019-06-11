@@ -4,8 +4,332 @@
 		"selected_items":
 		[
 			[
+				"Im",
+				"ImageLoader"
+			],
+			[
+				"co",
+				"complete"
+			],
+			[
+				"set",
+				"setState"
+			],
+			[
+				"im",
+				"imageLoader"
+			],
+			[
+				"Load",
+				"LoaderImage"
+			],
+			[
+				"is",
+				"_isMounted"
+			],
+			[
+				"b",
+				"behavior"
+			],
+			[
+				"S",
+				"ScrollToTop"
+			],
+			[
+				"Sc",
+				"ScrollToTop"
+			],
+			[
+				"sc",
+				"scrollY"
+			],
+			[
+				"pre",
+				"prevProps"
+			],
+			[
+				"l",
+				"location"
+			],
+			[
+				"add",
+				"addClass"
+			],
+			[
+				"el",
+				"elHeight"
+			],
+			[
+				"bottom",
+				"bottomOfEl"
+			],
+			[
+				"top",
+				"topOfEl"
+			],
+			[
+				"box",
+				"box-shadow"
+			],
+			[
+				"padd",
+				"padding-top"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"Bu",
+				"ButtonClick"
+			],
+			[
+				"fon",
+				"font-weight"
+			],
+			[
+				"rcc",
+				"rcc\tReact: component skeleton"
+			],
+			[
+				"publi",
+				"publicPath"
+			],
+			[
+				"unmount",
+				"unmountOnExit"
+			],
+			[
+				"Scroll",
+				"ScrollDown"
+			],
+			[
+				"bo",
+				"bottomOfPage"
+			],
+			[
+				"write",
+				"writeHead"
+			],
+			[
+				"err",
+				"errList"
+			],
+			[
+				"marin",
+				"margin-bottom"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"margn",
+				"margin-bottom"
+			],
+			[
+				"m",
+				"MessageSent"
+			],
+			[
+				"rc",
+				"rcc\tReact: Stateless Functional Component"
+			],
+			[
+				"Client",
+				"ClientID"
+			],
+			[
+				"get",
+				"getTokens"
+			],
+			[
+				"client",
+				"ClientID"
+			],
+			[
+				"GMAIL",
+				"GMAIL_PASS"
+			],
+			[
+				"GMA",
+				"GMAIL_USER"
+			],
+			[
+				"mail",
+				"mailOptions"
+			],
+			[
+				"create",
+				"createTransport"
+			],
+			[
+				"smtp",
+				"smtpTrans"
+			],
+			[
+				"pading",
+				"padding-top"
+			],
+			[
+				"ima",
+				"imageOne"
+			],
+			[
 				"sv",
-				"svgText"
+				"svgContainer"
+			],
+			[
+				"trans",
+				"translateX"
+			],
+			[
+				"scroll",
+				"scrolling"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"border",
+				"border-style"
+			],
+			[
+				"FONT",
+				"font-weight"
+			],
+			[
+				"pro",
+				"projectName"
+			],
+			[
+				"new",
+				"newProject"
+			],
+			[
+				"we",
+				"webpack"
+			],
+			[
+				"p",
+				"project2"
+			],
+			[
+				"pr",
+				"project1"
+			],
+			[
+				"project",
+				"projectModel"
+			],
+			[
+				"about",
+				"aboutRef"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"padding",
+				"padding"
+			],
+			[
+				"paddin",
+				"padding"
+			],
+			[
+				"Css",
+				"CSSTransition"
+			],
+			[
+				"compone",
+				"componentDidMount"
+			],
+			[
+				"current",
+				"currentindex"
+			],
+			[
+				"Cu",
+				"currentImageWidth"
+			],
+			[
+				"con",
+				"containerOffset"
+			],
+			[
+				"curr",
+				"currentindex"
+			],
+			[
+				"curre",
+				"currentindex"
+			],
+			[
+				"Loa",
+				"LoaderImage"
+			],
+			[
+				"cu",
+				"getCurrentImageWidth"
+			],
+			[
+				"images",
+				"imagesArray"
+			],
+			[
+				"image",
+				"imagesArray"
+			],
+			[
+				"Ima",
+				"imagesArray"
+			],
+			[
+				"c",
+				"cdm\tReact: componentDidMount: fn() { ... }"
+			],
+			[
+				"no",
+				"nowrap"
+			],
+			[
+				"C",
+				"Carousel"
+			],
+			[
+				"max-",
+				"max-width"
+			],
+			[
+				"sec",
+				"SectionText"
+			],
+			[
+				"Project",
+				"ProjectEntry"
+			],
+			[
+				"P",
+				"ProjectHeaderImage"
+			],
+			[
+				"SV",
+				"SvgTitleComponent"
+			],
+			[
+				"transl",
+				"translateX"
 			],
 			[
 				"projec",
@@ -20,20 +344,8 @@
 				"_id"
 			],
 			[
-				"is",
-				"_isMounted"
-			],
-			[
-				"margin",
-				"margin-bottom"
-			],
-			[
 				"cla",
 				"classNames"
-			],
-			[
-				"get",
-				"getAllProjects"
 			],
 			[
 				"data",
@@ -52,20 +364,8 @@
 				"windowOffset"
 			],
 			[
-				"about",
-				"aboutOffset"
-			],
-			[
-				"font",
-				"font-size"
-			],
-			[
 				"por",
 				"portfolio-container"
-			],
-			[
-				"top",
-				"topOffset"
 			],
 			[
 				"a",
@@ -77,10 +377,6 @@
 			],
 			[
 				"my",
-				"myRef"
-			],
-			[
-				"m",
 				"myRef"
 			],
 			[
@@ -128,14 +424,6 @@
 				"font-weight"
 			],
 			[
-				"trans",
-				"transform"
-			],
-			[
-				"max",
-				"max-width"
-			],
-			[
 				"inline",
 				"inline-block"
 			],
@@ -168,14 +456,6 @@
 				"NavList"
 			],
 			[
-				"padding",
-				"padding-top"
-			],
-			[
-				"padd",
-				"padding"
-			],
-			[
 				"background",
 				"background-color"
 			],
@@ -192,10 +472,6 @@
 				"ContactSchema"
 			],
 			[
-				"con",
-				"console"
-			],
-			[
 				"mysqli_result",
 				"mysqli_free_result"
 			],
@@ -208,14 +484,6 @@
 				"padding-bottom\tproperty"
 			],
 			[
-				"paddin",
-				"padding-bottom\tproperty"
-			],
-			[
-				"border",
-				"border-collapse\tproperty"
-			],
-			[
 				"mysqli_fec",
 				"mysqli_fetch_assoc"
 			],
@@ -224,28 +492,12 @@
 				"td\tTag"
 			],
 			[
-				"bo",
-				"border\tproperty"
-			],
-			[
 				"transla",
 				"translateX()\ttransform"
 			],
 			[
-				"tex",
-				"text-decoration\tproperty"
-			],
-			[
-				"text",
-				"text-align\tproperty"
-			],
-			[
 				"mi",
 				"min-width\tproperty"
-			],
-			[
-				"mar",
-				"margin\tproperty"
 			],
 			[
 				"background-c",
@@ -256,269 +508,26 @@
 				"gettype"
 			],
 			[
-				"pro",
-				"project"
-			],
-			[
-				"ima",
-				"image_path"
-			],
-			[
-				"p",
-				"project"
-			],
-			[
 				"for",
 				"foreach\tforeach …"
 			],
 			[
 				"public",
 				"public_end"
-			],
-			[
-				"style",
-				"stylesheet"
-			],
-			[
-				"resul",
-				"result_set"
-			],
-			[
-				"mysqli_fetch",
-				"mysqli_fetch_assoc"
-			],
-			[
-				"preg_",
-				"preg_match"
-			],
-			[
-				"has_le",
-				"has_length_greater_than"
-			],
-			[
-				"visi",
-				"visible_str"
-			],
-			[
-				"position",
-				"position_int"
-			],
-			[
-				"menu",
-				"menu_name"
-			],
-			[
-				"subject",
-				"subject_id"
-			],
-			[
-				"su",
-				"subjects"
-			],
-			[
-				"subjec",
-				"subject_id"
-			],
-			[
-				"page",
-				"page_count"
-			],
-			[
-				"sub",
-				"subject"
-			],
-			[
-				"res",
-				"result_set"
-			],
-			[
-				"mysqli_connect",
-				"mysqli_connect_errno"
-			],
-			[
-				"mysqli",
-				"mysqli_fetch"
-			],
-			[
-				"pos",
-				"position"
-			],
-			[
-				"pa",
-				"page_name"
-			],
-			[
-				"op",
-				"option\tTag"
-			],
-			[
-				"url",
-				"url_for"
-			],
-			[
-				"in",
-				"input\tTag"
-			],
-			[
-				"ht",
-				"htmlspecialchars"
-			],
-			[
-				"Via",
-				"Vitamin"
-			],
-			[
-				"pu",
-				"public_end"
-			],
-			[
-				"print",
-				"print_r"
-			],
-			[
-				"tabe",
-				"table-cell"
-			],
-			[
-				"paddi",
-				"padding-bottom"
-			],
-			[
-				"ma",
-				"margin"
-			],
-			[
-				"Po",
-				"Projects"
-			],
-			[
-				"IN",
-				"inline-block"
-			],
-			[
-				"fon",
-				"font-weight"
-			],
-			[
-				"inl",
-				"inline"
-			],
-			[
-				"di",
-				"display"
-			],
-			[
-				"FONT",
-				"font-weight"
-			],
-			[
-				"marin",
-				"margin"
-			],
-			[
-				"table",
-				"table-row"
-			],
-			[
-				"tabl",
-				"table-caption"
-			],
-			[
-				"table-c",
-				"table-column"
-			],
-			[
-				"T",
-				"TemperatureInput"
-			],
-			[
-				"t",
-				"temperature"
-			],
-			[
-				"li",
-				"listItems"
-			],
-			[
-				"nu",
-				"number"
-			],
-			[
-				"tim",
-				"timerID"
-			],
-			[
-				"V",
-				"View_all_button_sml"
-			],
-			[
-				"inner",
-				"innerWidth"
-			],
-			[
-				"import",
-				"important"
-			],
-			[
-				"col",
-				"col-sm-8"
-			],
-			[
-				"tab",
-				"table-cell"
-			],
-			[
-				"col-",
-				"col-sm-8"
-			],
-			[
-				"bod",
-				"body_fonts"
-			],
-			[
-				"min-",
-				"min-height"
-			],
-			[
-				"offset",
-				"offset-sm-1"
-			],
-			[
-				"te",
-				"text-align"
-			],
-			[
-				"f",
-				"fixed"
-			],
-			[
-				"c",
-				"cursor"
-			],
-			[
-				"grey",
-				"grey_font"
-			],
-			[
-				"num",
-				"num_rows"
-			],
-			[
-				"incl",
-				"include_once"
-			],
-			[
-				"S",
-				"Section"
-			],
-			[
-				"st",
-				"statetest"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 2175,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -532,7 +541,15 @@
 		"selected_items":
 		[
 			[
+				"esl",
+				"ESLint"
+			],
+			[
 				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
 				"Package Control: Install Package"
 			]
 		],
@@ -556,38 +573,82 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/jamiepask/Sites/dev-portfolio",
-		"/Users/jamiepask/Sites/dev-portfolio/src",
-		"/Users/jamiepask/Sites/dev-portfolio/src/common",
-		"/Users/jamiepask/Sites/dev-portfolio/src/entry"
+		"/Users/jamiepask/Sites/dev-portfolio"
 	],
 	"file_history":
 	[
-		"/Users/jamiepask/Sites/dev-portfolio/src/entry/project.scss",
-		"/Users/jamiepask/Sites/dev-portfolio/src/entry/portfolio.jsx",
-		"/Users/jamiepask/Sites/dev-portfolio/src/entry/project.jsx",
-		"/Users/jamiepask/Sites/dev-portfolio/src/index.js",
-		"/Users/jamiepask/Sites/dev-portfolio/src/common/navigation.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/practice/webpack.server.config.js",
+		"/Users/jamiepask/Sites/dev-portfolio/practice/package.json",
+		"/Users/jamiepask/Sites/dev-portfolio/practice/server.js",
+		"/Users/jamiepask/Sites/dev-portfolio/server/server.js",
+		"/Users/jamiepask/Sites/dev-portfolio/package.json",
+		"/Users/jamiepask/Sites/dev-portfolio/server/api/routes/routes.js",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/form.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/webpack.server.config.js",
 		"/Users/jamiepask/Sites/dev-portfolio/server.js",
-		"/Users/jamiepask/Sites/dev-portfolio/src/entry/about.scss",
-		"/Users/jamiepask/Sites/dev-portfolio/src/entry/about.jsx",
-		"/Users/jamiepask/Sites/dev-portfolio/assets/test.svg",
-		"/Users/jamiepask/Sites/dev-portfolio/src/entry/home.jsx",
-		"/Users/jamiepask/Sites/dev-portfolio/.babelrc",
-		"/Users/jamiepask/Sites/dev-portfolio/api/controllers/controller.js",
-		"/Users/jamiepask/Sites/dev-portfolio/src/entry/portfolio.scss",
-		"/Users/jamiepask/Sites/dev-portfolio/src/entry/landing.jsx",
-		"/Users/jamiepask/Downloads/Ex_Files_Learning_MongoDB/Exercise Files/Chapter2/02_02/Start/tours.json",
-		"/Users/jamiepask/Sites/dev-portfolio/webpack.config.js",
-		"/Users/jamiepask/Sites/dev-portfolio/data/data.json",
+		"/Users/jamiepask/Sites/dev-portfolio/zip/package.json",
+		"/Users/jamiepask/Sites/dev-portfolio/zip/server.js",
 		"/Users/jamiepask/Sites/dev-portfolio/api/routes/routes.js",
 		"/Users/jamiepask/Sites/dev-portfolio/api/models/model.js",
-		"/Users/jamiepask/Sites/dev-portfolio/src/entry/master_scss.scss",
+		"/Users/jamiepask/Sites/dev-portfolio/documentation/mongoDBCommands.txt",
+		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/ProjectHeaderImageComponent.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/imageLoader.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/projectEntry.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/SectionsCarousel.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/project.scss",
+		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/SvgTitleComponent.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/index.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/SectionComponent.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/api/controllers/controller.js",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/portfolio.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/index.js",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/scrollComponent.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/about.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/common/ScrollToTop.jsx",
 		"/Users/jamiepask/Sites/dev-portfolio/src/common/common.scss",
+		"/Users/jamiepask/Sites/dev-portfolio/src/common/fullPageNav.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/SvgTitleComponent.scss",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/SvgAboutImage.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/common/navigation.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/about.scss",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/messageSent.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/common/PageNotFound.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/common/commonFunctions.js",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/form.scss",
+		"/Users/jamiepask/Sites/dev-portfolio/webpack.config.js",
+		"/Users/jamiepask/Sites/dev-portfolio/api/validations/validationFunctions.js",
+		"/Users/jamiepask/Sites/dev-portfolio/api/validations/emailValidations.js",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/contact.scss",
+		"/Users/jamiepask/Sites/dev-portfolio/public/index.html",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/portfolio.scss",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/scrollComponent.scss",
+		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/project.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/contact.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/api/credentials.json",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/landing.jsx",
 		"/Users/jamiepask/Sites/dev-portfolio/src/entry/landing.scss",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/home.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/tests/test.js",
+		"/Users/jamiepask/Sites/dev-portfolio/deletethis.html",
+		"/Users/jamiepask/Sites/dev-portfolio/deletethis.js",
+		"/Users/jamiepask/Sites/dev-portfolio/.eslintrc.json",
+		"/Users/jamiepask/Library/Application Support/Sublime Text 3/Packages/ESLint/ESLint.sublime-settings",
+		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/sectionTextComponent.jsx",
+		"/Users/jamiepask/Library/Application Support/Sublime Text 3/Packages/User/ESLint.sublime-settings",
+		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/contact.scss",
+		"/Users/jamiepask/Sites/dev-portfolio/README.md",
+		"/Users/jamiepask/Sites/dev-portfolio/.gitignore",
+		"/Users/jamiepask/Sites/dev-portfolio/src/mongoDBCommands.txt",
+		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/sections.jsx ",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/project.scss",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/project.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/assets/test.svg",
+		"/Users/jamiepask/Sites/dev-portfolio/.babelrc",
+		"/Users/jamiepask/Downloads/Ex_Files_Learning_MongoDB/Exercise Files/Chapter2/02_02/Start/tours.json",
+		"/Users/jamiepask/Sites/dev-portfolio/data/data.json",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/master_scss.scss",
 		"/Users/jamiepask/Sites/dev-portfolio/assets/DSC_0465 2.jpg",
 		"/Users/jamiepask/Sites/dev-portfolio/assets/circle-icon.svg",
-		"/Users/jamiepask/Sites/dev-portfolio/.gitignore",
 		"/Users/jamiepask/Sites/dev-portfolio/assets/IMG_3542.jpg",
 		"/Users/jamiepask/Sites/architecture-portfolio/public/test.html",
 		"/Users/jamiepask/Sites/architecture-portfolio/public/styles/homepage.css",
@@ -595,11 +656,8 @@
 		"/Users/jamiepask/Sites/architecture-portfolio/public/Index.php",
 		"/Users/jamiepask/Sites/dev-portfolio/assets/about-img-mask copy.svg",
 		"/Users/jamiepask/Sites/dev-portfolio/assets/about-img-mask.svg",
-		"/Users/jamiepask/Sites/dev-portfolio/package.json",
 		"/Users/jamiepask/Sites/dev-portfolio/src/app.js",
 		"/Users/jamiepask/Sites/dev-portfolio/src/entry/index.jsx",
-		"/Users/jamiepask/Sites/dev-portfolio/.eslintrc.json",
-		"/Users/jamiepask/Sites/dev-portfolio/README.md",
 		"/Users/jamiepask/Sites/node-playground/src/index.js",
 		"/Users/jamiepask/Sites/node-playground/src/common/common.scss",
 		"/Users/jamiepask/Sites/node-playground/src/common/navigation.jsx",
@@ -646,61 +704,23 @@
 		"/Users/jamiepask/Sites/architecture-portfolio/private/database.php",
 		"/Users/jamiepask/Sites/architecture-portfolio/private/authentication_functions.php",
 		"/Users/jamiepask/Sites/architecture-portfolio/private/initialize.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/private/functions.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/public/management/edit.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/public/management/index.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/public/management/show.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/private/validation_functions.php",
-		"/Users/jamiepask/Sites/php-backend-test/private/functions.php",
-		"/Users/jamiepask/Sites/php-backend-test/private/database.php",
-		"/Users/jamiepask/Sites/php-backend-test/private/query_functions.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/public/cms/edit.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/private/initialise.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/public/cms/show.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/public/pages/Gallery.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/public/cms/query_functions.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/private/shared/header.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/private/db_credentials.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/public/cms/db_credentials.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/public/cms/validation_functions.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/public/styles/about.css",
-		"/Users/jamiepask/Sites/architecture-portfolio/public/pages/About.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/Index.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/public/javascript/Homepage.js",
-		"/Users/jamiepask/Sites/architecture-portfolio/private/Shared/header.php",
-		"/Users/jamiepask/Sites/php-backend-test/private/initialize.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/private/Shared/functions.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/CSS/Homepage Styling.css",
-		"/Users/jamiepask/Sites/architecture-portfolio/IMAGES/svg/down_arrow.svg",
-		"/Users/jamiepask/Sites/architecture-portfolio/private/header.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/private/Shared/components.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/private/Shared/Components ",
-		"/Users/jamiepask/Sites/architecture-portfolio/.gitignore",
-		"/Users/jamiepask/Sites/architecture-portfolio/architecture-portfolio.sublime-project",
-		"/Users/jamiepask/Sites/web-portfolio/.gitignore",
-		"/Users/jamiepask/Sites/php-backend-test/public/staff/subjects/edit.php",
-		"/Users/jamiepask/Sites/php-backend-test/public/staff/pages/edit.php",
-		"/Users/jamiepask/Sites/php-backend-test/private/validation_functions.php",
-		"/Users/jamiepask/Sites/php-backend-test/public/staff/pages/index.php",
-		"/Users/jamiepask/Sites/php-backend-test/public/staff/subjects/new.php",
-		"/Users/jamiepask/Sites/php-backend-test/public/staff/pages/delete.php",
-		"/Users/jamiepask/Sites/php-backend-test/public/staff/pages/show.php",
-		"/Users/jamiepask/Sites/php-backend-test/public/staff/pages/new.php",
-		"/Users/jamiepask/Sites/php-backend-test/public/Styles/staff.css",
-		"/Users/jamiepask/Sites/php-backend-test/public/staff/subjects/delete.php",
-		"/Users/jamiepask/Sites/php-backend-test/public/staff/subjects/index.php",
-		"/Users/jamiepask/Sites/php-backend-test/private/db_credentials.php",
-		"/Users/jamiepask/Sites/php-backend-test/public/staff/subjects/show.php"
+		"/Users/jamiepask/Sites/architecture-portfolio/private/functions.php"
 	],
 	"find":
 	{
-		"height": 24.0
+		"height": 39.0
 	},
 	"find_in_files":
 	{
 		"height": 101.0,
 		"where_history":
 		[
+			"*.jsx",
+			"-/node_modules,-*.json,-*/dist",
+			"-/node_modules,-*.json,-/dist",
+			"-/node_modules,,-*.json",
+			"-/node_modules",
+			""
 		]
 	},
 	"find_state":
@@ -708,13 +728,32 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"projects/dev-portfolio/dev-portfolio",
+			"Dev Portfolio",
+			"sections.$[].images.$[name]jpg",
+			"ept-website/ept-website",
+			"dev-portfolio",
+			"dev-portfolio/dev-portfolio",
+			"dev-portfolio",
+			"portfolio",
+			"});",
+			"+ ",
+			"();\n",
+			"src",
+			"\n\t// app.route('/projects/:_id')\n\t// \t.get((req, res) => { \n\t// \tres.sendFile(\"/Users/jamiepask/Sites/dev-portfolio/public/index.html\");\n\t// }) ",
+			"fade",
+			" window.scrollTo(0, this.props.refProp.current.offsetTop);",
+			"h1",
+			"#contact-container",
+			"\n}",
+			"TODO",
 			"ELEMENT",
 			"topOffset"
 		],
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": false,
+		"regex": true,
 		"replace_history":
 		[
 		],
@@ -727,8 +766,39 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2175,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								269,
+								269
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -763,6 +833,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 317.0
+	},
 	"output.find_results":
 	{
 		"height": 0.0
@@ -809,7 +883,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 176.0,
+	"side_bar_width": 277.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

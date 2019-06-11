@@ -1,0 +1,99 @@
+@import '../common/common.scss';
+
+.svg-text-container {
+	position: relative;
+	text-align: center;
+	margin-bottom: 100px;
+	cursor: default;
+}
+
+.svg-text-mask {
+	font-size: 200px;
+	font-family: 'Abril Fatface', cursive;
+    stroke: black;
+    stroke-width: 1;
+    stroke-dasharray: 1000px;
+    stroke-dashoffset: 1000px;
+    fill:none;
+    transition: font-size 0.3s;
+
+    @media only screen and (max-width: $phone-large) {
+	   font-size: 120px;
+	}
+}
+
+.svg-animate {
+	animation: draw 3s forwards ease-out;
+}
+
+@keyframes draw {
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+
+.text-background {
+	width:100%; 
+	height:1000px;
+	y:90%;
+	// fill:black;
+	transition: all 1s;
+	cursor: pointer; 
+	transform-origin:center
+}
+
+// .svg-text-container:hover .text-background {
+// 	// y: 0%;
+// 	// transform: rotate(45deg);
+// 	// transform-origin: center;
+// 	animation: wobble-in 1s forwards;
+// }
+
+.active {
+	animation: wobble-in 1s forwards ;
+}
+
+.in-active {
+	animation: wobble-out 1s forwards reverse;
+	// animation-direction: reverse 
+}
+
+@keyframes wobble-in {
+	0% {
+		y:90%;
+	}
+
+	33% {
+		transform: rotate(5deg);
+	}
+
+	66% {
+		transform: rotate(-5deg);
+	}
+
+	100% {
+		y:50%;
+		transform: rotate(0deg);
+		
+	}
+}
+
+@keyframes wobble-out {
+	0% {
+		y:90%;
+	}
+
+	33% {
+		transform: rotate(5deg);
+	}
+
+	66% {
+		transform: rotate(-5deg);
+	}
+
+	100% {
+		y:50%;
+		transform: rotate(0deg);
+		
+	}
+}

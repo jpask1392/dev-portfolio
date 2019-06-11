@@ -23,20 +23,15 @@ export default class Home extends Component {
 		this.aboutRef = React.createRef();
 		this.portfolioRef = React.createRef();
 		this.contactRef = React.createRef();
-
-		var aboutOffset;
-		var portfolioOffset;
-		var contactOffset;
-
-		var windowOffset;
 	}
 
 	render() {
 
 		return (
 			<div className="full-height"> 
+				<Scroll />
 				<Landing />
-				<About />
+				<About refProp={this.aboutRef} />
 				<Portfolio />
 				<Contact />
 			</div>

@@ -1,46 +1,72 @@
-import React, { Component } from 'react';
+import React from 'react';
+import './SvgTitleComponent.scss';
+import { onScreen } from '../common/commonFunctions.js'
 
-// PASS IN PROPS TO DISPLAY THE TEXT OUTLINE AND 
-function SvgText(props) {
+export default class SvgText extends React.Component {
+	_isMounted = false;
 
-	return(
-		<div className='svg-text-container'>
-			<svg 
+	constructor(props) {
+		super(props);
+		this.svgContainer = React.createRef();
+		this.text = React.createRef();
+
+		this.addClass = this.addClass.bind(this)
+	}
+
+	componentDidMount() {
+		this._isMounted = true;
+		window.addEventListener('scroll', this.addClass);	
+	}
+
+
+	addClass() {
+		if(this._isMounted) {
+			onScreen(this.svgContainer) ? 
+			this.text.current.classList.add("svg-animate") :
+			this.text.current.classList.remove("svg-animate")	
+		}
+	}
+
+	componentWillUnmount() {
+		this._isMounted = false;
+	}
+	
+	render() {
+		return (
+			<div className='svg-text-container' ref={this.svgContainer}>
+			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="100%"
 				>
 				<defs>
-
-					<clipPath id="myClip">
+				{/*	<clipPath id="myClip">
 						<text 
-							stroke='black' 
 							className="svg-text-mask"
 							y="98%"
 							x="50%"
 							textAnchor="middle">
-								{props.title}
+								{this.props.title}
 						</text>
-					</clipPath>
+					</clipPath>*/}
 
 				</defs>
-				<rect 
-					width="100%" 
-					height="100%" 
-					y="50%"
-					fill="none" 
-					clipPath="url(#myClip)"	
-				/>
+				<g clipPath="url(#myClip)"	>
+			{/*	<rect
+					ref={this.text}
+					className="text-background"
+				/>*/}
 				<text 
-					stroke='black' 
+					ref={this.text}
 					className="svg-text-mask"
 					y="98%"
 					x="50%"
+					fill="none"
 					textAnchor="middle">
-						{props.title}
+						{this.props.title}
 				</text>
+				</g>
 			</svg>
 		</div>
-	) 
-};
-
-export default SvgText;
+		);
+	}
+}

@@ -36,8 +36,10 @@ export default class Landing extends Component {
 					</div>
 					<div className="col lhs" id='intro-text-container'>
 						<b>Living in LA</b>
+
 						<p>Hey! I’m Jamie, a full stack developer and a passionate tinkerer of all things software. Still learning and still growing but please take a look around. Any feedback is welcome! 
 						</p>
+						<hr></hr>
 					</div>
 				</div>
 			</div>

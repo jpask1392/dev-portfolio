@@ -1,7 +1,6 @@
 @import "../common/common.scss";
 
 .about-container {
-	margin-bottom: 100px;
 
 	@media only screen and (max-width: $phone-large) {
 	   overflow: hidden;
@@ -19,13 +18,13 @@
  }
 
  .white-cover-lhs {
- 	fill: white;
+ 	fill: rgb(240,240,240);
  	animation: 	move 1s ease-in-out; 
  	animation-fill-mode: forwards;
  }
 
  .white-cover-rhs {
- 	fill: white;
+ 	fill: rgb(240,240,240);
  	x:50%;
  	animation: 	move 1s ease-in-out; 
  	animation-fill-mode: forwards;
@@ -44,13 +43,13 @@
 }
 
 .image-1 {
-	x: 50%;
-	y: 0%;
+	// x: 50%;
+	// y: 0%;
 }
 
 .image-2 {
-	x: 0%;
-	y: -40%;	
+	// x: 0%;
+	// y: -40%;	
 }
 
 #about-text-container {
@@ -79,19 +78,23 @@
 	   left: 50%;
 	   transform: translateX(-50%);
 	}
+
+	> hr {
+		margin-top: 20px;
+	}
 }
 
 #question-mark {
 	
 	z-index: 2;
-	line-height: 0;
+	line-height: 10px;
 
-	&:before, &:after {
+	&:after {
 		content: '?';
 		position: absolute;
-		left: 30px;
-		top: 150px;
-		color: white;
+		left: 150px;
+		top: 100px;
+		color: black;
 		font-size: 300px;
 
 		@media only screen and (max-width: $phone-large) {
@@ -102,19 +105,6 @@
 		
 	} 
 
-	&:before {
-		z-index: 3;
-		-webkit-mix-blend-mode: difference;
-		mix-blend-mode: difference;
-	}
-
-	&:after {
-		z-index: -1;
-		-webkit-mix-blend-mode: difference;
-		mix-blend-mode: difference;
-
-	}
-
 }
 
 .feature-text {
@@ -122,6 +112,12 @@
 	font-weight: 300;
 	line-height: 30px;
 	color: #7E7E7E;
+
+	> p > b {
+		color: black;
+		margin-top: 50px;
+		display: block
+	}
 }
 
 i {

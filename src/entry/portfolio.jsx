@@ -34,7 +34,7 @@ export default class Portfolio extends Component {
 		var data = this.state.data;
 
 		return (
-			<div id="portfolio-container" className="container-max">
+			<div id="portfolio-container" className="container-max" ref={this.props.portfolioRefProp}>
 				<div id="portfolio-inner-container">
 					<h1>Case Studies</h1>
 					<b>View my Github for code examples</b>
@@ -58,9 +58,8 @@ function Gallery(props) {
     var classNames = ["one", "two", "three", "one"];
 
     return (
-		// set up router link
-		<Link to={project['_id']}>
-			<div 	style={{backgroundImage: 'url(../../assets/' + project['main-image-path'] + '.jpg)'}}
+		<Link to={"projects/" + project['_id']}>
+			<div 	style={{backgroundImage: 'url(../../assets/' + project['mainImagePath'] + '.jpg)'}}
 					className={`project-container-${classNames[props.index]}`}>
 			</div>
 		</Link>

@@ -5,7 +5,7 @@ const sectionText = (props) => {
 	
   return (
     <p>
-    	{props.text}
+		{props.text}
     </p>
   )
 }

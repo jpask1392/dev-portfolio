@@ -1,4 +1,16 @@
+# DIRECTORIES
+
 dev-portfolio.sublime-project
-**/assets
-**/node_modules
-mongoDBCommands.txt
+assets/
+node_modules/
+build/
+documentation/
+
+#FILES
+
+package-lock.json
+
+# ELASTIC BEANSTALK FILES
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

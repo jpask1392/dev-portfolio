@@ -2,16 +2,15 @@ import React, { Component } from 'react';
 import './about.scss';
 import ReactSVG from 'react-svg';
 import SvgAboutImage from './SvgAboutImage.jsx';
+import { onScreen } from '../common/commonFunctions.js'
 
 export default class About extends Component {
 	_isMounted = false;
 
 	constructor(props) {
 		super(props);
-		this.state = {
-				bottomOffset: 0, 
+		this.state = { 
 				visible: false, 
-				aboutImg: 0
 			};
 
 		this.handleScroll = this.handleScroll.bind(this);
@@ -25,16 +24,9 @@ export default class About extends Component {
 
 		if(this._isMounted) {
 
-			this.setState({ aboutImg: this.myRef.current.offsetTop }) ;
-
-			const tolerance = 200;
-
-			if(this.state.aboutImg >= ( this.state.bottomOffset + tolerance )) {
-
-				// CHANGE VISIBILITY STATE TO TRUE
+			if(onScreen(this.myRef)) {
 				this.setState({ visible: true });
-
-			} 
+			}
 
 			window.addEventListener('scroll', this.handleScroll);	
 		}
@@ -46,19 +38,11 @@ export default class About extends Component {
 	handleScroll() {
 
 		if(this._isMounted) {
-
-			this.setState({bottomOffset: ( window.innerHeight - window.scrollY ) });
-			this.setState({ aboutImg: this.myRef.current.offsetTop });
-
-			// TOLERANCE FOR ACTIVATING ANIMATION ON SCROLL VARIABLE
-			const tolerance = 200;
-
-			if(this.state.aboutImg >= ( this.state.bottomOffset + tolerance )) {
-
-				// CHANGE VISIBILITY STATE TO TRUE
+			if(onScreen(this.myRef)) {
 				this.setState({ visible: true });
-
-			} 
+			} else {
+				this.setState({ visible: false })
+			}
 		}
 	}
 
@@ -68,14 +52,13 @@ export default class About extends Component {
 
 	render() {
 		return (
-			<div className="about-container " id='about-container'>
+			<div className="about-container " id='about-container' ref={this.props.aboutRefProp}>
 
-				<div id='about-img-container' ref={this.myRef}>
+				<div id='about-img-container' ref={this.myRef} >
 
 					<SvgAboutImage visible={this.state.visible} />					
 
 				</div>
-
 
 				<div className="container-max" id='about-text-container'>
 
@@ -83,24 +66,31 @@ export default class About extends Component {
 						<h1>
 							<span id="question-mark">Who <br/> am I </span> 
 						</h1>
+						<hr></hr>
 					</div>
 
 					<div className="col rhs feature-text">
 
-						<i className="fas fa-map-marker-alt"></i>
+						<p>
+						<b className="sub-heading">Background</b>
 						<br/>
 
-						I am Jamie Pask. Born and raised in Cardiff, United Kingdom.<br/> 
+						I am Jamie Pask, born and raised in Cardiff, United Kingdom. Spent some time in Vancouver before eventually tying the knot and recently moving to Los Angeles, Santa Monica area.
+						</p>
 
-						<i className="fas fa-trophy"></i>
+						<p>
+						<b className="sub-heading">Achievements</b>
 						<br/>
 
-						started back in 2015, learning to build simple static HTML and CSS sites. This fascination quickly grew into various projects. From writing python scripts to automate tasks to building websites from front to back.<br/>
+						My professional background is rooted within Architecture. I graduated from Cardiff Metropolitan University in 2015, leading to a career as an Architectural Technologist for the past 3 years.  A need to build an architectural site portfolio back in 2015 led me down the rabbit hole of programming which is an interest almost everyday in the office, creating simple scripts to automate a variety of tasks, saving hundreds of work hours. The more I learned, the more I wanted to progress. I’ve built Wordpress sites for a previous firm and built my web portfolio many times, implementing new techniques through each iteration. My interest shows no signs of slowing down and I am very excited to learn more.<br/>
+						</p>
 
-						<i className="fas fa-directions"></i>
+						<p>
+						<b className="sub-heading">The Goals</b>
 						<br/>
 
-						Jamie Pask. Interest in web development started back in 2015, learning to build simple static HTML and CSS sites. This fascination quickly grew into various projects. From writing python scripts to automate tasks to building websites from front to back.
+						Full stack development ticks all the boxes for me, from data collection to data driven design schemes, and this is ultimately the route I want to follow. Machine learning is also of intrigue and I would hope that after some time, this will become a staple part of my daily workflow.
+						</p>
 					</div>
        
 				</div>

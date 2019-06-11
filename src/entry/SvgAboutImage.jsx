@@ -11,6 +11,8 @@ export default class SvgAboutImage extends React.Component {
 		this.state = {visible: false}
 		this.whiteLHS = React.createRef();
 		this.whiteRHS = React.createRef();
+		this.imageOne = React.createRef();
+		this.imageTwo = React.createRef();
 	}
 
 
@@ -22,18 +24,21 @@ export default class SvgAboutImage extends React.Component {
 		}
 	}
 
-	componentDidUpdate() {
-		if (this.props.visible) {
-			this.whiteLHS.current.classList.add("white-cover-lhs");
-			this.whiteRHS.current.classList.add("white-cover-rhs");
-		}
-	}
+ //    componentDidUpdate() {
+	// 	if (this.props.visible) {
+	// 		this.whiteLHS.current.classList.add("white-cover-lhs");
+	// 		this.whiteRHS.current.classList.add("white-cover-rhs");
+	// 	}
+	// }
 
 	handleScroll = () => {
 		if(this._isMounted) {
 			if (this.props.visible) {
 				this.whiteLHS.current.classList.add("white-cover-lhs");
 				this.whiteRHS.current.classList.add("white-cover-rhs");
+			} else {
+				this.whiteLHS.current.classList.remove("white-cover-lhs");
+				this.whiteRHS.current.classList.remove("white-cover-rhs");
 			}
 		}
 	}
@@ -53,13 +58,41 @@ export default class SvgAboutImage extends React.Component {
 
 				</defs>
 
-				<image className="image-1" xlinkHref="../../assets/IMG_3542.jpg" width="50%"  clipPath="url(#myClip)" />
+				<g clipPath="url(#myClip)">
 
-				<image className="image-2" xlinkHref="../../assets/DSC_0465 2.jpg" width="50%" clipPath="url(#myClip)"  />
+				<image 
+					ref={this.imageOne}
+					className="image-1" 
+					xlinkHref="../../assets/IMG_3542.jpg" 
+					width="50%"
+					height="150%"
+					x="50%"
+					y="-20%"
+				/>
 
-				<rect ref={this.whiteLHS} fill="white" width="50%" height="100%"/>
+				<image 
+					ref={this.imageTwo}
+					className="image-2" 
+					xlinkHref="../../assets/DSC_0465 2.jpg" 
+					width="50%" 
+					height="250%"
+					y="-50%"  
+				/>
 
-				<rect ref={this.whiteRHS} x="50%" fill="white" width="50%" height="100%"/>
+				<rect 
+					ref={this.whiteLHS} 
+					width="50%" 
+					height="100%"
+				/>
+
+				<rect 
+					ref={this.whiteRHS} 
+					x="50%" 
+					width="50%" 
+					height="100%"
+				/>
+
+				</g>
 
 			</svg>
 		);

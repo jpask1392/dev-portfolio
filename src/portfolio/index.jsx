@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import './project.scss';
 import Section from './SectionComponent.jsx';
 import ProjectEntry from './projectEntry.jsx';
+import Scroll from '../entry/scrollComponent.jsx';
 
 export default class Project extends Component {
 	_isMounted = false;
@@ -20,10 +21,14 @@ export default class Project extends Component {
 
 		if(this._isMounted) {
 			// SET UP DIFFERENT API END POINTS FOR COLLECTING DATA
-			fetch(`http://localhost:3000/api/projects/${this.props.projectId}`)
+			fetch(`http://localhost:3000/api/${this.props.projectId}`)
 		      .then(response => response.json())
 		      .then(data => this.setState({ data: data }))		
 		}
+	}
+
+	componentWillUnmount() {
+		this._isMounted = false;
 	}
 
 
@@ -40,10 +45,10 @@ export default class Project extends Component {
 						key={i}
 						text={section.text}
 						title={section.title.toUpperCase()}
+						images={section.images}
 					/>
-
 			 	)}
-					
+				<Scroll />	
 			</div>
 		)} else {
 			return null;

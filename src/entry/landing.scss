@@ -31,7 +31,13 @@
 		font-weight: 300;
 		line-height: 30px;
 		color: #7E7E7E;
+		margin: 30px 0px 30px 0px;
 
+	}
+
+	> b {
+		font-size: 30px;
+		font-weight: 700
 	}
 
 	@media only screen and (max-width: $phone-large) {
@@ -49,11 +55,12 @@
 	position: absolute;
 	top:0;
 	animation: rotate 1s;
-	// animation-fill-mode: forwards;
 	transform: rotate(100deg);
+	transition: all 2s;
 
 	.cls-1 {
 		fill: #8A8A8A;
+		cursor: default
 	}
 
 	@media only screen and (max-width: $phone-large) {
@@ -63,8 +70,7 @@
 }
 
 .circle-icon-svg:hover {
-	animation: inifiny-rotate 2s;
-	animation-fill-mode: forwards;
+	transform: rotate(360deg)
 }
 
 @keyframes rotate

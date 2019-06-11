@@ -1,0 +1,51 @@
+@import "../common/common.scss";
+
+.scroll-container {
+	position: fixed;
+	bottom: 30px;
+	left:50%;
+	text-transform: uppercase;
+	animation: bounce 2s infinite;
+	transform: rotate(0deg);
+	transition: all 1s;
+
+	> b {
+		margin: 0px 30px 0px 30px;
+	}
+
+	@media only screen and (max-width: $phone-large) {
+	   bottom: 10px;
+	}
+
+}
+
+@keyframes fade {
+	from {opacity: 0}
+	to {opacity: 1}
+}
+
+@keyframes bounce {
+	0% { transform: translateY(0) translateX(-50%)}
+	50% { transform: translateY(-10px) translateX(-50%) }
+	100% { transform: translateY(0) translateX(-50%)}
+}
+
+.fade-appear {
+	opacity: 0;
+	transition: opacity 300ms;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+.alert-exit {
+  opacity: 0;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}

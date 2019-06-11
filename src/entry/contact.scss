@@ -4,6 +4,11 @@
 	height: 100%;
 	margin: auto;
 	position: relative;
+
+	@media only screen and (max-width: $phone-large) {
+	   height: auto;
+	   margin-bottom: 30px;
+	}
 }
 
 #contact-inner-container {
@@ -23,8 +28,50 @@
 	width: 330px;
 	float: left;
 
+	> h1 {
+		margin-bottom: 50px;
+	}
+
+	> div .sub-heading {
+		margin-top: 50px;
+		margin-bottom: 30px;
+		display: block
+	}
+
+	> div p {
+		line-height: 40px; 
+	}
+
 	@media only screen and (max-width: $phone-large) {
 	   width: auto;
 	   margin-bottom: 50px;
 	}
 }
+
+.message-sent-container {
+	width: 100%;
+	position: fixed;
+	height: 100%;
+}
+
+.message-sent-inner{ 
+	position: absolute;
+	top:50%;
+	width: 330px;
+	left:50%;
+	transform: translate(-50%, -50%);
+
+	> p {
+		margin: 50px 0px 50px 0px 
+	}
+
+	> a {
+		color: black;
+		text-decoration: none;
+	}
+
+	> hr {
+		margin-top: 50px;
+	}
+}
+

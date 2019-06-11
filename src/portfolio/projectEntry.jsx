@@ -15,12 +15,13 @@ export default class projectEntry extends React.Component {
 		return (
 		<div id="project-landing-container" className="container-max">
 			<div id="project-intro-text-container" className="col lhs">
-				<h4>{this.props.data['title-intro']}</h4>
-				<h1>{this.props.data['title-main']}</h1>
+				<p>{this.props.data['titleIntro']}</p>
+				<b className="sub-heading">{this.props.data['titleMain']}</b>
 				<p>{this.props.data['summary']}</p>
+				<hr></hr>
 			</div>
-			<ProjectHeaderImage />
+			<ProjectHeaderImage src={this.props.data['projectHeaderImage']}/>
 		</div>
 		);
-	};
-};
+	}
+}
