@@ -1,0 +1,28 @@
+#!/bin/bash
+
+TIME=$(date +%T)
+echo "Script ran at: $TIME" 
+
+ALLINSTANCES=$(aws ec2 describe-instances --query 'Reservations[*].Instances[*]')
+
+for i in "${!ALLINSTANCES[@]}"; do 
+
+	TEST=$(aws ec2 describe-instances --query 'Reservations[*].Instances'[$i]'.State.Name | [0]' )
+
+		if [[  "${TEST//\"}" = 'running' ]]; then
+			RUNNINGINDEXES+=${i}
+		fi
+done
+
+INDEX="${RUNNINGINDEXES[$((${#RUNNINGINDEXES[@]}-1))]}"
+
+# GET LAST RUNNING INSTANCE
+INSTANCE=$(aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId,State[?Name==`running`]][0]['$INDEX']| [0] ')
+
+# SET THE ELASTIC IP TO THE LATEST RUNNING INSTANCE
+aws ec2 associate-address --instance-id "${INSTANCE//\"}" --allocation-id eipalloc-022dbfabfc1ca60fe
+
+# # RUNS THE START SCRIPT
+PORT=8081 node ./build/server.js
+
+# RUNNINGINSTANCES=$(aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId,State[?Name==`running`]]')

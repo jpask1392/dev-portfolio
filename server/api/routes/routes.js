@@ -61,8 +61,6 @@ const routes = (app) => {
 		.get((req, res) => {
 			//RESET ERROR LIST ON GET REQUEST
 			errList = {}
-			console.log("in routes file")
-			console.log(path.resolve("./public/index.html"))
 			res.sendFile(path.resolve("./public/index.html"));
 		})
 

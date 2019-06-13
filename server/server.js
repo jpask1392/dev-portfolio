@@ -19,8 +19,8 @@ const proxy = require('proxy-middleware');
 
 // variables
 const PORT = process.env.PORT || 9000;
-const server = '127.0.0.1:27017';
-const database = 'learning_mongodb';
+// const server = '127.0.0.1:27017';
+// const database = 'learning_mongodb';
 
 // const n = __dirname.indexOf("server")
 // const rootDirectory = `.${__dirname}`
@@ -57,7 +57,6 @@ app.use(function (req, res, next) {
 
 
 app.listen(PORT, () => {
-	console.log(path.resolve("./public/index.html"))
 	console.log(`Server running on port ${PORT}`);
 })
 

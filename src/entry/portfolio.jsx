@@ -19,7 +19,7 @@ export default class Portfolio extends Component {
 
 		if(this._isMounted) {
 			// SET UP DIFFERENT API END POINTS FOR COLLECTING DATA
-			fetch('http://localhost:3000/api/projects')
+			fetch('/api/projects')
 		      .then(response => response.json())
 		      .then(data => this.setState({ data }));			
 		}

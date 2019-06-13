@@ -6,6 +6,8 @@ documentation/
 src/
 .elasticbeanstalk/
 
+# assets/
+
 
 # FILES
 

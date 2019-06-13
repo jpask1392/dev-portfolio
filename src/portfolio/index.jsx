@@ -21,7 +21,7 @@ export default class Project extends Component {
 
 		if(this._isMounted) {
 			// SET UP DIFFERENT API END POINTS FOR COLLECTING DATA
-			fetch(`http://localhost:3000/api/${this.props.projectId}`)
+			fetch(`/api/${this.props.projectId}`)
 		      .then(response => response.json())
 		      .then(data => this.setState({ data: data }))		
 		}

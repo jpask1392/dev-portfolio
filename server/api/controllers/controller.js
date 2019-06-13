@@ -6,8 +6,9 @@ const OAuth2 = google.auth.OAuth2;
 const credentials = require("../credentials.json"); 
 
 // MongoDB connection URL
-const url = 'mongodb://127.0.0.1:27017';
-const DBName = 'learning_mongodb';
+
+const url = "mongodb+srv://jamiepask1392:vaLSjBscgUSlp241@dev-portfolio-cpini.mongodb.net/test?retryWrites=true&w=majority";
+const DBName = 'test';
 
 // GET ALL PROJECTS
 export const viewAllProjects = (req, res) => {

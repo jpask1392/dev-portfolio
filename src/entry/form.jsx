@@ -27,7 +27,7 @@ export default class Form extends React.Component {
 
 		e.preventDefault();
 
-		axios.post(`http://localhost:3000/email/send`, 
+		axios.post(`/email/send`, 
 			{ 	name: this.state.name, 
 				email: this.state.email,
 				subject: this.state.subject,
