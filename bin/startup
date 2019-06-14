@@ -3,6 +3,8 @@
 TIME=$(date +%T)
 echo "Script ran at: $TIME" 
 
+export AWS_DEFAULT_REGION=us-west-2
+
 ALLINSTANCES=$(aws ec2 describe-instances --query 'Reservations[*].Instances[*]')
 
 for i in "${!ALLINSTANCES[@]}"; do 

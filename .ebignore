@@ -4,9 +4,8 @@ node_modules/
 tests/
 documentation/
 src/
-.elasticbeanstalk/
 
-# assets/
+assets/
 
 
 # FILES
