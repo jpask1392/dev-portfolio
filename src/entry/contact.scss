@@ -1,9 +1,20 @@
 @import "../common/common.scss";
 
+.full-width{
+	width: 100%;
+	background-color: $light-grey;
+	border-bottom: black 40px solid
+}
+
+
 #contact-container {
-	height: 100%;
 	margin: auto;
 	position: relative;
+	min-height: auto!important;
+	overflow: hidden;
+	padding-bottom: 50px;
+	width: 600px;
+	padding-top: 50px;
 
 	@media only screen and (max-width: $phone-large) {
 	   height: auto;
@@ -26,7 +37,6 @@
 
 #contact-text-container {
 	width: 330px;
-	float: left;
 
 	> h1 {
 		margin-bottom: 50px;

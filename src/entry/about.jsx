@@ -62,14 +62,7 @@ export default class About extends Component {
 
 				<div className="container-max" id='about-text-container'>
 
-					<div className="col lhs question-container"> 
-						<h1>
-							<span id="question-mark">Who <br/> am I </span> 
-						</h1>
-						<hr></hr>
-					</div>
-
-					<div className="col rhs feature-text">
+					<div className="col rhs">
 
 						<p>
 						<b className="sub-heading">Background</b>
