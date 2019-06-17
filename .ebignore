@@ -5,7 +5,7 @@ tests/
 documentation/
 src/
 
-assets/
+# assets/
 
 
 # FILES

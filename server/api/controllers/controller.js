@@ -7,8 +7,8 @@ const credentials = require("../credentials.json");
 
 // MongoDB connection URL
 
-const url = "mongodb+srv://jamiepask1392:vaLSjBscgUSlp241@dev-portfolio-cpini.mongodb.net/test?retryWrites=true&w=majority";
-const DBName = 'test';
+const url = `mongodb+srv://${credentials.MONGO_USER}:${credentials.MONGO_PASS}@dev-portfolio-cpini.mongodb.net/test?retryWrites=true&w=majority`;
+const DBName = 'projectsDB';
 
 // GET ALL PROJECTS
 export const viewAllProjects = (req, res) => {
