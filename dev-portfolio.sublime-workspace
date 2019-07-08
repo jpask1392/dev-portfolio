@@ -4,16 +4,252 @@
 		"selected_items":
 		[
 			[
+				"slide",
+				"slideData"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"tex",
+				"text-decoration"
+			],
+			[
+				"pad",
+				"padding-bottom"
+			],
+			[
+				"padd",
+				"padding-top"
+			],
+			[
+				"marin",
+				"margin-right"
+			],
+			[
+				"text-",
+				"text-align\tproperty"
+			],
+			[
+				"max-",
+				"max-height"
+			],
+			[
+				"back",
+				"backgroundColor"
+			],
+			[
+				"project",
+				"projectEntry"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"lo",
+				"location"
+			],
+			[
+				"window",
+				"windowHeight"
+			],
+			[
+				"top",
+				"topOfElToWindow"
+			],
+			[
+				"el",
+				"elOffset"
+			],
+			[
+				"inde",
+				"index"
+			],
+			[
+				"rcc",
+				"rcc\tReact: component skeleton"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"rand",
+				"randNum"
+			],
+			[
+				"backgroun",
+				"background-size"
+			],
+			[
+				"class",
+				"className"
+			],
+			[
+				"ma",
+				"mainImagePath"
+			],
+			[
+				"wd",
+				"width"
+			],
+			[
+				"marg",
+				"margin-right"
+			],
+			[
+				"import",
+				"important"
+			],
+			[
+				"trans",
+				"translateY"
+			],
+			[
+				"margn",
+				"margin-left"
+			],
+			[
+				"add",
+				"addClassRandomly"
+			],
+			[
+				"Jamie",
+				"Jamie_Pask"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"da",
+				"data-name"
+			],
+			[
+				"re",
+				"response"
+			],
+			[
+				"se",
+				"sectionImageRef"
+			],
+			[
+				"paddi",
+				"padding-top"
+			],
+			[
+				"ran",
+				"randRight"
+			],
+			[
+				"inel",
+				"inline-block"
+			],
+			[
+				"tit",
+				"titleIntro"
+			],
+			[
+				"b",
+				"BackButton"
+			],
+			[
+				"set",
+				"setStateAndTranlsate"
+			],
+			[
+				"tr",
+				"translateValue"
+			],
+			[
+				"tra",
+				"translateValue"
+			],
+			[
+				"pre",
+				"pre-line"
+			],
+			[
+				"A",
+				"AboutCarousel"
+			],
+			[
+				"max",
+				"max-height"
+			],
+			[
+				"projects",
+				"projects"
+			],
+			[
+				"CRE",
+				"credentials"
+			],
+			[
+				"padding",
+				"padding-bottom"
+			],
+			[
+				"ca",
+				"className"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"fn",
+				"font-size"
+			],
+			[
+				"te",
+				"text-transform"
+			],
+			[
+				"RUNNING",
+				"RUNNINGINDEXES"
+			],
+			[
+				"runn",
+				"RUNNINGINDEXES"
+			],
+			[
+				"In",
+				"INSTANCE"
+			],
+			[
+				"I",
+				"INDEX"
+			],
+			[
+				"in",
+				"INSTANCE"
+			],
+			[
+				"p",
+				"PUBLICIP"
+			],
+			[
+				"IN",
+				"INSTANCE"
+			],
+			[
 				"Im",
 				"ImageLoader"
 			],
 			[
 				"co",
 				"complete"
-			],
-			[
-				"set",
-				"setState"
 			],
 			[
 				"im",
@@ -28,10 +264,6 @@
 				"_isMounted"
 			],
 			[
-				"b",
-				"behavior"
-			],
-			[
 				"S",
 				"ScrollToTop"
 			],
@@ -44,56 +276,24 @@
 				"scrollY"
 			],
 			[
-				"pre",
-				"prevProps"
-			],
-			[
 				"l",
 				"location"
-			],
-			[
-				"add",
-				"addClass"
-			],
-			[
-				"el",
-				"elHeight"
 			],
 			[
 				"bottom",
 				"bottomOfEl"
 			],
 			[
-				"top",
-				"topOfEl"
-			],
-			[
 				"box",
 				"box-shadow"
-			],
-			[
-				"padd",
-				"padding-top"
 			],
 			[
 				"mar",
 				"margin-bottom"
 			],
 			[
-				"margin",
-				"margin-top"
-			],
-			[
 				"Bu",
 				"ButtonClick"
-			],
-			[
-				"fon",
-				"font-weight"
-			],
-			[
-				"rcc",
-				"rcc\tReact: component skeleton"
 			],
 			[
 				"publi",
@@ -120,16 +320,8 @@
 				"errList"
 			],
 			[
-				"marin",
-				"margin-bottom"
-			],
-			[
 				"text",
 				"text-decoration"
-			],
-			[
-				"margn",
-				"margin-bottom"
 			],
 			[
 				"m",
@@ -142,10 +334,6 @@
 			[
 				"Client",
 				"ClientID"
-			],
-			[
-				"get",
-				"getTokens"
 			],
 			[
 				"client",
@@ -184,20 +372,8 @@
 				"svgContainer"
 			],
 			[
-				"trans",
-				"translateX"
-			],
-			[
 				"scroll",
 				"scrolling"
-			],
-			[
-				"font",
-				"font-size"
-			],
-			[
-				"border",
-				"border-style"
 			],
 			[
 				"FONT",
@@ -216,32 +392,12 @@
 				"webpack"
 			],
 			[
-				"p",
-				"project2"
-			],
-			[
 				"pr",
 				"project1"
 			],
 			[
-				"project",
-				"projectModel"
-			],
-			[
 				"about",
 				"aboutRef"
-			],
-			[
-				"tex",
-				"text-align"
-			],
-			[
-				"max",
-				"max-width"
-			],
-			[
-				"padding",
-				"padding"
 			],
 			[
 				"paddin",
@@ -308,10 +464,6 @@
 				"Carousel"
 			],
 			[
-				"max-",
-				"max-width"
-			],
-			[
 				"sec",
 				"SectionText"
 			],
@@ -360,174 +512,13 @@
 				"mongoDBName"
 			],
 			[
-				"window",
-				"windowOffset"
-			],
-			[
 				"por",
 				"portfolio-container"
-			],
-			[
-				"a",
-				"aboutImg"
-			],
-			[
-				"state",
-				"setState"
-			],
-			[
-				"my",
-				"myRef"
-			],
-			[
-				"Re",
-				"React"
-			],
-			[
-				"Abou",
-				"AboutImgSVG"
-			],
-			[
-				"A",
-				"AboutImgSVG"
-			],
-			[
-				"back",
-				"background-color"
-			],
-			[
-				"abo",
-				"about-img-mask"
-			],
-			[
-				"wid",
-				"width\tproperty"
-			],
-			[
-				"class",
-				"className"
-			],
-			[
-				"min",
-				"min-height"
-			],
-			[
-				"tran",
-				"transform"
-			],
-			[
-				"React",
-				"ReactSVG"
-			],
-			[
-				"fot",
-				"font-weight"
-			],
-			[
-				"inline",
-				"inline-block"
-			],
-			[
-				"margi",
-				"margin-top"
-			],
-			[
-				"nav",
-				"navClicked"
-			],
-			[
-				"na",
-				"navList"
-			],
-			[
-				"Na",
-				"NavList"
-			],
-			[
-				"marg",
-				"margin"
-			],
-			[
-				"list",
-				"list-style-type"
-			],
-			[
-				"N",
-				"NavList"
-			],
-			[
-				"background",
-				"background-color"
-			],
-			[
-				"brows",
-				"browser-sync"
-			],
-			[
-				"web",
-				"webpack-dev-server"
-			],
-			[
-				"Contact",
-				"ContactSchema"
-			],
-			[
-				"mysqli_result",
-				"mysqli_free_result"
-			],
-			[
-				"RSUL",
-				"result_set"
-			],
-			[
-				"pad",
-				"padding-bottom\tproperty"
-			],
-			[
-				"mysqli_fec",
-				"mysqli_fetch_assoc"
-			],
-			[
-				"td",
-				"td\tTag"
-			],
-			[
-				"transla",
-				"translateX()\ttransform"
-			],
-			[
-				"mi",
-				"min-width\tproperty"
-			],
-			[
-				"background-c",
-				"background-color\tproperty"
-			],
-			[
-				"gett",
-				"gettype"
-			],
-			[
-				"for",
-				"foreach\tforeach …"
-			],
-			[
-				"public",
-				"public_end"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "package.json",
-			"settings":
-			{
-				"buffer_size": 2175,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -573,60 +564,91 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/jamiepask/Sites/dev-portfolio"
+		"/Users/jamiepask/Sites/dev-portfolio",
+		"/Users/jamiepask/Sites/dev-portfolio/public",
+		"/Users/jamiepask/Sites/dev-portfolio/src",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry"
 	],
 	"file_history":
 	[
-		"/Users/jamiepask/Sites/dev-portfolio/practice/webpack.server.config.js",
-		"/Users/jamiepask/Sites/dev-portfolio/practice/package.json",
-		"/Users/jamiepask/Sites/dev-portfolio/practice/server.js",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/aboutCarousel.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/aboutCarousel.scss",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/portfolio.scss",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/about.scss",
+		"/Users/jamiepask/Sites/dev-portfolio/public/index.html",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/contact.scss",
+		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/SectionComponent.scss",
+		"/Users/jamiepask/Sites/dev-portfolio/.gitignore",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/SvgAboutImage.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/contact.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/form.scss",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/landing.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/landing.scss",
 		"/Users/jamiepask/Sites/dev-portfolio/server/server.js",
+		"/Users/jamiepask/Sites/dev-portfolio/.ebignore",
+		"/Users/jamiepask/Sites/dev-portfolio/server/api/controllers/controller.js",
 		"/Users/jamiepask/Sites/dev-portfolio/package.json",
+		"/Users/jamiepask/Sites/dev-portfolio/bin/startup",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/about.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/projectEntry.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/SectionsCarousel.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/project.scss",
+		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/NumberNavigation.scss",
+		"/Users/jamiepask/Sites/dev-portfolio/documentation/moving database data",
+		"/Users/jamiepask/Sites/dev-portfolio/documentation/mongoDBCommands.txt",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/portfolio.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/index.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/ProjectHeaderImageComponent.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/common/common.scss",
+		"/Users/jamiepask/Sites/dev-portfolio/src/index.js",
+		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/imageLoader.jsx",
+		"/Users/jamiepask/Sites/architecture-portfolio/architecture-portfolio.sublime-workspace",
+		"/Users/jamiepask/Sites/architecture-portfolio/architecture-portfolio.sublime-project",
+		"/Users/jamiepask/Sites/dev-portfolio/src/common/commonFunctions.js",
+		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/SectionComponent.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/scrollComponent.scss",
+		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/NumberNavigation.jsx",
 		"/Users/jamiepask/Sites/dev-portfolio/server/api/routes/routes.js",
+		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/NumberNavigation.css",
+		"/Users/jamiepask/Sites/dev-portfolio/src/common/navigation.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/messageSent.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/aboutCarousel.css",
+		"/Users/jamiepask/Sites/dev-portfolio/assets/untitled folder/Group 38.svg",
+		"/Users/jamiepask/Desktop/text.svg",
+		"/Users/jamiepask/Sites/dev-portfolio/server/api/credentials.json",
+		"/Users/jamiepask/Desktop/Group 34.svg",
 		"/Users/jamiepask/Sites/dev-portfolio/src/entry/form.jsx",
+		"/Users/jamiepask/Sites/dev-portfolio/src/common/fullPageNav.jsx",
+		"/Users/jamiepask/.bash_profile",
+		"/Users/jamiepask/Sites/dev-portfolio/.elasticbeanstalk/saved_configs/dev-portfolio-12-sc.cfg.yml",
+		"/Users/jamiepask/Sites/dev-portfolio/.ebextensions/environmentvariables.config",
+		"/Users/jamiepask/.aws/credentials",
+		"/Users/jamiepask/.aws/config",
+		"/Users/jamiepask/Sites/dev-portfolio/bin/hello-world",
+		"/Users/jamiepask/bin/hello-world",
+		"/Users/jamiepask/Sites/dev-portfolio/server/api/models/model.js",
+		"/Users/jamiepask/Sites/dev-portfolio/webpack.config.js",
+		"/Users/jamiepask/Sites/dev-portfolio/server/.ebignore",
+		"/Users/jamiepask/Sites/dev-portfolio/practice/public/index.html",
+		"/Users/jamiepask/Sites/dev-portfolio/practice/package.json",
 		"/Users/jamiepask/Sites/dev-portfolio/webpack.server.config.js",
+		"/Users/jamiepask/Sites/dev-portfolio/practice/server.js",
+		"/Users/jamiepask/Sites/dev-portfolio/practice/webpack.server.config.js",
 		"/Users/jamiepask/Sites/dev-portfolio/server.js",
 		"/Users/jamiepask/Sites/dev-portfolio/zip/package.json",
 		"/Users/jamiepask/Sites/dev-portfolio/zip/server.js",
 		"/Users/jamiepask/Sites/dev-portfolio/api/routes/routes.js",
 		"/Users/jamiepask/Sites/dev-portfolio/api/models/model.js",
-		"/Users/jamiepask/Sites/dev-portfolio/documentation/mongoDBCommands.txt",
-		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/ProjectHeaderImageComponent.jsx",
-		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/imageLoader.jsx",
-		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/projectEntry.jsx",
-		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/SectionsCarousel.jsx",
-		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/project.scss",
 		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/SvgTitleComponent.jsx",
-		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/index.jsx",
-		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/SectionComponent.jsx",
 		"/Users/jamiepask/Sites/dev-portfolio/api/controllers/controller.js",
-		"/Users/jamiepask/Sites/dev-portfolio/src/entry/portfolio.jsx",
-		"/Users/jamiepask/Sites/dev-portfolio/src/index.js",
 		"/Users/jamiepask/Sites/dev-portfolio/src/entry/scrollComponent.jsx",
-		"/Users/jamiepask/Sites/dev-portfolio/src/entry/about.jsx",
 		"/Users/jamiepask/Sites/dev-portfolio/src/common/ScrollToTop.jsx",
-		"/Users/jamiepask/Sites/dev-portfolio/src/common/common.scss",
-		"/Users/jamiepask/Sites/dev-portfolio/src/common/fullPageNav.jsx",
 		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/SvgTitleComponent.scss",
-		"/Users/jamiepask/Sites/dev-portfolio/src/entry/SvgAboutImage.jsx",
-		"/Users/jamiepask/Sites/dev-portfolio/src/common/navigation.jsx",
-		"/Users/jamiepask/Sites/dev-portfolio/src/entry/about.scss",
-		"/Users/jamiepask/Sites/dev-portfolio/src/entry/messageSent.jsx",
 		"/Users/jamiepask/Sites/dev-portfolio/src/common/PageNotFound.jsx",
-		"/Users/jamiepask/Sites/dev-portfolio/src/common/commonFunctions.js",
-		"/Users/jamiepask/Sites/dev-portfolio/src/entry/form.scss",
-		"/Users/jamiepask/Sites/dev-portfolio/webpack.config.js",
 		"/Users/jamiepask/Sites/dev-portfolio/api/validations/validationFunctions.js",
 		"/Users/jamiepask/Sites/dev-portfolio/api/validations/emailValidations.js",
-		"/Users/jamiepask/Sites/dev-portfolio/src/entry/contact.scss",
-		"/Users/jamiepask/Sites/dev-portfolio/public/index.html",
-		"/Users/jamiepask/Sites/dev-portfolio/src/entry/portfolio.scss",
-		"/Users/jamiepask/Sites/dev-portfolio/src/entry/scrollComponent.scss",
 		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/project.jsx",
-		"/Users/jamiepask/Sites/dev-portfolio/src/entry/contact.jsx",
 		"/Users/jamiepask/Sites/dev-portfolio/api/credentials.json",
-		"/Users/jamiepask/Sites/dev-portfolio/src/entry/landing.jsx",
-		"/Users/jamiepask/Sites/dev-portfolio/src/entry/landing.scss",
 		"/Users/jamiepask/Sites/dev-portfolio/src/entry/home.jsx",
 		"/Users/jamiepask/Sites/dev-portfolio/tests/test.js",
 		"/Users/jamiepask/Sites/dev-portfolio/deletethis.html",
@@ -637,7 +659,6 @@
 		"/Users/jamiepask/Library/Application Support/Sublime Text 3/Packages/User/ESLint.sublime-settings",
 		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/contact.scss",
 		"/Users/jamiepask/Sites/dev-portfolio/README.md",
-		"/Users/jamiepask/Sites/dev-portfolio/.gitignore",
 		"/Users/jamiepask/Sites/dev-portfolio/src/mongoDBCommands.txt",
 		"/Users/jamiepask/Sites/dev-portfolio/src/portfolio/sections.jsx ",
 		"/Users/jamiepask/Sites/dev-portfolio/src/entry/project.scss",
@@ -677,34 +698,7 @@
 		"/Users/jamiepask/Sites/node-test/app.js",
 		"/Users/jamiepask/Sites/node-test/src/models/crmModel.js",
 		"/Users/jamiepask/Sites/node-test/package.json",
-		"/Users/jamiepask/Sites/node-test/.babelrc",
-		"/Users/jamiepask/Sites/node-test/public/index.html",
-		"/Users/jamiepask/Sites/node-test/src/index.js",
-		"/Users/jamiepask/Downloads/MOCK_DATA.json",
-		"/Users/jamiepask/Sites/node-test/dist/index.html",
-		"/Users/jamiepask/Sites/node-test/package-lock.json",
-		"/Users/jamiepask/Sites/architecture-portfolio/public/cms/projects/index.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/public/cms/sections/show.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/private/query_functions.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/SQL_queries.sql",
-		"/Users/jamiepask/Sites/architecture-portfolio/public/cms/projects/show.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/public/styles/cms.css",
-		"/Users/jamiepask/Sites/architecture-portfolio/public/cms/sections/edit.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/*\tSQL QUERIES",
-		"/Users/jamiepask/Sites/architecture-portfolio/private/shared/cms_header.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/public/login.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/public/cms/admins/new.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/public/logout.php",
-		"/Users/jamiepask/Sites/Exercise FIles/Ex_Files_PHP_MySQL_EssT_2_CMS/Exercise Files/Chapter_06/06_06/globe_bank/private/db_credentials.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/public/cms/admins/edit.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/public/cms/admins/show.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/public/cms/admins/index.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/public/cms/admins/delete.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/public/cms/index.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/private/database.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/private/authentication_functions.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/private/initialize.php",
-		"/Users/jamiepask/Sites/architecture-portfolio/private/functions.php"
+		"/Users/jamiepask/Sites/node-test/.babelrc"
 	],
 	"find":
 	{
@@ -728,6 +722,46 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ept",
+			"EPT",
+			"ept",
+			"EPT",
+			"ept",
+			"EPT",
+			"ept",
+			"EPT",
+			"ept",
+			"EPT",
+			"ept",
+			"EPT",
+			"ept",
+			"EPT",
+			"ept",
+			"EPT",
+			"ept",
+			"EPT",
+			"ept",
+			"EPT",
+			"dev-portfolio",
+			"Dev Portfolio",
+			"arch-portfolio",
+			"Arch Portfolio",
+			"dev-portfolio",
+			"Dev Portfolio",
+			"seven",
+			"two",
+			"fade",
+			"\t\t\t\t\t\t \n",
+			"class",
+			"letter-spacin",
+			"font-weight",
+			"font-family",
+			"font-size",
+			"data",
+			"fill=\"#cb2828\"",
+			"fill=\"#151515\"",
+			"content",
+			"sendFile",
 			"projects/dev-portfolio/dev-portfolio",
 			"Dev Portfolio",
 			"sections.$[].images.$[name]jpg",
@@ -766,45 +800,14 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "package.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2175,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								269,
-								269
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 24.0
+		"height": 26.0
 	},
 	"input":
 	{
@@ -845,7 +848,7 @@
 	"project": "dev-portfolio.sublime-project",
 	"replace":
 	{
-		"height": 44.0
+		"height": 48.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -882,7 +885,7 @@
 	"show_minimap": false,
 	"show_open_files": true,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 277.0,
 	"status_bar_visible": true,
 	"template_settings":

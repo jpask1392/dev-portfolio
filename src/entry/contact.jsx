@@ -11,23 +11,25 @@ export default class contact extends React.Component {
 
 	render() {
 		return (
-			<div id="contact-container" className="container-max" ref={this.props.contactRefProp}>
-				<div id="contact-inner-container">
-					<div id="contact-text-container">
-						<h1>Drop a message</h1>
-						<hr></hr>
-						<div>
-							<b className="sub-heading">The Socials</b>
-							<p>
-								<b>Instagram</b> @jamiepask92 
-								<br></br>
-								<b>Linkedin</b> jamiepask
-							</p>
-						</div>
-					</div>
+			<div className="full-width">
+			<div id="contact-container" ref={this.props.contactRefProp}> <div>
+					<h1>Contact</h1>
+					<hr></hr>
 					<Form />
+					<p>
+						<a href="https://www.instagram.com/jpaskart/" target="_blank">
+							<i className="fab fa-instagram"></i>
+						</a>
+						<a href="https://github.com/jpask1392" target="_blank">
+							<i className="fab fa-github-square"></i>
+						</a>
+						<a href="https://www.linkedin.com/in/jamie-pask/" target="_blank">
+							<i className="fab fa-linkedin"></i>
+						</a>
+					</p>
 				</div>
-			</div>			
+			</div>
+			</div>		
 		);
 	}
 }

@@ -2,6 +2,8 @@
 
 .about-container {
 
+	margin-bottom: 100px;
+
 	@media only screen and (max-width: $phone-large) {
 	   overflow: hidden;
 	}
@@ -18,38 +20,30 @@
  }
 
  .white-cover-lhs {
- 	fill: rgb(240,240,240);
+ 	fill: white;
  	animation: 	move 1s ease-in-out; 
+ 	-moz-animation: move-moz 1s ease-in-out; 
  	animation-fill-mode: forwards;
  }
 
  .white-cover-rhs {
- 	fill: rgb(240,240,240);
+ 	fill: white;
  	x:50%;
  	animation: 	move 1s ease-in-out; 
+ 	-moz-animation: move-moz 1s ease-in-out; 
  	animation-fill-mode: forwards;
  	animation-delay: 0.2s;
  }
 
- @-moz-keyframes move {
- 	0% { y: 0%; }
- 	100% { y: -100%; }
+ @-moz-keyframes move-moz {
+ 	0% { transform: translateY(0%); }
+ 	100% { transform: translateY(-100%) }
  }
 
  @keyframes move {
   0% { y: 0%; }
   100% { y: -100%; }
 
-}
-
-.image-1 {
-	// x: 50%;
-	// y: 0%;
-}
-
-.image-2 {
-	// x: 0%;
-	// y: -40%;	
 }
 
 #about-text-container {
@@ -66,59 +60,6 @@
 	}
 }
 
-.question-container {
-	font-size: 30px;
-
-	@media only screen and (max-width: $phone-large) {
-	   // position: relative;
-	   height: 300px;
-	   width: auto!important;
-	   float: none!important;
-	   display: inline-block;
-	   left: 50%;
-	   transform: translateX(-50%);
-	}
-
-	> hr {
-		margin-top: 20px;
-	}
-}
-
-#question-mark {
-	
-	z-index: 2;
-	line-height: 10px;
-
-	&:after {
-		content: '?';
-		position: absolute;
-		left: 150px;
-		top: 100px;
-		color: black;
-		font-size: 300px;
-
-		@media only screen and (max-width: $phone-large) {
-			left: -15px;
-			top: 180px;
-			font-size: 200px;
-		}
-		
-	} 
-
-}
-
-.feature-text {
-	font-family: 'roboto', sans-serif;
-	font-weight: 300;
-	line-height: 30px;
-	color: #7E7E7E;
-
-	> p > b {
-		color: black;
-		margin-top: 50px;
-		display: block
-	}
-}
 
 i {
 	color: black;

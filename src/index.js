@@ -35,19 +35,26 @@ export default class App extends Component {
 			<Route render={({location}) => (
 				<div className='full-height'>
 					<div id='page-container'>
-					<TransitionGroup component={null}>
+					<TransitionGroup style={{height:"100%", opacity:"1"}}>
 					<CSSTransition
 	                  key={location.key}
-	                  classNames="fade"
+	                  classNames="newone"
 	                  timeout={300}>
 						<Switch location={location}>
+
 							<Route path="/" exact render={(props) => {
+								document.title = "Home | Jamie Pask"
 								return (
 									<div className="full-height"> 
 										<Landing />
 										<About aboutRefProp={this.aboutRef} />
 										<Portfolio portfolioRefProp={this.portfolioRef}/>
 										<Contact contactRefProp={this.contactRef} />
+										<Navigation 
+											aboutRefProp={this.aboutRef} 
+											portfolioRefProp={this.portfolioRef}  
+											contactRefProp={this.contactRef}  
+										/>
 										<Scroll />
 									</div>
 								)
@@ -56,6 +63,7 @@ export default class App extends Component {
 							<Route path="/sent" exact component={MessageSent} />
 
 							<Route path="/projects/:_id" exact render={(props) => {
+								document.title = `${props.match.params._id} | Jamie Pask`
 								let projectId = props.location.pathname.replace('/', '');
 								return (
 									<div className='full-height'>
@@ -71,19 +79,6 @@ export default class App extends Component {
                   	</CSSTransition>
                   	</TransitionGroup>
 					</div>
-					
-				{/*NAVIGATION TO RENDER AFTER OTHER COMPONENTS TO ALLOW ACCESS TO REFS*/}
-					<Route path='/' render={(props) => {
-						return(
-							<Navigation 
-								aboutRefProp={this.aboutRef} 
-								portfolioRefProp={this.portfolioRef}  
-								contactRefProp={this.contactRef}  
-							/>
-
-						)
-
-					}} />
 				</div>
 
 			)}>

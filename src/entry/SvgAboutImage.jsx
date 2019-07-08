@@ -24,13 +24,6 @@ export default class SvgAboutImage extends React.Component {
 		}
 	}
 
- //    componentDidUpdate() {
-	// 	if (this.props.visible) {
-	// 		this.whiteLHS.current.classList.add("white-cover-lhs");
-	// 		this.whiteRHS.current.classList.add("white-cover-rhs");
-	// 	}
-	// }
-
 	handleScroll = () => {
 		if(this._isMounted) {
 			if (this.props.visible) {
@@ -58,7 +51,9 @@ export default class SvgAboutImage extends React.Component {
 
 				</defs>
 
-				<g clipPath="url(#myClip)">
+				<g clipPath="url(#myClip)" fill="white">
+
+
 
 				<image 
 					ref={this.imageOne}
@@ -67,7 +62,7 @@ export default class SvgAboutImage extends React.Component {
 					width="50%"
 					height="150%"
 					x="50%"
-					y="-20%"
+					y="-15%"
 				/>
 
 				<image 

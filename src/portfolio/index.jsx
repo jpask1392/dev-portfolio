@@ -16,8 +16,8 @@ export default class Project extends Component {
 		}
 	}
 
-	componentDidMount() { 
-		this._isMounted = true;
+	componentDidMount() { 		
+	this._isMounted = true;
 
 		if(this._isMounted) {
 			// SET UP DIFFERENT API END POINTS FOR COLLECTING DATA
@@ -35,6 +35,8 @@ export default class Project extends Component {
 	render () {
 		var data = this.state.data;
 		var sectionsArray = this.state.data.sections;
+		document.title = `${data.projectName} | Jamie Pask`
+		
 
 		if (sectionsArray != null) {
 		return (
@@ -46,8 +48,17 @@ export default class Project extends Component {
 						text={section.text}
 						title={section.title.toUpperCase()}
 						images={section.images}
+						index={i}
 					/>
 			 	)}
+			 	<div style={{
+			 		width:"100%", 
+			 		height:"100px", 
+			 		background:"black",
+			 		color:"white"
+			 	}}>
+			 		
+			 	</div>
 				<Scroll />	
 			</div>
 		)} else {

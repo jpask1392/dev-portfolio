@@ -36,7 +36,6 @@ export default class FullPageNav extends React.Component {
 		}
 
 		this.props.active()
-		 
 	}
 
 	render() {
@@ -54,11 +53,6 @@ export default class FullPageNav extends React.Component {
 							<li><a href="#" onClick={(e) => this.HandleScroll(e, "contact")}><h1>Contact</h1></a></li>
 						</ul>
 					</nav>
-					<span>
-						<p>
-							Jamie Pask. Interest in web development started back in 2015, learning to build simple static HTML and CSS sites. This fascination quickly grew into various projects.
-						</p>
-					</span>
 				</div>
 			</div>
 		);
