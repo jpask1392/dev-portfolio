@@ -1,14 +1,20 @@
 @import "../common/common.scss";
 
 #portfolio-container {
-	// min-height: 100%;
+	height: 100%;
 	// width: 100%;
-	margin-bottom: 100px;
+	// margin-bottom: 100px;
 	padding-top: 100px;
+
+	@media only screen and (max-width: $phone-large) {
+	   margin-left: 0px;
+	   height: auto;
+	}
 }
 
 #portfolio-inner-container {
-	max-width: 900px;
+	width: 100%;
+	height: 100%;
 	margin: auto;
 
 	&:after {
@@ -22,18 +28,51 @@
 
 #gallery-container {
 	margin-top: 50px;
+	height: 80%;
+	// width: auto;
+	white-space: nowrap;
+	overflow-y: hidden;
+	overflow-x: scroll;
+
+	@media only screen and (max-width: $phone-large) {
+		white-space: initial;
+		margin-left: 15px;
+		margin-right: 15px;
+	}
 }
+
+.background-img-container {
+		background-size: cover;
+		width: 100%;
+		height: 100%;
+		background-position: center;
+		transition: all 0.3s;
+		position: absolute;
+	}
 
 [class^='project-container'] {
 	background-color: lightgrey;
-	float: left;
-	margin-top: 15px;
-	overflow: hidden;
+	// float: left;
+	margin-left: 15px;
+	margin-right: 15px;
+	// overflow: hidden;
 	background-size: cover;
 	background-position: center; 
 	cursor: pointer ;
-	transition: width 0.3s;
+	transition: all 0.3s;
 	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	width: 55%;
+	height: 100%;
+
+
+	@media only screen and (max-width: $phone-large) {
+		margin-left: 0px;
+		margin-right: 0px;
+		margin-bottom: 5px;
+	}
+
 
 	// HOVER EFFECT START --------
 	
@@ -44,6 +83,7 @@
 	    border-style:solid;
 	    box-sizing: border-box;
 	    transition: all 0.3s ease-out;
+	    pointer-events: none;
 	}
 
 	&:before {
@@ -51,6 +91,7 @@
 	    width: 100%;
 	    height: 50%;
 	    top:25%;
+	    z-index: 2;
 	}
 
 	&:after {
@@ -62,6 +103,8 @@
 	}
 
 	&:hover {
+
+
     	&:before {
     		height: 100%;
     		top:0;
@@ -74,22 +117,24 @@
     		transform: translateX(0%);
     		border-color:rgba(0,0,0,1);
     	}
+
+    	.background-img-container{
+			transform: scale(1.2);
+		}
     }
     // HOVER EFFECT END --------
 
 	&[class$="one"] {
-		width: 100%;
-		height: 500px;
+		
 
 		@media only screen and (max-width: $phone-large) {
 		   height: 300px;
+		   width: 100%;
 		}
 	}
 
 	&[class$="two"] {
-		width: calc(60% - 15px);
-		height: 300px;
-		margin-right: 15px;
+
 
 		@media only screen and (max-width: $phone-large) {
 		   height: 300px;
@@ -98,14 +143,15 @@
 	}
 
 	&[class$="three"] {
-		width: calc(40%);
-		height: 300px;
+
 
 		@media only screen and (max-width: $phone-large) {
 		   height: 300px;
 		   width: 100%;
 		}
 	}
+
+	
 
 
 }

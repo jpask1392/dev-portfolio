@@ -23,6 +23,6 @@ INSTANCE=$(aws ec2 describe-instances --query 'Reservations[*].Instances[*].[Ins
 aws ec2 associate-address --instance-id "${INSTANCE//\"}" --allocation-id eipalloc-022dbfabfc1ca60fe
 
 # # RUNS THE START SCRIPT
-PORT=8081 node ./build/server.js
+PORT=443 node ./build/server.js
 
 # RUNNINGINSTANCES=$(aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId,State[?Name==`running`]]')

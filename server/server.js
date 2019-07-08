@@ -19,6 +19,7 @@ const proxy = require('proxy-middleware');
 
 // variables
 const PORT = process.env.PORT || 9000;
+console.log(PORT)
 // const server = '127.0.0.1:27017';
 // const database = 'learning_mongodb';
 

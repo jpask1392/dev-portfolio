@@ -2,7 +2,8 @@ import path from 'path'
 import { 
 	viewAllProjects, 
 	projectById,
-	handleEmail } 
+	handleEmail,
+	getAllProjectId } 
 from '../controllers/controller.js';
 import {validations} from '../validations/emailValidations.js'
 
@@ -23,6 +24,11 @@ const routes = (app) => {
 	app.route('/api/projects')
 		.get((req, res) => {
 			viewAllProjects(req, res);
+		}) 
+
+	app.route('/api/projects/allIds')
+		.get((req, res) => {
+			getAllProjectId(req, res);
 		}) 
 
 	app.route('/api/projects/:_id')

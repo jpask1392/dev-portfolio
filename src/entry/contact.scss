@@ -3,7 +3,6 @@
 .full-width{
 	width: 100%;
 	background-color: $light-grey;
-	border-bottom: black 40px solid
 }
 
 
@@ -13,12 +12,29 @@
 	min-height: auto!important;
 	overflow: hidden;
 	padding-bottom: 50px;
-	width: 600px;
+	max-width: 900px;
 	padding-top: 50px;
+
+	> div p {
+		height: auto;
+		margin: 0;
+	}
+
+	> div p i {
+		font-size: 40px;
+		margin: 0px 20px 0px 0px;
+		transition: all 0.3s;
+
+		&:hover {
+			color: $feature-color;
+		}
+	}
 
 	@media only screen and (max-width: $phone-large) {
 	   height: auto;
-	   margin-bottom: 30px;
+	   margin-left: 15px;
+	   margin-right: 15px;
+	   margin-top: 30px;
 	}
 }
 

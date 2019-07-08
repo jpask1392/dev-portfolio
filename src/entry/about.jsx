@@ -3,6 +3,7 @@ import './about.scss';
 import ReactSVG from 'react-svg';
 import SvgAboutImage from './SvgAboutImage.jsx';
 import { onScreen } from '../common/commonFunctions.js'
+import AboutCarousel from './aboutCarousel.jsx'
 
 export default class About extends Component {
 	_isMounted = false;
@@ -62,28 +63,10 @@ export default class About extends Component {
 
 				<div className="container-max" id='about-text-container'>
 
-					<div className="col rhs">
-
-						<p>
-						<b className="sub-heading">Background</b>
-						<br/>
-
-						I am Jamie Pask, born and raised in Cardiff, United Kingdom. Spent some time in Vancouver before eventually tying the knot and recently moving to Los Angeles, Santa Monica area.
-						</p>
-
-						<p>
-						<b className="sub-heading">Achievements</b>
-						<br/>
-
-						My professional background is rooted within Architecture. I graduated from Cardiff Metropolitan University in 2015, leading to a career as an Architectural Technologist for the past 3 years.  A need to build an architectural site portfolio back in 2015 led me down the rabbit hole of programming which is an interest almost everyday in the office, creating simple scripts to automate a variety of tasks, saving hundreds of work hours. The more I learned, the more I wanted to progress. I’ve built Wordpress sites for a previous firm and built my web portfolio many times, implementing new techniques through each iteration. My interest shows no signs of slowing down and I am very excited to learn more.<br/>
-						</p>
-
-						<p>
-						<b className="sub-heading">The Goals</b>
-						<br/>
-
-						Full stack development ticks all the boxes for me, from data collection to data driven design schemes, and this is ultimately the route I want to follow. Machine learning is also of intrigue and I would hope that after some time, this will become a staple part of my daily workflow.
-						</p>
+					<AboutCarousel/>
+					<div>
+						
+						
 					</div>
        
 				</div>

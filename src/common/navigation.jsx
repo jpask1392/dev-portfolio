@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import FullPageNav from './fullPageNav.jsx';
-import { createBrowserHistory } from 'history';
-
-const history = createBrowserHistory();
 
 export default class Navigation extends Component {
 
@@ -13,10 +10,10 @@ export default class Navigation extends Component {
 		super(props);
 		this.state = { 
 			navClicked: false,
-		 }
+		}
 	}
 	
-	// FUNCTION USED FOR STATE CHANGES 
+	// FUNCTION USED FOR STATE CHANGES
 	ButtonClick() {
 		this.state.navClicked ? this.setState({navClicked:false}) : this.setState({navClicked:true});
 	}
@@ -26,7 +23,6 @@ export default class Navigation extends Component {
 
 		return (
 			<span id="nav-container">
-			<Route path="/projects/:_id" exact component={BackButton} />
 			<Route path="/" exact render={() => (
 				<nav className="nav-button" onClick={() =>  this.ButtonClick()}>
 						
@@ -59,22 +55,6 @@ function BurgerIcon(props) {
 			<span className={"burger-icon-line-two" + (props.active ? '-active' : '')}></span>
 			<span className={"burger-icon-line-three" + (props.active ? '-active' : '')}></span>
 		</div>
-	)
-}
-
-// BACK BUTTON TO RENDER WHEN ROUTE MATCHES '/:id'
-function BackButton() {
-
-	return (
-	<div id='back-button'>
-		<Link to="/"> 
-			<div id="back-button-container">
-				<span className="back-icon-line-three"></span>
-				<span className="back-icon-line-one"></span>
-				<span className="back-icon-line-two"></span>
-			</div>
-		</Link>
-	</div>
 	)
 }
 

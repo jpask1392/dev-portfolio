@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha ./tests",
-    "start": "./bin/startup",
+    "start": "PORT=8081 node ./build/server.js",
     "start:webpack": "webpack-dev-server -wd",
     "start:dev": "nodemon ./server/server.js --exec babel-node -e js",
     "build": "webpack --mode=production --config webpack.config.js && webpack --mode=production --config webpack.server.config.js"

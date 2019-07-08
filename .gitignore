@@ -1,14 +1,13 @@
 # DIRECTORIES
-
-dev-portfolio.sublime-project
 assets/
 node_modules/
 build/
 documentation/
 
 #FILES
-
 package-lock.json
+dev-portfolio.sublime-project
+credentials.json
 
 # ELASTIC BEANSTALK FILES
 .elasticbeanstalk/*

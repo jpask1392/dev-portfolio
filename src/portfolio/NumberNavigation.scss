@@ -1,0 +1,48 @@
+@import '../common/common.scss';
+
+#number-nav-container {
+
+	margin-top: 50px;
+
+	> ul {
+		margin: 0;
+		padding: 0;
+	}
+
+	> ul li {
+		// float: left;
+		// width: auto;
+		display: inline-block;
+		margin-right: 20px;
+		font-size: 25px;
+		transition: font-size 0.3s;
+		// transform-origin: 50% bottom;
+		line-height: 20px;
+
+		&:hover {
+			font-size: 50px;
+			color: white;
+			font-weight: bold
+
+		}
+	}
+
+	> ul li a {
+		color: $light-grey;
+		text-decoration: none;
+		&:hover {
+			color: white;
+		}
+	}
+	
+}
+
+.active-project {
+	font-size: 50px!important;
+	// color: $feature-color;
+	font-weight: bold;
+
+	> a {
+		color: white!important;
+	}
+}

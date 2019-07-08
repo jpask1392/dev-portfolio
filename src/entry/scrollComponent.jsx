@@ -72,31 +72,32 @@ class ScrollDown extends React.Component {
 		return (
 			<div>
 			<CSSTransition
-		        in={(!this.props.bottomOfPage & !this.props.scrolling) ? true : false}
-		        timeout={300}
-		        classNames="fade"
-		        enter={true}
-		        unmountOnExit
-		      >
-			    <div className="scroll-container">
-			    	<i className="fas fa-long-arrow-alt-down"></i>
-			    	<b>Scroll</b>
-			    	<i className="fas fa-long-arrow-alt-down"></i>
-			    </div>
+				in={(!this.props.bottomOfPage & !this.props.scrolling) ? true : false}
+				timeout={300}
+				classNames="fade"
+				enter={true}
+				unmountOnExit
+			>
+				<div className="scroll-container">
+						<i className="fas fa-long-arrow-alt-down"></i>
+						<b>Scroll</b>
+						<i className="fas fa-long-arrow-alt-down"></i>
+				</div>
 		    </CSSTransition>
-		    <CSSTransition
-		        in={this.props.bottomOfPage}
-		        timeout={300}
-		        classNames="alert"
-		        unmountOnExit
-		      >
-			    <div className="scroll-container">
-			    	<i className="fas fa-long-arrow-alt-up"></i>
-			    	<b>Scroll</b>
-			    	<i className="fas fa-long-arrow-alt-up"></i>
-			    </div>
-		    </CSSTransition>
-		    </div>
+
+			<CSSTransition
+				in={this.props.bottomOfPage}
+				timeout={300}
+				classNames="alert"
+				unmountOnExit
+			>
+				<div className="scroll-container">
+					<i className="fas fa-long-arrow-alt-up"></i>
+					<b>Scroll</b>
+					<i className="fas fa-long-arrow-alt-up"></i>
+				</div>
+			</CSSTransition>
+			</div>
 		);
 	}
 }

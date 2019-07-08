@@ -2,17 +2,29 @@
 
 @import '../common/common.scss';
 
+.project-cont {
+	height: 100%;
+	background-color: $feature-color;
+	position: relative;
+}
+
 #project-page-container {
 	height: 100%;
 	width: 100%;
 	animation: 	fade-in 1s ease-in-out; 
  	animation-fill-mode: forwards;
+ 	position: relative;
+
+ 	@media only screen and (max-width: $phone-large) {
+		// height: auto;
+		min-height: 100%;
+	}
 }
 
-@keyframes fade-in {
- 	0% { opacity: 0; }
- 	100% { opacity: 1; }
-}
+// @keyframes fade-in {
+//  	0% { opacity: 0; }
+//  	100% { opacity: 1; }
+// }
 
 #project-landing-container {
 	max-width: 900px;
@@ -20,8 +32,11 @@
 	height: 100%;
 
 	@media only screen and (max-width: $phone-large) {
-	   min-height: 100%;
-	   height: auto;
+	   overflow: hidden;
+	   margin-left: 15px;
+	   margin-right: 15px;
+	   position: relative;
+
 	}
 }
 
@@ -33,10 +48,7 @@
 	transform: translateY(-50%);
 
 	@media only screen and (max-width: $phone-large) {
-	   width: auto;
-	   position: static;
-	   transform: translateY(0);
-	   margin-top: 150px;
+	   width: 100%;
 	}
 	
 	 & > p {
@@ -44,55 +56,31 @@
 		font-family: 'Roboto', sans-serif;
 		font-weight: 300;
 		line-height: 30px;
-		color: #7E7E7E;
+		// color: #7E7E7E;
+		color: white;
 	}
 
 	& > h4 {
 		text-transform: uppercase;
 		margin: 0;
 		font-weight: 100;
+		color: white;
 	}
 
 	& > h1 {
 		margin-bottom: 50px;
 		font-size: 50px;
+		color: white;
+	}
+
+	& > h2 {
+		color: white;
 	}
 
 	& > hr {
-		margin-top: 50px;
+		background-color: white;
 	}
 
-}
-
-.section-container {
-	margin-top: 100px;
-	margin-bottom: 200px;
-	position: relative;
-	min-height: 100%;
-
-	@media only screen and (max-width: $phone-large) {
-	   margin-bottom: 100px;
-	}
-}
-
-.section-content-container {
-	max-width: 900px;
-	margin: auto;
-	margin-bottom: 100px;
-
-	& > p {
-		width: 700px;
-		margin: auto;
-		font-family: 'Roboto', sans-serif;
-		font-weight: 300;
-		line-height: 30px;
-		color: #7E7E7E;
-		transition: width 0.3s;
-
-		@media only screen and (max-width: $phone-large) {
-		   width: auto;
-		}
-	}
 }
 
 .full-width-container {
@@ -101,75 +89,81 @@
 
 #header-image-container {
 	width: 50%;
-	position: relative;
+	position: absolute;
 	top:50%;
-	transform: translateY(-50%); 
+	left: 50%;
+	height: 80%;
+	overflow: hidden;
+	transform: translateY(-50%);
+
+	> h1 {
+		// color: $feature-color;
+	}
 
 	@media only screen and (max-width: $phone-large) {
-	   width: 100%;
-	   position: static;
-	   transform: translateY(0%); 
+	   display: none
 	}
-
-	> img {
-		width: 100%;
-	}
-}
-
-// Carousel styling 
-
-.carousel-mask {
-	height: 500px;
-	width: 100%;
-	position: relative;
-
-	@media only screen and (max-width: $phone-large) {
-	   height: 300px;
-	}
-}
-
-.carousel-scrollable {
-	width: 100%;
-	height: 100%;
-	margin-top: 100px;
-	margin-bottom: 100px;
-	overflow-y: hidden;
-	overflow-x: scroll;
-	-webkit-scrollbar { display: none; };
-
-}
-
-.image-container {
-	height: 100%;
-	white-space: nowrap;
 
 	> img {
 		height: 100%;
-		margin-right: 25px;
 	}
-
 }
 
-
-[class^='carousel-button'] {
-	height: 100%;
-	width: 100px;
+#back-button-container {
 	position: absolute;
-	transition: background-color 0.3s;
+	display: block;
+	top: 50%;
+	height: 100%;
+	width: 100%;
+	transform: translateY(-50%);
+}
+
+#back-button {
+	height: 50px;
+	width: 20px;
+	top:50%;
+	transform: translateY(-50%);
+	position: relative;
 	cursor: pointer;
+	margin-bottom: 50px;
 
-	&:hover {
-		background-color: black;
-	}
-
-	&[class$="forward"] {
-		right: 0;
-	}
-
-	&[class$="back"] {
-		left: 0;
+	@media only screen and (max-width: $phone-large) {
+	   left: 0px;
+	   margin-bottom: 10px;
 	}
 }
+
+[class^="back-icon-line"] {
+	position: relative;
+	width: 12px;
+	height: 2px;
+	background-color: white;
+	display: block;
+	margin: auto;
+	top: 50%;
+	
+	&[class$="one"] {
+		transform: rotate(-45deg) translateX(0.5px);
+		transform-origin: center left;
+	}
+
+	&[class$="two"] {
+		width: 24px;
+		transform: translateY(-2.75px) translateX(6px);
+		left: 1px;
+	}
+
+	&[class$="three"] {
+		transform: rotate(45deg) translateX(0.5px);
+		transform-origin: center left;
+	}
+
+}
+
+a > #back-button {
+	height: 100%;
+}
+
 
 
 

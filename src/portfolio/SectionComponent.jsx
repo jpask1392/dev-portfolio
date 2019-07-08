@@ -3,6 +3,7 @@ import './project.scss';
 import SectionText from './sectionTextComponent.jsx';
 import SvgText from './SvgTitleComponent.jsx';
 import Carousel from './SectionsCarousel.jsx';
+import './SectionComponent.scss'
 
 
 
@@ -18,9 +19,15 @@ export default class Section extends React.Component {
 	render() {
 
 		return (
-			<div className="section-container">
+			<div 
+				className="section-container"
+				style={this.props.index%2 == 0 ? {backgroundColor:"", paddingBottom:"25px"} : {background:"white"}}
+			>
 				<div className="section-content-container container-max">
-					<SvgText title={this.props.title}/>
+					<span style={{float:"left", width:"30%"}}>
+						<h1>{this.props.title}</h1>
+						<hr></hr>
+					</span>
 					<SectionText text={this.props.text} />
 				</div>
 				<div className="full-width-container">

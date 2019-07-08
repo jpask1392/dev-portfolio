@@ -12,9 +12,21 @@ export default class ProjectHeaderImageComponent extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.src)
+	
 		return (
 			<div id="header-image-container" className="col rhs">
+				<h1 style={{
+					fontSize:"150px",
+					position:"absolute",
+					transform:"rotate(-90deg) translateX(-110px)",
+					transformOrigin:"left top",
+					whiteSpace:"nowrap",
+					bottom:"0",
+					lineHeight:"100px",
+					color:this.props.textColor()
+
+				}}>{this.props.title}</h1>
+
 				<ImageLoader 
 					src={`/assets/${this.props.src}`}
 					/>
@@ -22,5 +34,4 @@ export default class ProjectHeaderImageComponent extends React.Component {
 		);
 	}
 }
-
 

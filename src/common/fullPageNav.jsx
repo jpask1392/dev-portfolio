@@ -36,7 +36,6 @@ export default class FullPageNav extends React.Component {
 		}
 
 		this.props.active()
-		 
 	}
 
 	render() {

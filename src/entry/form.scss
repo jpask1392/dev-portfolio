@@ -8,13 +8,12 @@
 	// float: right;
 
 	@media only screen and (max-width: $phone-large) {
-	   width: auto;
-	   padding: 20px;
+
 	}
 }
 
 form {
-	width: 600px;
+	max-width: 900px;
 	margin: auto;
 	overflow: hidden;
 
@@ -32,6 +31,7 @@ input {
 	font-size: 1.1rem;
 	font-weight: 200;
 	background: none;
+	border-radius: 0px;
 }
 
 textarea {
@@ -44,6 +44,8 @@ textarea {
 	font-weight: 200;
 	float: left;
 	background: none;
+	border-radius: 0px;
+	padding: 10px 0px 10px 0px;
 }
 
 input:focus, textarea:focus {
@@ -70,15 +72,26 @@ button {
 
 .name-email-subject {
 	float: left;
-	width: calc(45% - 1);
+	width: calc(45% - 1px);
 	padding-right: 5%;
-	border-right: grey 1px solid
+	border-right: grey 1px solid;
+
+	@media only screen and (max-width: $phone-large) {
+		width: 100%;
+		float: none;
+	}
 }
 .message-container {
 	width: 45%;
 	float: left;
 	margin-left: 5%;
 	margin-bottom: 50px;
+
+	@media only screen and (max-width: $phone-large) {
+		width: 100%;
+		// float: none;
+		margin-left: 0;
+	}
 }
 
 

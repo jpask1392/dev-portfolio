@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './portfolio.scss';
 import Img from 'react-image';
 import { Link } from "react-router-dom";
+import ImageLoader from '../portfolio/imageLoader.jsx'
 
 export default class Portfolio extends Component {
 	_isMounted = false;
@@ -34,10 +35,12 @@ export default class Portfolio extends Component {
 		var data = this.state.data;
 
 		return (
-			<div id="portfolio-container" className="container-max" ref={this.props.portfolioRefProp}>
+			<div id="portfolio-container" ref={this.props.portfolioRefProp}>
 				<div id="portfolio-inner-container">
-					<h1>Case Studies</h1>
-					<b>View my Github for code examples</b>
+					<div className="container-max" style={{minHeight:"auto"}}>
+						<h1>Case Studies</h1>
+						<hr></hr>
+					</div>
 
 					{/*LIMIT RETURNED PROJECTS WITH SLICE WITHIN CONTAINER*/}
 					<div id='gallery-container'>
@@ -58,11 +61,17 @@ function Gallery(props) {
     var classNames = ["one", "two", "three", "one"];
 
     return (
+    	<div className={`project-container-${classNames[props.index]}`}>
 		<Link to={"projects/" + project['_id']}>
-			<div 	style={{backgroundImage: 'url(../../assets/' + project['mainImagePath'] + '.jpg)'}}
-					className={`project-container-${classNames[props.index]}`}>
+			<div 	
+				className="background-img-container" 
+				style={{
+					backgroundImage: 'url(../../assets/' + project['mainImagePath'] + '.jpg)'
+				}}
+			>
 			</div>
 		</Link>
+		</div>
 	);
 
 }
