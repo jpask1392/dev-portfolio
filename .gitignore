@@ -7,7 +7,7 @@ documentation/
 #FILES
 package-lock.json
 dev-portfolio.sublime-project
-credentials.json
+# credentials.json
 
 # ELASTIC BEANSTALK FILES
 .elasticbeanstalk/*
