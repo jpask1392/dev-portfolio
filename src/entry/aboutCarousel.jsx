@@ -24,10 +24,10 @@ export default class AboutCarousel extends React.Component {
 						</p>
 				},
 				{
-					title: "Achievements ",
+					title: "Accomplishments ",
 					updated: "06/15/2019",
 					text: 
-						<p>My professional background is rooted within <i>Architecture</i>. I graduated from Cardiff Metropolitan University in 2015, leading to a career as an Architectural Technologist for the past 3 years.  A need to build an architectural site portfolio back in 2015 led me down the rabbit hole of programming which raised my interest almost everyday in the office, by creating simple scripts to <i>automate</i> a variety of tasks, saving hundreds of work hours. The more I learned, the more I wanted to progress. I’ve built Wordpress sites for a previous firm and built my web portfolio many times, implementing new techniques through each iteration. My interest shows no signs of slowing down and I am very excited to learn more.
+						<p>Over the past few years I have gained experience in building both web applications and software plugins, educated by reputable online learning sources. I have successfully completed  a variety of projects including a node web application for my current developer portfolio, a PHP and SQL architecture portfolio, Wordpress websites and Python scripting for task automation. Database technologies such as MongoDB and SQL used for data storage, git for management and ESlint for code linting. Looking to progress and learn further, I have begun a personal educational project of a booking system to further demonstrate an understanding of a more interactive user experience. I am looking to learn data cleansing techniques of client side interaction with the backend data via this project. 
 							<u 	
 								style={{cursor:"pointer", marginLeft:"10px"}} 
 								onClick={() => this.setStateAndTranlsate(2, this.getSlideWidth()*2)}>

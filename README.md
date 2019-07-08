@@ -29,5 +29,7 @@
 
 # Code quality 
 	
-* this project uses eslint for linting 
-* run './node_modules/.bin/eslint "src/**"' to lint
+This project uses eslint for linting
+
+run to lint
+    $./node_modules/.bin/eslint "src/**"
