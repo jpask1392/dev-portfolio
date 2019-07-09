@@ -564,17 +564,17 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/jamiepask/Sites/dev-portfolio",
-		"/Users/jamiepask/Sites/dev-portfolio/server",
-		"/Users/jamiepask/Sites/dev-portfolio/server/api"
 	],
 	"file_history":
 	[
-		"/Users/jamiepask/Sites/dev-portfolio/src/entry/aboutCarousel.jsx",
+		"/Users/jamiepask/Sites/bookingSystem/index.js",
+		"/Users/jamiepask/Sites/bookingSystem/index.html",
+		"/Users/jamiepask/Sites/dev-portfolio/.gitignore",
+		"/Users/jamiepask/Sites/dev-portfolio/server/server.js",
 		"/Users/jamiepask/Sites/dev-portfolio/server/api/credentials.json",
 		"/Users/jamiepask/Sites/dev-portfolio/server/api/controllers/controller.js",
+		"/Users/jamiepask/Sites/dev-portfolio/src/entry/aboutCarousel.jsx",
 		"/Users/jamiepask/Sites/dev-portfolio/README.md",
-		"/Users/jamiepask/Sites/dev-portfolio/.gitignore",
 		"/Users/jamiepask/Sites/dev-portfolio/test.html",
 		"/Users/jamiepask/Sites/dev-portfolio/src/common/ScrollToTop.jsx",
 		"/Users/jamiepask/Sites/dev-portfolio/src/entry/aboutCarousel.scss",
@@ -592,7 +592,6 @@
 		"/Users/jamiepask/Sites/dev-portfolio/src/entry/form.scss",
 		"/Users/jamiepask/Sites/dev-portfolio/src/entry/landing.jsx",
 		"/Users/jamiepask/Sites/dev-portfolio/src/entry/landing.scss",
-		"/Users/jamiepask/Sites/dev-portfolio/server/server.js",
 		"/Users/jamiepask/Sites/dev-portfolio/.ebignore",
 		"/Users/jamiepask/Sites/dev-portfolio/package.json",
 		"/Users/jamiepask/Sites/dev-portfolio/bin/startup",
@@ -695,9 +694,7 @@
 		"/Users/jamiepask/Sites/node-playground/public/test2.html",
 		"/Users/jamiepask/Sites/node-test/src/routes/crmRoutes.js",
 		"/Users/jamiepask/Sites/node-test/src/controllers/crmController.js",
-		"/Users/jamiepask/Sites/node-test/app.js",
-		"/Users/jamiepask/Sites/node-test/src/models/crmModel.js",
-		"/Users/jamiepask/Sites/node-test/package.json"
+		"/Users/jamiepask/Sites/node-test/app.js"
 	],
 	"find":
 	{
