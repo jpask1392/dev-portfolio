@@ -6,23 +6,16 @@ const OAuth2 = google.auth.OAuth2;
 const credentials = require("../credentials.json"); 
 
 // MongoDB connection URL
-
-<<<<<<< HEAD
-const url = `mongodb+srv://${credentials.MONGO_USER}:${credentials.MONGO_PASS}@dev-portfolio-cpini.mongodb.net/test?retryWrites=true&w=majority`;
-const DBName = 'projectsDB';
-=======
 const url = process.env.PORT == 8081 ? 
   `mongodb+srv://${credentials.DB_USER}:${credentials.DB_PASS}@dev-portfolio-cpini.mongodb.net/test?retryWrites=true&w=majority` : 
   "mongodb://localhost:27017";
 const DBName = 'projectsDB';
 
-
-
 console.log(url)
 
 // const url = "blank";
 // const DBName = 'blank';
->>>>>>> red-design
+
 
 // GET ALL PROJECTS
 export const viewAllProjects = (req, res) => {
