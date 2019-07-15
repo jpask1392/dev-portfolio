@@ -355,25 +355,59 @@ hr {
 }
 
 
-
+// applies to new element entering the DOM
 .newone-enter {
-	min-height: 100%;
   	opacity: 0;
+
 }
 
-.newone-enter .newone-enter-active {
-	min-height: 100%;
+// active during the transition
+.newone-enter-active {
   	opacity: 1;
-  	transition: opacity 1s ease-in;
+  	// position: fixed;
+	  // top: 0;
+	  // z-index: 12;
+	  // width:100%;
+	  // back
+  	transition: opacity 1s ; 
 }
 
-// .fade-exit {
-//   opacity: 0;
+.portfolio-enter {
+  	opacity: 0;
+
+}
+
+// active during the transition
+.portfolio-enter-active {
+  	opacity: 1;
+  	position: fixed;
+	  top: 0;
+	  z-index: 12;
+	  width:100%;
+	
+  	transition: opacity 1s ; 
+}
+
+// .newone-enter-done {
+//   	// opacity: 0.5;
+//   	transition: opacity 1s ; 
 // }
-// .fade-exit-active {
-//   opacity: 1;
-//   transition: opacity 200ms;
-// }
+
+// triggers when element is removed
+.newone-exit {
+  opacity: 1;
+  position: fixed;
+  top: 0;
+  z-index: 11;
+  width:100%;
+}
+
+// applies to element leaving the DOM - active during the transition
+.newone-exit-active {
+	opacity: 0;
+	transition: opacity 1s; 
+
+}
 
 
 

@@ -35,11 +35,11 @@ export default class App extends Component {
 			<Route render={({location}) => (
 				<div className='full-height'>
 					<div id='page-container'>
-					<TransitionGroup style={{height:"100%", opacity:"1"}}>
+					<TransitionGroup style={{height:"100%"}}>
 					<CSSTransition
 	                  key={location.key}
 	                  classNames="newone"
-	                  timeout={300}>
+	                  timeout={1000}>
 						<Switch location={location}>
 
 							<Route path="/" exact render={(props) => {
