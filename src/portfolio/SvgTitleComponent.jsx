@@ -1,5 +1,4 @@
 import React from 'react';
-import './SvgTitleComponent.scss';
 import { onScreen } from '../common/commonFunctions.js'
 
 export default class SvgText extends React.Component {

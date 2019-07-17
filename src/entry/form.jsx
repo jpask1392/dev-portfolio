@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import styles from './form.scss';
 import { Route, Link } from "react-router-dom";
 import { createBrowserHistory } from 'history';
 

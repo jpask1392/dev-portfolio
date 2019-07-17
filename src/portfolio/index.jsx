@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import './project.scss';
 import Section from './SectionComponent.jsx';
 import ProjectEntry from './projectEntry.jsx';
 import Scroll from '../entry/scrollComponent.jsx';

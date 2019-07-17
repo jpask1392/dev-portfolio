@@ -1,9 +1,7 @@
 import React from 'react';
-import './project.scss';
 import SectionText from './sectionTextComponent.jsx';
 import SvgText from './SvgTitleComponent.jsx';
 import Carousel from './SectionsCarousel.jsx';
-import './SectionComponent.scss'
 
 
 

@@ -1,6 +1,5 @@
 import React from 'react'
 import { Route, Link } from "react-router-dom";
-import './NumberNavigation.scss'
 
 export default class NumberNavigation extends React.Component {
 

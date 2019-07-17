@@ -1,5 +1,4 @@
 import React from 'react';
-import './aboutCarousel.scss';
 
 export default class AboutCarousel extends React.Component {
 	

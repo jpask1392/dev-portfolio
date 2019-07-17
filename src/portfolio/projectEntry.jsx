@@ -1,5 +1,4 @@
 import React from 'react'
-import './project.scss'
 import ProjectHeaderImage from './ProjectHeaderImageComponent.jsx'
 import { Route, Link } from "react-router-dom";
 import NumberNavigation from './NumberNavigation.jsx'

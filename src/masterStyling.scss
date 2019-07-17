@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700,900&display=swap');
+
+// Variables 
+
+// Media Queries
+$screen-large: 1100px;
+$screen-medium: 900px;
+$screen-small: 768px;
+
+$phone-large: 900px;
+$phone-medium: 900px;
+$phone-small: 900px;
+
+// Site colors
+$background-color: #161517;
+$feature-color: #C90000;
+$light-grey: #F7F7F7;
+$secondary-color : #2699FB;
+$grey-text-dark-bkg : #615E65;
+
+// Text styling
+h1 {
+	font-size: 6em;
+	font-family: 'Montserrat', sans-serif;
+	margin: 0;
+	padding: 0;
+	font-weight: 900; 
+}
+
+h2 {
+	font-size: 30px;
+	font-family: 'Montserrat', sans-serif;;
+	margin: 0;
+	padding: 0;
+	font-weight: 900; 
+}
+
+h3 {
+	font-size: 15px;
+	font-family: 'Montserrat', sans-serif;;
+	margin: 0;
+	padding: 0;
+	font-weight: 700; 
+}
+
+
+p {
+	font-size: 14px;
+	font-family: 'Roboto';
+	line-height: 2;
+	margin: 0;
+	padding: 0;
+}
+
+.sub-heading {
+	color: $secondary-color
+}
+
+@import './common/common.scss';
+@import './common/navigation.scss';
+@import './entry/about.scss';
+@import './entry/aboutCarousel.scss';
+@import './entry/contact.scss';
+@import './entry/form.scss';
+@import './entry/landing.scss';
+@import './entry/portfolio.scss';
+@import './entry/scrollComponent.scss';
+@import './portfolio/NumberNavigation.scss';
+@import './portfolio/project.scss';
+@import './portfolio/SectionComponent.scss';

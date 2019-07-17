@@ -1,14 +1,75 @@
-@import "../common/common.scss";
+.portfolio-buffer {
+	height: 100%;
+}
 
 #portfolio-container {
 	height: 100%;
-	// width: 100%;
-	// margin-bottom: 100px;
-	padding-top: 100px;
-
+	width: 100%;
+	display: inline-block;
 	@media only screen and (max-width: $phone-large) {
 	   margin-left: 0px;
 	   height: auto;
+	}
+}
+
+.title-info {
+
+	width: 8.3333%;
+	left: 8.3333%;
+	top: 50%;
+	transform: translateY(-50%);
+	opacity: 0;
+	transition: opacity 1s;
+
+	&.fixed {
+		position: fixed;
+		opacity: 1;
+	}
+
+	> h2 {
+		color: white;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+	> p {
+		color: $grey-text-dark-bkg;
+	}
+}
+
+
+.scroll-dots {
+
+	width: 8.3333%;
+	right: 8.3333%;
+	top: 50%;
+	transform: translateY(-50%);
+	opacity: 0;
+	transition: opacity 1s;
+
+	&.fixed {
+		position: fixed;
+		opacity: 1;
+	}
+
+	> h2 {
+		color: white;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+	> p {
+		color: $grey-text-dark-bkg;
+	}
+
+	> span {
+		width: 10px;
+		height: 10px;
+		background-color: white;
+		border-radius: 10px;
+		display: block;
+		margin-top: 10px;
+		margin-bottom: 10px;
 	}
 }
 
@@ -27,12 +88,10 @@
 }
 
 #gallery-container {
-	margin-top: 50px;
-	height: 80%;
-	// width: auto;
-	white-space: nowrap;
-	overflow-y: hidden;
-	overflow-x: scroll;
+	width: 50%;
+	left: 25%;
+	height: 100%;
+	position: relative;
 
 	@media only screen and (max-width: $phone-large) {
 		white-space: initial;
@@ -41,30 +100,32 @@
 	}
 }
 
-.background-img-container {
-		background-size: cover;
-		width: 100%;
-		height: 100%;
-		background-position: center;
-		transition: all 0.3s;
-		position: absolute;
-	}
+.project-container {
+	width: 100%;
+	height: 100%;
+	margin-top: 10%
 
-[class^='project-container'] {
-	background-color: lightgrey;
-	// float: left;
-	margin-left: 15px;
-	margin-right: 15px;
-	// overflow: hidden;
-	background-size: cover;
+}
+
+.individual-project {
+	background-size: contain;
+	background-repeat: no-repeat;
 	background-position: center; 
 	cursor: pointer ;
-	transition: all 0.3s;
+	transition: all 0.6s ease-out;
 	position: relative;
-	display: inline-block;
+	display: block;
 	overflow: hidden;
-	width: 55%;
-	height: 100%;
+	transform: translate(-50%, 50%) rotate(10deg);
+	top: 50%;
+	left: 50%;
+
+	width: 100%;
+	height: 50%;
+
+	&.rotate {
+		transform: translate(-50%, 50%) rotate(0deg);
+	}
 
 
 	@media only screen and (max-width: $phone-large) {
@@ -72,86 +133,4 @@
 		margin-right: 0px;
 		margin-bottom: 5px;
 	}
-
-
-	// HOVER EFFECT START --------
-	
-	&:before, &:after {
-		content: "";
-	    position:absolute;
-	    border-color:rgba(0,0,0,0);
-	    border-style:solid;
-	    box-sizing: border-box;
-	    transition: all 0.3s ease-out;
-	    pointer-events: none;
-	}
-
-	&:before {
-		border-width:0 5px;
-	    width: 100%;
-	    height: 50%;
-	    top:25%;
-	    z-index: 2;
-	}
-
-	&:after {
-		border-width:5px 0px;
-	    width: 50%;
-	    height: 100%;
-	    left:50%;
-	    transform: translateX(-50%);
-	}
-
-	&:hover {
-
-
-    	&:before {
-    		height: 100%;
-    		top:0;
-    		border-color:rgba(0,0,0,1);
-    	}
-
-    	&:after {
-    		left:0;
-    		width: 100%;
-    		transform: translateX(0%);
-    		border-color:rgba(0,0,0,1);
-    	}
-
-    	.background-img-container{
-			transform: scale(1.2);
-		}
-    }
-    // HOVER EFFECT END --------
-
-	&[class$="one"] {
-		
-
-		@media only screen and (max-width: $phone-large) {
-		   height: 300px;
-		   width: 100%;
-		}
-	}
-
-	&[class$="two"] {
-
-
-		@media only screen and (max-width: $phone-large) {
-		   height: 300px;
-		   width: 100%;
-		}
-	}
-
-	&[class$="three"] {
-
-
-		@media only screen and (max-width: $phone-large) {
-		   height: 300px;
-		   width: 100%;
-		}
-	}
-
-	
-
-
 }

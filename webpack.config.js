@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   context: __dirname,
-  entry: ['babel-polyfill', './src/index.js'],
+  entry: ['babel-polyfill', './src/index.jsx'],
   output: {
     path: path.join(__dirname, "build"),
     // THIS FILENAME GETS CALLED WITHIN INDEX.HTML

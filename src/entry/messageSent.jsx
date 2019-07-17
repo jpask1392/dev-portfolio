@@ -1,5 +1,4 @@
 import React from 'react';
-import './contact.scss';
 import { Route, Link } from "react-router-dom";
 
 const MessageSent = (props) => {

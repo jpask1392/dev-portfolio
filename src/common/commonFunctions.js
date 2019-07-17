@@ -15,6 +15,10 @@ export const onScreen = (elementRef,
 		topOfEl = elementRef.current.getBoundingClientRect().top + (elHeight/2) - 100
 	}
 
+	if (options.elOffset == "bottom") {
+		topOfEl = elementRef.current.getBoundingClientRect().bottom
+	}
+
 	let topOfElToWindow = topOfEl - window.innerHeight
 	let bottomOfElToWindow = topOfEl - window.innerHeight + elHeight
 	let windowHeight = window.innerHeight
@@ -22,8 +26,6 @@ export const onScreen = (elementRef,
 	if (options.screenOffset == "middle") {
 		topOfElToWindow = topOfEl - window.innerHeight + (window.innerHeight/2)
 		windowHeight = window.innerHeight/4
-
-
 	}
 
 	if((topOfElToWindow < 0) & (bottomOfElToWindow > -(windowHeight))) {
