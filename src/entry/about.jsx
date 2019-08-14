@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import './about.scss';
-import ReactSVG from 'react-svg';
-import SvgAboutImage from './SvgAboutImage.jsx';
-import { onScreen } from '../common/commonFunctions.js'
-import AboutCarousel from './aboutCarousel.jsx'
+import React 			from 'react';
+import ReactSVG 		from 'react-svg';
+import SvgAboutImage 	from './SvgAboutImage.jsx';
+import { onScreen } 	from '../common/commonFunctions.js'
+import NextButton 		from '../common/nextButton.jsx'
 
-export default class About extends Component {
+
+export default class About extends React.Component {
 	_isMounted = false;
 
 	constructor(props) {
@@ -13,64 +13,76 @@ export default class About extends Component {
 		this.state = { 
 				visible: false, 
 			};
+		this.handleScroll = this.handleScroll.bind(this)
 
-		this.handleScroll = this.handleScroll.bind(this);
-		this.myRef = React.createRef();
 	}
 
-	// COLLECT COMPONENT TOP POSTION
-	componentDidMount() { 
-
-		this._isMounted = true;
+	componentDidMount() {
+		this._isMounted = true
 
 		if(this._isMounted) {
-
-			if(onScreen(this.myRef)) {
-				this.setState({ visible: true });
-			}
-
-			window.addEventListener('scroll', this.handleScroll);	
+			window.addEventListener("scroll", this.handleScroll)
 		}
-
-		// WINDOW RESIZE EVENT LISTENER HERE
 	}
 
-	// FUNCTION TO HANDLE LOCATION OF COMPONENT ON SCREEN
-	handleScroll() {
+	handleScroll = () => {
 
-		if(this._isMounted) {
-			if(onScreen(this.myRef)) {
-				this.setState({ visible: true });
-			} else {
-				this.setState({ visible: false })
-			}
+		if(this._isMounted & onScreen(this.props.aboutRefProp, {elOffset:"top"})) {
+			this.setState({visible: true})
+		} else {
+			this.setState({visible: false})
 		}
 	}
 
 	componentWillUnmount() {
 		this._isMounted = false;
+		window.removeEventListener("scroll", this.handleScroll)
 	}
 
 	render() {
+
 		return (
-			<div className="about-container " id='about-container' ref={this.props.aboutRefProp}>
+			<div 
+				className="about-container " 
+				id='about-container' 
+				ref={this.props.aboutRefProp}
+			>
+				<div className={this.state.visible ? "start about-page end" : "start about-page"}></div>
+				<div 
+					id="about-text-container"
+					className={this.state.visible ? "fade-in-text" : ""}
+				>
+					<h2>I’m a passionate developer constantly improving. </h2>
+					<p style={{marginTop: "30px", marginBottom: "30px"}}>To sum it up</p>
+					<span>
+						<h3 className="sub-heading">June 2014</h3>
+						<p>
+						Graduated from Cardiff Metropolitan University with a Bachelor Degree in Architectural Design and Technology
+						</p>
+						<br></br>
 
-				<div id='about-img-container' ref={this.myRef} >
+						<h3 className="sub-heading">June 2015</h3>
+						<p>
+						Began working as a technician after close to year of traveling around America and Canada. During this time I began to develop an interest for software development after trying to create a web portfolio.
+						</p>
+						<br></br>
 
-					<SvgAboutImage visible={this.state.visible} />					
-
-				</div>
-
-				<div className="container-max" id='about-text-container'>
-
-					<AboutCarousel/>
-					<div>
-						
-						
+						<h3 className="sub-heading">June 2018</h3>
+						<p>
+						After 3 years of working as a technician I decided to finally pursue a career as a software developer. I tied the knot and moved off to Los Angeles, Brentwood area.
+						</p>
+						<br></br>
+					</span>
+					<div style={{
+						float:"right",
+						marginTop:"50px"
+					}}>
+						<NextButton 
+							linkTo="/about"
+							backgroundColor="#2699FB"
+						/>
 					</div>
-       
 				</div>
-
 			</div>
 		)
 	}

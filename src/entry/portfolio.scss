@@ -1,19 +1,138 @@
-@import "../common/common.scss";
+.portfolio-buffer {
+	height: 100%;
+}
 
 #portfolio-container {
-	height: 100%;
-	// width: 100%;
-	// margin-bottom: 100px;
-	padding-top: 100px;
-	// position: fixed;
-	// width: 100%;
-	// top:0;
-	// z-index: 10;
-	// background-color: white;
+	min-height: 100%;
+	width: 100%;
+	display: inline-block;
 
 	@media only screen and (max-width: $phone-large) {
 	   margin-left: 0px;
 	   height: auto;
+	}
+}
+
+.title-info {
+
+	width: 8.3333%;
+	left: 8.3333%;
+	top: 50%;
+	transform: translateY(-50%);
+	opacity: 0;
+	transition: opacity 1s;
+	position: absolute;
+
+	&.fixed {
+		position: fixed!important;
+		opacity: 1;
+		z-index: 2;
+	}
+
+	> h2 {
+		color: white;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+	> p {
+		color: $grey-text-dark-bkg;
+	}
+
+	@media only screen and (max-width: $phone-large) {
+	  	top: auto;
+	  	bottom: 0;
+	  	width: auto;
+	  	right: 0;
+	  	left: 0;
+	  	transform: initial;
+	  	z-index: 1;
+	  	background-color: black;
+	  	padding: 30px;
+	}
+}
+
+
+.scroll-dots {
+
+	width: 8.3333%;
+	right: 8.3333%;
+	top: 50%;
+	transform: translateY(-50%);
+	opacity: 0;
+	transition: opacity 1s;
+	position: absolute;
+
+	&.fixed {
+		position: fixed!important;
+		opacity: 1;
+		z-index: 2;
+	}
+
+	@media only screen and (max-width: $phone-large) {
+	  	display: none;
+	}
+
+	> h2 {
+		color: white;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+	> p {
+		color: $grey-text-dark-bkg;
+	}
+
+	> span {
+		margin: 20px auto 20px auto;
+		width: 10px;
+		height: 10px;
+		// background-color: white;
+		border-radius: 10px;
+		border: 1px white solid;
+		display: block;
+		cursor: pointer;
+		transition: all 0.3s;
+		position: relative;
+
+		> .tool-tip {
+			color: $grey-text-dark-bkg;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			transition: all 0.3s;
+			left: 30px;
+			opacity: 0;
+			line-height: 1.1em;
+		}
+
+		&:hover .tool-tip {
+			opacity: 1;
+		}
+	}
+}
+
+.active-dot {
+	width: 20px!important;
+	height: 20px!important;
+	border: none!important;
+
+	background-color: $secondary-color!important;
+}
+
+.view-all-button {
+	position: relative;
+	width: 100%;
+	// height: 100px
+
+	> h3, a {
+		position: absolute;
+		transform: rotate(90deg);
+		transform-origin: left;
+		left:50%;
+		color: white;
+		text-decoration: none;
+		white-space: nowrap;
 	}
 }
 
@@ -32,131 +151,103 @@
 }
 
 #gallery-container {
-	margin-top: 50px;
-	height: 80%;
-	// width: auto;
-	white-space: nowrap;
-	overflow-y: hidden;
-	overflow-x: scroll;
+	width: 100%;
+	left: 0;
+	height: 100%;
+	position: relative;
 
 	@media only screen and (max-width: $phone-large) {
-		white-space: initial;
-		margin-left: 15px;
-		margin-right: 15px;
+
 	}
 }
 
-.background-img-container {
-		background-size: cover;
-		width: 100%;
-		height: 100%;
-		background-position: center;
-		transition: all 0.3s;
-		position: absolute;
+.project-container {
+	width: 100%;
+	height: 100%;
+	// padding-top: 5%;
+	// padding-bottom: 5%;
+
+	&.changing {
+		padding: 0!important;
+		position: fixed;
+		top:10%;
+		left: 50%;
+		transform: translate(-50%);
+		opacity: 1!important
 	}
 
-[class^='project-container'] {
-	background-color: lightgrey;
-	// float: left;
-	margin-left: 15px;
-	margin-right: 15px;
-	// overflow: hidden;
-	background-size: cover;
+}
+
+.individual-project {
+	background-size: contain;
+	background-repeat: no-repeat;
 	background-position: center; 
 	cursor: pointer ;
-	transition: all 0.3s;
+	transition: transform 0.6s ease-out;
 	position: relative;
-	display: inline-block;
-	overflow: hidden;
-	width: 55%;
-	height: 100%;
+	display: block;
+	overflow-y: auto;
+	transform: translate(-50%, 50%) rotate(10deg);
+	// top: 50%;
+	left: 50%;
+
+	width: 100%;
+	height: 50%;
+
+	&.rotate {
+		transform: translate(-50%, 50%) rotate(0deg);
+	}
 
 
 	@media only screen and (max-width: $phone-large) {
-		margin-left: 0px;
-		margin-right: 0px;
-		margin-bottom: 5px;
+		// margin-left: 0px;
+		// margin-right: 0px;
+		// margin-bottom: 5px;
 	}
-
-
-	// HOVER EFFECT START --------
-	
-	&:before, &:after {
-		content: "";
-	    position:absolute;
-	    border-color:rgba(0,0,0,0);
-	    border-style:solid;
-	    box-sizing: border-box;
-	    transition: all 0.3s ease-out;
-	    pointer-events: none;
-	}
-
-	&:before {
-		border-width:0 5px;
-	    width: 100%;
-	    height: 50%;
-	    top:25%;
-	    z-index: 2;
-	}
-
-	&:after {
-		border-width:5px 0px;
-	    width: 50%;
-	    height: 100%;
-	    left:50%;
-	    transform: translateX(-50%);
-	}
-
-	&:hover {
-
-
-    	&:before {
-    		height: 100%;
-    		top:0;
-    		border-color:rgba(0,0,0,1);
-    	}
-
-    	&:after {
-    		left:0;
-    		width: 100%;
-    		transform: translateX(0%);
-    		border-color:rgba(0,0,0,1);
-    	}
-
-    	.background-img-container{
-			transform: scale(1.2);
-		}
-    }
-    // HOVER EFFECT END --------
-
-	&[class$="one"] {
-		
-
-		@media only screen and (max-width: $phone-large) {
-		   height: 300px;
-		   width: 100%;
-		}
-	}
-
-	&[class$="two"] {
-
-
-		@media only screen and (max-width: $phone-large) {
-		   height: 300px;
-		   width: 100%;
-		}
-	}
-
-	&[class$="three"] {
-
-
-		@media only screen and (max-width: $phone-large) {
-		   height: 300px;
-		   width: 100%;
-		}
-	}
-
-	
-
-
 }
+
+.initial-fade {
+	opacity: 1;
+	transition: opacity 0.3s
+}
+
+.fade-out-other-elements {
+	opacity: 0!important
+}
+
+// .after {
+// 	position: fixed;
+// 	top:0;
+// 	left:0;
+// 	transition: transform 1s;
+// 	transform: translateY(0px)
+// }
+
+// .before {
+// 	transition: transform 1s;
+// 	// transform: translateY(0)
+// }
+
+
+// .tests-enter {
+// 	position: fixed;
+// 	top:0
+//   // opacity: 0;
+// }
+// .tests-enter-active {
+// 	position: fixed;
+// 	top:0;
+//   opacity: 1;
+//   transition: opacity 200ms;
+// }
+// .tests-exit {
+//   // opacity: 1;
+//   position: fixed;
+//   top:0
+// }
+// .tests-exit-active {
+//   // opacity: 0;
+//   // transition: opacity 200ms;
+//   position: fixed;
+//   top:0
+// }

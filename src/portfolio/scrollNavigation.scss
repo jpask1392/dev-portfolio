@@ -1,0 +1,19 @@
+.scroll-navigation-container {
+	right: 8.333%;
+	top: 100px;
+	position: sticky;
+	position: -webkit-sticky;
+	float: right;
+	display: inline-block;
+	cursor: pointer;
+	width: 8.3333%;
+	border-left: solid 1px grey;
+	padding-left: 50px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.active-title {
+	color: red;
+}
+

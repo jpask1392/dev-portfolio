@@ -1,0 +1,72 @@
+$larger-dot-size: 12px;
+$dot-size: 10px;
+$animation-timer: 0.8s;
+$animation-delay: calc(#{$animation-timer} / 2);
+
+.next-button-container {
+
+	cursor: pointer;
+	margin-top: 20px;
+	display: block;
+
+	> span {
+
+		width: $dot-size;
+		height: $dot-size;
+		border-radius: 50px;
+		display: inline-block;
+		margin-right: 6px;
+		background-color: $secondary-color;
+		opacity:0.7;
+
+		&:nth-child(1) {
+			animation: 
+				larger 
+				0.8s
+				infinite
+				alternate
+				ease-in-out;
+			// animation-iteration-count: infinite;
+			// animation-direction: alternate;
+
+		}
+
+		&:nth-child(2) {
+			animation: 
+				larger 
+				$animation-timer 
+				infinite
+				alternate
+				ease-in-out;
+			animation-delay: $animation-delay;
+		}
+
+		&:nth-child(3) {
+			animation: 
+				larger 
+				$animation-timer 
+				infinite
+				alternate
+				ease-in-out;
+			animation-delay: calc(#{$animation-delay} * 2);
+		}
+
+		&:nth-child(4) {
+			animation: 
+				larger 
+				$animation-timer 
+				infinite
+				alternate
+				ease-in-out;
+			animation-delay: calc(#{$animation-delay} * 3);
+		}
+	}
+}
+
+@keyframes larger {
+	to {	
+			transform: scale(1.2);
+			// border-radius: $larger-dot-size!important;
+			opacity: 1
+		}
+}

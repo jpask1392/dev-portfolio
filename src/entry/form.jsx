@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import styles from './form.scss';
 import { Route, Link } from "react-router-dom";
 import { createBrowserHistory } from 'history';
 
@@ -40,59 +39,63 @@ export default class Form extends React.Component {
 			})
 	}
 
+	// handle errors client side before sending
+
 	render() {
 		return (
 			<div id='form-container'>
+				<h2 style={{color:"white"}}>Thank you</h2>
 				<form id='email' action='/' method="POST" onSubmit={(e) => this.handlePost(e)}>
-					<div className="name-email-subject"> 
-					<div className="input-error-container">
-						<b>Name</b>
-						<input 
-							name='name' 
-							onChange={(e) => this.setState({name: e.target.value})} 
-						/>
-						<div className="error-box">
-							<b className="error-text">{this.state.errors.name}</b>
-						</div>
-					</div>
 
-					<div className="input-error-container">
-						<b>Email</b>
-						<input 
-							name='email' 
-							onChange={(e) => this.setState({email: e.target.value})}
-						/>
-						<div className="error-box">
-							<b className="error-text">{this.state.errors.email}</b>
-						</div>
-					</div>
+					<dl>
+						<dt>Name</dt>
+						<dd>
+							<input 
+								name='name' 
+								onChange={(e) => this.setState({name: e.target.value})} 
+							/>
+							<div className="error-box">
+								<b className="error-text">{this.state.errors.name}</b>
+							</div>
+						</dd>
 
-					<div className="input-error-container">
-						<b>Subject</b>
-						<input 
-							name='subject' 
-							onChange={(e) => this.setState({subject: e.target.value})}
-						/>
-						<div className="error-box">
-							<b className="error-text">{this.state.errors.subject}</b>
-						</div>
-					</div>
-					</div>
-					<span className="separator"></span>
-					<div className="message-container">
-					<div className="input-error-container">
-						<b>Message</b>
-						<textarea 
-							name="message" 
-							id='email' 
-							cols="50"  
-							onChange={(e) => this.setState({message: e.target.value})}
-						/>
-						<div className="error-box">
-							<b className="error-text">{this.state.errors.message}</b>
-						</div>
-					</div>
-					</div>
+						<dt>Email</dt>
+						<dd>
+							<input 
+								name='email' 
+								onChange={(e) => this.setState({email: e.target.value})}
+							/>
+							<div className="error-box">
+								<b className="error-text">{this.state.errors.email}</b>
+							</div>
+						</dd>
+
+						<dt>Subject</dt>
+						<dd>
+							<input 
+								name='subject' 
+								onChange={(e) => this.setState({subject: e.target.value})}
+							/>
+							<div className="error-box">
+								<b className="error-text">{this.state.errors.subject}</b>
+							</div>
+						</dd>
+
+						<dt>Message</dt>
+						<dd>
+							<textarea 
+								name="message" 
+								id='email' 
+								cols="50"  
+								onChange={(e) => this.setState({message: e.target.value})}
+							/>
+							<div className="error-box">
+								<b className="error-text">{this.state.errors.message}</b>
+							</div>
+						</dd>
+
+					</dl>
+					
 					<button type='submit' >SEND</button>
 				</form>
 

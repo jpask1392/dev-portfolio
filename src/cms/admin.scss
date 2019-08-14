@@ -1,0 +1,16 @@
+.content-container {
+	// background: blue;
+	position: relative;
+	margin-left: 300px;
+}
+
+.content-header {
+	display: flex;
+	height: 100px;
+	border-bottom: 1px solid grey;
+
+	> h3 {
+		align-self: center;
+		padding-left: 30px;
+	}
+}

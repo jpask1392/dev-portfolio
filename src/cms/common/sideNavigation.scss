@@ -1,0 +1,46 @@
+#side-nav-container {
+	height: 100vh;
+	width: 300px;
+	background: $background-color;
+	position: fixed;
+	top: 0;
+
+	> ul {
+		margin: 0;
+		padding: 0;
+	}
+
+	> ul li {
+		width: 100%;
+		height: 100px;
+		
+	}
+
+	> ul li a {
+		display: flex;
+		color: white;
+		// background-color: blue;
+		width: 100%;
+		height: 100%;
+		text-decoration: none;
+		transition: background-color 0.2s;
+		
+		> b {
+			align-self: center;
+			padding-left: 30px;		
+		}
+	}
+
+	> ul li a:hover {
+		color: white;
+		background-color: black;
+		
+	}
+
+	> ul li a.active {
+		background-color: black;
+	}
+
+
+
+}
