@@ -1,54 +1,45 @@
 #form-container {
-	width: 100%;
+	width: 41.6666%;
 	overflow: hidden;
 	margin-top: 50px;
-	
-	// float: right;
-
-	@media only screen and (max-width: $phone-large) {
-
-	}
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
 }
 
 form {
-	max-width: 900px;
-	margin: auto;
-	overflow: hidden;
-
+	margin: auto;	
 }
 
-input {
+input, textarea {
 	width: 100%;
-	padding: 10px 0px 10px 0px;
-	// margin-top: 15px;
-	// margin-bottom: 15px;
-	border:none;
-	border-bottom: 1px solid grey;
+	padding: 10px 10px 10px 10px;
+	border:1px solid white;
 	box-sizing: border-box;
-	height: 50px;
-	font-size: 1.1rem;
-	font-weight: 200;
+	height: 2.5em;
+	font-size: 1em;
 	background: none;
-	border-radius: 0px;
+	color: white
 }
 
 textarea {
-	width: 100%;
-	height: 260px;
-	border:none;
-	border-bottom: 1px solid grey;
-	box-sizing: border-box;
-	font-size: 1.1rem;
-	font-weight: 200;
-	float: left;
+	height: 15em;
 	background: none;
-	border-radius: 0px;
-	padding: 10px 0px 10px 0px;
 }
 
 input:focus, textarea:focus {
 	outline-color: $light-grey;
-	border-bottom: 3px solid $feature-color;
+	// border-bottom: 3px solid $feature-color;
+}
+
+dt {
+	color: $grey-text-dark-bkg;
+	margin-bottom: 5px;
+}
+
+dd {
+	margin: 0
 }
 
 button {
@@ -59,44 +50,21 @@ button {
 	cursor: pointer;
 	float: right;
 	color: white;
+	clear: both;
 }
-
-
 
 .input-error-container {
 	width: 100%;
 	// float: left;
-}
-
-.name-email-subject {
-	float: left;
-	width: calc(45% - 1px);
-	padding-right: 5%;
-	border-right: grey 1px solid;
-
-	@media only screen and (max-width: $phone-large) {
-		width: 100%;
-		float: none;
+	> b {
+		color: white;
 	}
 }
-.message-container {
-	width: 45%;
-	float: left;
-	margin-left: 5%;
-	margin-bottom: 50px;
-
-	@media only screen and (max-width: $phone-large) {
-		width: 100%;
-		// float: none;
-		margin-left: 0;
-	}
-}
-
 
 .error-box {
 	width: 100%;
 	// position: relative;
-	height: 30px;
+	height: 25px;
 	margin: 0;
 	padding:0;
 	display: block;
@@ -112,10 +80,3 @@ button {
 	padding: 0;
 }
 
-// .separator {
-// 	height: 100%;
-// 	width: 1px;
-// 	background:grey;
-// 	float: left;
-// 	display: block
-// }

@@ -1,0 +1,56 @@
+.page-change-container {
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	z-index: 10;
+	// display: none;
+	background-color: black;
+	opacity: 0;
+	pointer-events:none
+}
+
+.name-writing-wrapper {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+
+	> svg {
+		width: 10em;
+		height: 10em;
+	}
+}
+
+#Path_408 {
+	stroke: $grey-text-dark-bkg;
+	stroke-width: 1px;
+	stroke-dasharray: 150px;
+	stroke-dashoffset: 150px;
+	animation-name: draw;
+	animation-duration: 1.1s;
+	animation-fill-mode: forwards; // Stay on the last frame
+	animation-iteration-count: 1; // Run only once
+	animation-timing-function: linear;
+}
+
+.newone-enter .page-change-container {
+	// display: block;
+	animation: fade-out 1s;
+	// opacity: 1
+}
+
+.newone-enter-done .page-change-container {
+	display: none;
+}
+
+@keyframes fade-out {
+	0% {opacity: 1}
+	60% {opacity: 1}
+	100% {opacity: 0; display: none}
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}

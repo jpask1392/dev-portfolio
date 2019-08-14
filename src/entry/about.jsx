@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import ReactSVG from 'react-svg';
-import SvgAboutImage from './SvgAboutImage.jsx';
-import { onScreen } from '../common/commonFunctions.js'
-import AboutCarousel from './aboutCarousel.jsx'
+import React 			from 'react';
+import ReactSVG 		from 'react-svg';
+import SvgAboutImage 	from './SvgAboutImage.jsx';
+import { onScreen } 	from '../common/commonFunctions.js'
+import NextButton 		from '../common/nextButton.jsx'
 
 
-export default class About extends Component {
+export default class About extends React.Component {
 	_isMounted = false;
 
 	constructor(props) {
@@ -18,37 +18,36 @@ export default class About extends Component {
 	}
 
 	componentDidMount() {
-		window.addEventListener("scroll", this.handleScroll)
+		this._isMounted = true
 
-		setTimeout(this.removeDelay, 3000)
-	}
-
-	componentWillUnmount() {
-		this._isMounted = false;
-
-		
+		if(this._isMounted) {
+			window.addEventListener("scroll", this.handleScroll)
+		}
 	}
 
 	handleScroll = () => {
-		if(onScreen(this.props.aboutRefProp, {elOffset:"top"})) {
+
+		if(this._isMounted & onScreen(this.props.aboutRefProp, {elOffset:"top"})) {
 			this.setState({visible: true})
 		} else {
 			this.setState({visible: false})
 		}
 	}
 
-	removeDelay = () => {
-		console.log("Blah")
+	componentWillUnmount() {
+		this._isMounted = false;
+		window.removeEventListener("scroll", this.handleScroll)
 	}
 
 	render() {
 
 		return (
-			<div className="about-container " id='about-container' ref={this.props.aboutRefProp}>
-				<div className={this.state.visible ? "temp-image hide" : ""}></div>
-				<div className={this.state.visible ? "white-flash-cover-one" : ""}></div>
-				<div className={this.state.visible ? "white-flash-cover-two" : ""}></div>
-				<div className={this.state.visible ? "start end" : "start"}></div>
+			<div 
+				className="about-container " 
+				id='about-container' 
+				ref={this.props.aboutRefProp}
+			>
+				<div className={this.state.visible ? "start about-page end" : "start about-page"}></div>
 				<div 
 					id="about-text-container"
 					className={this.state.visible ? "fade-in-text" : ""}
@@ -56,24 +55,33 @@ export default class About extends Component {
 					<h2>I’m a passionate developer constantly improving. </h2>
 					<p style={{marginTop: "30px", marginBottom: "30px"}}>To sum it up</p>
 					<span>
-						<b className="sub-heading">June 2014</b>
+						<h3 className="sub-heading">June 2014</h3>
 						<p>
 						Graduated from Cardiff Metropolitan University with a Bachelor Degree in Architectural Design and Technology
 						</p>
 						<br></br>
 
-						<b className="sub-heading">June 2015</b>
+						<h3 className="sub-heading">June 2015</h3>
 						<p>
 						Began working as a technician after close to year of traveling around America and Canada. During this time I began to develop an interest for software development after trying to create a web portfolio.
 						</p>
 						<br></br>
 
-						<b className="sub-heading">June 2018</b>
+						<h3 className="sub-heading">June 2018</h3>
 						<p>
 						After 3 years of working as a technician I decided to finally pursue a career as a software developer. I tied the knot and moved off to Los Angeles, Brentwood area.
 						</p>
 						<br></br>
 					</span>
+					<div style={{
+						float:"right",
+						marginTop:"50px"
+					}}>
+						<NextButton 
+							linkTo="/about"
+							backgroundColor="#2699FB"
+						/>
+					</div>
 				</div>
 			</div>
 		)

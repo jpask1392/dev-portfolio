@@ -26,11 +26,26 @@ export const viewAllProjects = (req, res) => {
 		let db = client.db(DBName)
 
 		db.collection('projects')
-			.find({}, {projection: {"mainImagePath" : 1}}).sort({position: 1})
+			.find({}).sort({position: 1})
 			.toArray(function(err, docs) {
 	    		res.json(docs);
 	  		});
 	});
+}
+
+export const viewRecentProjects = (req, res) => {
+  
+  MongoClient.connect(url, {useNewUrlParser: true}, function(err, client) {
+    if (err) throw err 
+
+    let db = client.db(DBName)
+
+    db.collection('projects')
+      .find({}).sort({position: 1}).limit(3)
+      .toArray(function(err, docs) {
+          res.json(docs);
+        });
+  });
 }
 
 export const getAllProjectId = (req, res) => {
@@ -41,7 +56,7 @@ export const getAllProjectId = (req, res) => {
     let db = client.db(DBName)
 
     db.collection('projects')
-      .find({}, {projection: {"_id" : 1}}).sort({position: 1})
+      .find({}, {projection: {"_id" : 1, "projectName" : 1}}).sort({position: 1})
       .toArray(function(err, docs) {
           res.json(docs);
         });

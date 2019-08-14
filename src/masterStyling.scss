@@ -54,13 +54,15 @@ p {
 }
 
 .sub-heading {
-	color: $secondary-color
+	color: $secondary-color;
+	margin-bottom: 20px;
 }
 
 @import './common/common.scss';
 @import './common/navigation.scss';
+@import './common/footer.scss';
+@import './common/nextButton.scss';
 @import './entry/about.scss';
-@import './entry/aboutCarousel.scss';
 @import './entry/contact.scss';
 @import './entry/form.scss';
 @import './entry/landing.scss';
@@ -69,3 +71,12 @@ p {
 @import './portfolio/NumberNavigation.scss';
 @import './portfolio/project.scss';
 @import './portfolio/SectionComponent.scss';
+@import './portfolio/scrollNavigation.scss';
+@import './about/index.scss';
+@import './about/skills.scss';
+@import './common/pageChange.scss';
+
+@import './cms/admin.scss';
+@import './cms/login/loginForm.scss';
+@import './cms/common/sideNavigation.scss';
+
