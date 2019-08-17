@@ -195,45 +195,6 @@ hr {
 	display: block;
 	z-index: 1;
 
-<<<<<<< HEAD
-// applies to new element entering the DOM
-.newone-enter {
-  	opacity: 0;
-
-}
-
-// active during the transition
-.newone-enter-active {
-  	opacity: 1;
-  	// position: fixed;
-	  // top: 0;
-	  // z-index: 12;
-	  // width:100%;
-	  // back
-  	transition: opacity 1s ; 
-}
-
-.portfolio-enter {
-  	opacity: 0;
-
-}
-
-// active during the transition
-.portfolio-enter-active {
-  	opacity: 1;
-  	position: fixed;
-	  top: 0;
-	  z-index: 12;
-	  width:100%;
-	
-  	transition: opacity 1s ; 
-}
-
-// .newone-enter-done {
-//   	// opacity: 0.5;
-//   	transition: opacity 1s ; 
-// }
-=======
 	> svg {
 		position: absolute;
 		bottom: 0;
@@ -246,7 +207,6 @@ hr {
 	}
 }
 
->>>>>>> july-design
 
 // triggers when element is removed
 .newone-exit {

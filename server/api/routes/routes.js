@@ -6,7 +6,8 @@ import {
 	projectById,
 	handleEmail,
 	getAllProjectId,
-	viewRecentProjects } 
+	viewRecentProjects,
+	authenticateUser } 
 from '../controllers/controller.js';
 
 const routes = (app) => {
@@ -50,45 +51,7 @@ const routes = (app) => {
 	// user authentication
 	app.route('/users/authenticate') 
 		.post((req, res) => {
-			// expect this to return a promise
-			// users will be stored in a database
-			// var hash = bcrypt.hashSync("password", bcrypt.genSaltSync(10))
-
-			// storing these in a hash table could produce a faster search time
-			// the username would have to be unique for this to work
-			const users = [
-				{ 	id:1, 
-					username:"Jamie", 
-					hashedPassword: '$2a$10$NsKV68F.IQsg3b5ywgCVKef.ayIXnXei1ipIIuvMWjBLljIM6q5yC'
-				}
-			]
-
-			// collect request parameters and assign to user object
-			const sentUser = { 
-				name: req.body.username, 
-				password: req.body.password 
-			}
-
-			// check every avaiable user for a match
-			// can make this more efficient
-			// if (key value pair exists) select and check password
-			users.forEach((user) => {
-				if(user["username"] === sentUser.name) {
-					// if username exists check password
-					if(bcrypt.compareSync(sentUser.password, user.hashedPassword)) {
-						// if successful respond with all user information
-						res.status(200)
-						res.send(user)	
-					} else {
-						res.status(401)
-						res.send("Invalid credentials")	
-					} 
-				} else {
-					res.status(401)
-					res.send("Invalid credentials")
-				}
-			})
-			
+			authenticateUser(req, res);
 		})
 
 	app.route('/email/send')

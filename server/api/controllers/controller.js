@@ -5,6 +5,9 @@ const { google } = require("googleapis");
 const OAuth2 = google.auth.OAuth2;
 const credentials = require("../credentials.json"); 
 
+import { validations }    from '../validations/emailValidations.js'
+import bcrypt             from 'bcryptjs';
+
 // MongoDB connection URL
 const url = process.env.PORT == 8081 ? 
   `mongodb+srv://${credentials.DB_USER}:${credentials.DB_PASS}@dev-portfolio-cpini.mongodb.net/test?retryWrites=true&w=majority` : 
@@ -77,6 +80,47 @@ export const projectById = (req, res) => {
 			    res.json(docs);
 			});
 	}) 
+}
+
+export const authenticateUser = (req, res) => {
+  // expect this to return a promise
+  // users will be stored in a database
+  // var hash = bcrypt.hashSync("password", bcrypt.genSaltSync(10))
+
+  // storing these in a hash table could produce a faster search time
+  // the username would have to be unique for this to work
+  const users = [
+    {   id:1, 
+      username:"Jamie", 
+      hashedPassword: '$2a$10$NsKV68F.IQsg3b5ywgCVKef.ayIXnXei1ipIIuvMWjBLljIM6q5yC'
+    }
+  ]
+
+  // collect request parameters and assign to user object
+  const sentUser = { 
+    name: req.body.username, 
+    password: req.body.password 
+  }
+
+  // check every avaiable user for a match
+  // can make this more efficient
+  // if (key value pair exists) select and check password
+  users.forEach((user) => {
+    if(user["username"] === sentUser.name) {
+      // if username exists check password
+      if(bcrypt.compareSync(sentUser.password, user.hashedPassword)) {
+        // if successful respond with all user information
+        res.status(200)
+        res.send(user)  
+      } else {
+        res.status(401)
+        res.send("Invalid credentials") 
+      } 
+    } else {
+      res.status(401)
+      res.send("Invalid credentials")
+    }
+  })
 }
 
 // HANDLE EMAIL REQUEST

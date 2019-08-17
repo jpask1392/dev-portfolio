@@ -54,7 +54,6 @@ export default class App extends Component {
 	                  key={location.key}
 	                  classNames="newone"
 	                  timeout={1000}>
-	              		{/*This is whats telling it the location has changed*/}
 						<Switch location={location}>
 
 							<Route path="/" exact={true} render={(props) => {
@@ -139,7 +138,7 @@ export default class App extends Component {
 							}} />
 
 							<Route path='/admin' exact component={NoMatch}/>
-							<Route path='/admin' component={AdminIndex}/>
+							<Route path='/admin/' component={AdminIndex}/>
 
 							<Route component={NoMatch}/>
 
