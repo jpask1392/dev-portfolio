@@ -4,11 +4,7 @@
   "description": "Practice run of a project",
   "main": "index.js",
   "scripts": {
-<<<<<<< HEAD
-    "test": "jest",
-=======
     "test": "jest --verbose",
->>>>>>> july-design
     "start": "PORT=8081 node ./build/server.js",
     "start:webpack": "webpack-dev-server -wd",
     "start:dev": "nodemon ./server/server.js --exec babel-node -e js",
@@ -74,18 +70,6 @@
     "css-loader": "^2.1.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
-<<<<<<< HEAD
-    "eslint": "^5.15.3",
-    "eslint-plugin-react": "^7.12.4",
-    "jest": "^24.8.0",
-    "mocha": "^6.1.4",
-    "node-sass": "^4.11.0",
-    "react-addons-test-utils": "^15.6.2",
-    "react-test-renderer": "^16.8.6",
-    "react-testing-library": "^8.0.1",
-    "resolve-url-loader": "^3.0.1",
-    "sass-loader": "^7.1.0",
-=======
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.14.3",
     "jest": "^24.8.0",
@@ -94,7 +78,6 @@
     "react-test-renderer": "^16.9.0",
     "resolve-url-loader": "^3.1.0",
     "sass-loader": "^7.2.0",
->>>>>>> july-design
     "style-loader": "^0.23.1",
     "svg-inline-loader": "^0.8.0",
     "webpack": "^4.39.1",
