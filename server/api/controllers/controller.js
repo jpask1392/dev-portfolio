@@ -14,7 +14,7 @@ const url = process.env.PORT == 8081 ?
   "mongodb://localhost:27017";
 const DBName = 'projectsDB';
 
-console.log(url)
+// console.log(url)
 
 // const url = "blank";
 // const DBName = 'blank';
