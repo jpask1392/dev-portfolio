@@ -1,41 +1,3 @@
-html {
-	// default text style
-	font-family: 'Roboto', sans-serif;
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	min-height: 800px;
-	width: 100%;
-
-
-	
-	@media only screen and (max-width: $phone-large) {
-	   min-height: 500px;
-	   font-size: 0.7em;
-	}
-
-	@media only screen and (max-width: $screen-small) {
-	   min-height: 500px;
-	   font-size: 0.5em;
-	}
-}
-
-body {
-	height: 100%;
-	margin: 0!important;
-	padding: 0;
-	width: 100%;
-	// perspective: 800px;
-	// overflow: auto;
-}
-
-#root {
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	width: 100%;
-}
-
 .container-max {
 	max-width: 900px;
 	min-height: 100%;
@@ -136,11 +98,6 @@ hr {
 
 .newone-exit .fix-on-change{
   	position: fixed!important;
-  	// top:0!important;
-  	// transform: translate(-50%, 50%) rotate(0)!important;
-  	// transition: all 1s;
-  	// padding: 0!important;
-  	// left: 0!important;
 }
 
 .newone-exit .fade-out{
@@ -162,7 +119,6 @@ hr {
 .background-color {
 	width: 100%;
 	transition: background-color 0.3s;
-	// transition-delay: 0.3s;
 	height: 100%;
 	position: fixed;
 	top: 0;
@@ -177,7 +133,6 @@ hr {
 		opacity: 1;
 		transition: all 0.3s;
 		font-size: 15em;
-		// color: $light-grey;
 	}
 }
 
@@ -186,43 +141,6 @@ hr {
 	overflow: hidden
 }
 
-#pin-container {
-	position: fixed;
-	bottom: -10px;
-	left: 8.3333%;
-	width: 8.3333%;
-	height: auto;
-	display: block;
-	z-index: 1;
-
-	> svg {
-		position: absolute;
-		bottom: 0;
-		left: 50%;
-		transform: translateX(-50%)
-	}
-
-	@media only screen and (max-width: $phone-large) {
-	   display: none;
-	}
-}
-
-
-// triggers when element is removed
-.newone-exit {
-  opacity: 1;
-  position: fixed;
-  top: 0;
-  z-index: 11;
-  width:100%;
-}
-
-// applies to element leaving the DOM - active during the transition
-.newone-exit-active {
-	opacity: 0;
-	transition: opacity 1s; 
-
-}
 
 
 

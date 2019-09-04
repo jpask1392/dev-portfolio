@@ -1,0 +1,38 @@
+.title-info {
+
+	width: 8.3333%;
+	left: 8.3333%;
+	top: 50%;
+	transform: translateY(-50%);
+	opacity: 0;
+	transition: opacity 1s;
+	position: absolute;
+
+	&.fixed {
+		position: fixed!important;
+		opacity: 1;
+		z-index: 2;
+	}
+
+	> h2 {
+		color: white;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+	> p {
+		color: $grey-text-dark-bkg;
+	}
+
+	@media only screen and (max-width: $phone-large) {
+	  	top: auto;
+	  	bottom: 0;
+	  	width: auto;
+	  	right: 0;
+	  	left: 0;
+	  	transform: initial;
+	  	z-index: 1;
+	  	background-color: black;
+	  	padding: 30px;
+	}
+}

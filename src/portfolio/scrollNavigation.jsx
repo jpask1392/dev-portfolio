@@ -12,7 +12,7 @@ class ScrollNavigation extends React.Component {
 
 	// check type of incomming props
 	static propTypes = {
-		projectSections: PropTypes.string,
+		projectSections: PropTypes.array,
 		visibleSection: PropTypes.string
 	};
 
@@ -34,22 +34,21 @@ class ScrollNavigation extends React.Component {
 	}
 
 	render() {
+
 		return (
 			<div className= "scroll-navigation-container">
-				{this.state.projectSections.map((section, index) => 
-					<h3 
-						key={section._id}
-						onClick={() => this.handleClick(index)}
-						className={`scroll-nav-header ${
-							(this.props.visibleSectionIndex === index) ?
-							"active-title" : 
-							"" 		
-							}`}>
-					{section.title}
-					</h3>
-				)}
+				{this.state.projectSections.map((section, index) => {
+					return section.type === "title" ?
+						<h3 
+							key={section.text}
+							onClick={() => this.handleClick(index)}
+							className={`scroll-nav-header ${
+								(this.props.visibleSectionIndex === index) ?
+								"active-title" : "" }`}> {section.text}
+						</h3> : null
+					})}
 			</div>
-		);
+		)
 	}
 }
 

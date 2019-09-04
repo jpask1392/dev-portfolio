@@ -1,6 +1,7 @@
 import React 		from 'react';
 import PropTypes 	from 'prop-types';
 import { NavLink }	from 'react-router-dom'
+import axios 		from 'axios'
 
 // global variables to store dragged element and new array order
 // might work with the data transfer object
@@ -83,6 +84,13 @@ export default class ProjectCoreDisplay extends React.Component {
 		e.preventDefault()
 	}
 
+	onDelete = () => {
+		if (confirm("Are you sure you want to delete this project?")) {
+			axios.delete(`/api/delete/${this.props.projectData._id}`)
+				.then(res => console.log(res))
+		}
+		
+	}
 
 	render() {
 		return (
@@ -99,8 +107,7 @@ export default class ProjectCoreDisplay extends React.Component {
 				onDragLeave={(e) => this.onDragLeave(e)}>
 				<h3>{this.props.projectData.projectName}</h3>
 				<p>{this.props.projectData.position}</p>
-				<button>Edit</button>
-				<button>Delete</button>
+				<button onClick={() => this.onDelete()}>Delete</button>
 				<NavLink to={`/admin/view_project/${this.props.projectData['_id']}`}>View</NavLink>
 			</div>
 			</div>

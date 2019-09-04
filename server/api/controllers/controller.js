@@ -7,6 +7,7 @@ const credentials = require("../credentials.json");
 
 import { validations }    from '../validations/emailValidations.js'
 import bcrypt             from 'bcryptjs';
+import path               from 'path'
 
 // MongoDB connection URL
 const url = process.env.PORT == 8081 ? 
@@ -18,6 +19,49 @@ const DBName = 'projectsDB';
 
 // const url = "blank";
 // const DBName = 'blank';
+
+// EDITS
+export const editField = (req, res) => {
+  
+  MongoClient.connect(url, {useNewUrlParser: true}, function(err, client) {
+    if (err) throw err 
+
+    let db = client.db(DBName)
+
+    const id = new ObjectID(req.body._id)
+
+    // update here
+    db.collection('projects')
+      .updateMany(
+        {_id: id},
+        {$set: {
+          "projectName": req.body.projectName,
+          "mainImagePath": req.body.mainImagePath,
+          "sections": req.body.sections,
+          "position": req.body.position
+        }}
+      )
+
+      res.send("successful")
+
+  });
+}
+
+export const deleteProject = (req, res) => {
+  
+  MongoClient.connect(url, {useNewUrlParser: true}, function(err, client) {
+    if (err) throw err 
+
+    let db = client.db(DBName)
+
+    const id = new ObjectID(req.params.id)
+
+    db.collection('projects')
+      .deleteOne({_id: id})
+
+
+  });
+}
 
 
 // GET ALL PROJECTS

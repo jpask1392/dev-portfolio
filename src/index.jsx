@@ -1,9 +1,13 @@
-import React, { Component } from 'react';
-import ReactDOM from "react-dom";
-import { TransitionGroup, CSSTransition, Transition } from "react-transition-group";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Provider } from 'react-redux'
-import store from './redux/store/index'
+import React, { Component } 			from 'react';
+import ReactDOM 						from "react-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Provider } 					from 'react-redux'
+import store 							from './redux/store/index'
+import { 
+	TransitionGroup, 
+	CSSTransition, 
+	Transition } 
+from "react-transition-group";
 
 // styling 
 import './masterStyling.scss';
@@ -14,7 +18,6 @@ import Navigation 		from './common/navigation.jsx';
 import Project 			from './portfolio/index.jsx';
 import Portfolio 		from './entry/portfolio.jsx';
 import Contact 			from './entry/contact.jsx';
-import Scroll 			from './entry/scrollComponent.jsx';
 import MessageSent 		from './entry/messageSent.jsx';
 import NoMatch 			from './common/PageNotFound.jsx';
 import ScrollToTop 		from './common/ScrollToTop.jsx'
@@ -25,25 +28,20 @@ import About 			from './about/index.jsx'
 import PageChange 		from './common/pageChange.jsx'
 import AdminIndex 		from './cms/index.jsx'
 
-
-
 export default class App extends Component {
 
 	constructor(props) {
 		super(props);
-
-		this.state = {
-			translateValue: null
-		}
+		this.state = { translateValue: null }
 	}
 
-	updateTranslateValue = (newValue) => {
+	updateTranslateValue = newValue => {
 		this.setState({translateValue: newValue})
 	}
 
-	render () {
+	render() {
 		return (
-		<Router>
+		<BrowserRouter>
 		<ScrollToTop>
 			<Route render={({location}) => (
 				
@@ -56,32 +54,24 @@ export default class App extends Component {
 	                  timeout={1000}>
 						<Switch location={location}>
 
-							<Route path="/" exact={true} render={(props) => {
-								document.title = "Home | Jamie Pask"
-								return (
+							<Route path="/" exact={true} render={(props) => 
+								<div style={{height:"100%"}}>
+									<PageChange />
+									<Home
+										location={props.location}
+										updateTranslateValue={this.updateTranslateValue.bind(this)}
+										imgInitLocation={this.state.translateValue}
+									/>
+								</div>
+							}/>
+
+							<Route path="/about" exact render={(props) =>
 									<div style={{height:"100%"}}>
 										<PageChange />
-										<Home 
-											location={props.location}
-											updateTranslateValue={this.updateTranslateValue.bind(this)}
-											imgInitLocation={this.state.translateValue}
-										/>
+										<Navigation/>
+										<About location={props.location}/>
 									</div>
-								)
-							}} />
-
-							<Route path="/about" exact render={(props) => {
-									document.title = "Home | Jamie Pask"
-									return (
-										<div style={{height:"100%"}}>
-											<PageChange />
-											<Navigation/>
-											<About 
-												location={props.location}
-											/>
-										</div>
-									)
-								}} />
+								} />
 
 							<Route path="/sent" exact component={MessageSent} />
 
@@ -112,7 +102,6 @@ export default class App extends Component {
 								return (
 									<div className='full-height'>
 										<Navigation/>
-										{/*<PageChange />*/}
 										<Project 
 											projectId={projectId}
 											location={location}
@@ -152,7 +141,7 @@ export default class App extends Component {
 			)}>
 			</Route>
 			</ScrollToTop>
-		</Router>
+		</BrowserRouter>
 		)
 	}
 }

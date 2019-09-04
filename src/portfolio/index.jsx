@@ -24,7 +24,7 @@ export default class Project extends React.Component {
 	}
 
 	componentDidMount() { 	
-	
+
 		this._isMounted = true;
 
 		if(this._isMounted) {
@@ -34,7 +34,8 @@ export default class Project extends React.Component {
 			// fetchs all imformation on current project
 			fetch(`/api/projects/${this.props.projectId}`)
 		      .then(response => response.json())
-		      .then(data => this.setState({ data: data }))		
+		      .then(data => this.setState({ data: data }))
+		      .then(() => document.title = `${this.state.data.projectName} | Jamie Pask`)		
 
 		    // fetchs id and project name for next project in the list
 		    fetch('/api/projects/allIds')
@@ -47,47 +48,30 @@ export default class Project extends React.Component {
 		      	})
 		      })
 		}
-
-		
-
-		
 	}
 
 	backgroundColor() {
 		switch(this.state.data['projectName']) {
-			case "Dev Portfolio":
-				return "#FF2222";
-			case "Python":
-				return "#b3b5b4";
-			case "Arch Portfolio":
-				return "#c1a503";
-			case "EPT Website":
-				return "#4777c2";
+			case "Dev Portfolio"			: return "#FF2222";
+			case "Python"					: return "#b3b5b4";
+			case "Architecture Portfolio"	: return "#c1a503";
+			case "EPT Website"				: return "#4777c2";
 		}
 	}
 
-	setVisibleSection = (section) => {
-		this.setState({visibleSection: section})
-	}
-
-	componentWillUnmount() {
-		this._isMounted = false;
-	}
-
+	setVisibleSection = section => { this.setState({visibleSection: section})}
+	
+	componentWillUnmount = () => this._isMounted = false
 
 	render () {
 		var data = this.state.data;
 		var sectionsArray = this.state.data.sections;
-		document.title = `${data.projectName} | Jamie Pask`
-		if (sectionsArray != null) {
+		if (sectionsArray !== undefined) {
 		return (
 			<div id='project-page-container'>
 
-				<div
-					style={{left:this.state.pinLocation}}
-					id="pin-container">
-
-					<ScrollPin pinColor={this.state.pinColor}/>
+				<div className="project-page-pin-container">
+					<ScrollPin />
 				</div>	
 
 				<ProjectEntry 
@@ -106,23 +90,20 @@ export default class Project extends React.Component {
 					<div className="sections-inner-container">
 
 						<div className="project-brief-container">
-							<h3 style={{color: this.backgroundColor()}}>{data.projectName}</h3>
-							<h2>Brief</h2>
-							<hr></hr>
-							<p>{data.summary}</p>
+							<h3 style={{color: this.backgroundColor(), textTransform:"uppercase"}}>{data.projectName}</h3>
 						</div>
 
+						<div className="section-content-container">
 						{sectionsArray.map((section, i) => 
 							<Section 
+								section={section}
 								key={i}
-								text={section.text}
-								title={section.title.toUpperCase()}
-								images={section.images}
 								index={i}
 								setVisibleSection={this.setVisibleSection.bind(this)}
 								currentProjectID={data._id}
 							/>
 					 	)}
+					 	</div>
 
 				 	</div>
 

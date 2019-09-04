@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const server = '127.0.0.1:27017';
-const database = 'learning_mongodb';
+const database = 'projectsDB';
 
 // run ./api/models/model.js
 
@@ -16,11 +16,7 @@ const projectSchema = new mongoose.Schema({
   summary: String,
   mainImagePath: String, 
   sections: [
-    {
-      title: String,
-      text: String,
-      images: [ String ]
-    }
+        Object
   ]
 })
 
@@ -30,20 +26,22 @@ const projectModel = mongoose.model('Project', projectSchema)
 // MAKE THIS DATA AVAILABLE THROUGH A UI - LATER 
 // ADD THE REQUIRED DATA FOR UPLOADING TO THE DATABASE
 const newProject = new projectModel({
-  projectName: "Python",
+  projectName: "Python2",
   titleIntro: "",
   titleMain: "Python Scripting",
   position: 1,
   summary: "Learning how to program with Python benefitted me greatly working within the field of Architecture. The language was able to interact with the major 3D CAD program ‘Revit’ in order to automate tasks, greatly improving efficiency and opened the ability to explore parametrically designed concepts.",
   mainImagePath: "projects/python/python-image-one", 
   sections: [
+    // each section will be its own object
     {
-      title: ".PY",
-      text: "My ability to automate a wide array of tasks within the field of Architecture gave me an edge over other technicians in Cardiff. I recognized the importance of this skill early on and am constantly looking out for intuitive ways to implement new technologies in my everyday tasks at the office. Most recently developing a system of extracting hundreds of 2D points from site surveys and converting them to a more useful 3D file.",
-      images: [ 
-        "projects/python/python-image-two.jpg", 
-        "projects/python/python-image-three.jpg", 
-        "projects/python/python-image-four.jpg" 
+      "Title" : "",
+      // create an array for the structure which hold objects
+      "structure" : [
+        // check the type front end and render the approriate component
+        { "type":"image", "src":"../", "position": 1 },
+        { "type":"text", "text":"Lorem Ipsum", "position":3 },
+        { "type":"title", "text":"Lorem Ipsum", "position":2 }
       ]
     }
   ],

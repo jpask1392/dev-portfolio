@@ -1,56 +1,41 @@
-import React from 'react';
-import {onScreen} from './commonFunctions.js'
+import React 		from 'react';
+import {onScreen} 	from './commonFunctions.js'
+import PropTypes 	from 'prop-types'
 
 export default class Background extends React.Component {
-	// static propTypes = {
-	// 	colors: React.PropTypes.Object,
-	// };
+	
+	static propTypes = {
+		colors: PropTypes.object,
+	};
+
+	static defaultProps = {
+		colors: { lightBackRefs: [], darkBackRefs: [] }
+	}
 
 	constructor(props) {
 		super(props);
-		this.state = {backgroundColor: ""}
-		// console.log()
+		this.state = { backgroundColor: "" }
 	}
 
-	componentDidMount() {
-		window.addEventListener("scroll", this.handleScroll)
-
-		// console.log(this)
-		
-	}
-
-	componentWillUnmount() {
-		window.removeEventListener("scroll", this.handleScroll)
-	}
+	componentDidMount = () => window.addEventListener("scroll", this.handleScroll)		
 
 	handleScroll = () => {
 
-		const self = this
 		const darkBackground = "#161517"
 		const lightBackground = "white"
+		const lightBackRefs = this.props.colors.lightBackRefs
+		const darkBackRefs = this.props.colors.darkBackRefs
 
-		if (this.props.colors !== undefined) {
-			this.props.colors.lightBackRefs.forEach(function(ref) {
+		lightBackRefs.map((ref) => {
+			this.setState(() => onScreen(ref) ? {backgroundColor: lightBackground} : null)
+		})
 
-				if(onScreen(ref)) {
-					self.setState({backgroundColor: lightBackground})
-				}
-
-			}) 
-
-			this.props.colors.darkBackRefs.forEach(function(ref) {
-
-				if(onScreen(ref)) {
-					self.setState({backgroundColor: darkBackground})
-				}
-
-			}) 
-		} else {
-			this.setState({backgroundColor: darkBackground})
-		}
-
+		darkBackRefs.map((ref) => {
+			this.setState(() => onScreen(ref) ? {backgroundColor: darkBackground} : null)
+		})
 	}
 
+	componentWillUnmount = () => window.removeEventListener("scroll", this.handleScroll)
 
 	render() {
 		return (

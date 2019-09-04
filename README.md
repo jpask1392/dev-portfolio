@@ -23,6 +23,24 @@ npm run start:dev
 ```
 This will run webpack-dev-server with the watch flag for automatic reloading when files are saved. Note that the dev server will be running on port 9000 with a proxy set up to port 3000 so that everything can run from the same place.
 
+## Deployment
+
+Run 
+```
+npm run build
+```
+
+to bundle all needed files
+
+-------------------------------
+
+Then run 
+```
+eb deploy "instance name"
+```
+
+to deploy all files to Elastic Beanstalk instance
+
 ## Code quality 
 	
 This project uses Eslint

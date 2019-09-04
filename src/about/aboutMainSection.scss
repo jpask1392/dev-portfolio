@@ -1,0 +1,67 @@
+.about-main-section-container {
+	width: 100%;
+	position: relative;
+	display: flex;
+
+}
+
+.about-text-container {
+	position: relative;
+	width: 41.666%;
+	margin-right: 8.3333%;
+	margin-left: 8.3333%;
+	margin-top: 100px;
+	display: inline-block;
+	float: right;
+	max-width: 600px;
+
+	> h2 {
+		margin-bottom: 40px;
+	}
+}
+
+#about-me-image {
+	min-width: 33%;
+	max-width: 41.666%;
+	margin: 0;
+	flex-grow: 1;
+	height: 90vh;
+
+	> figcaption {
+		float: right;
+		font-style: italic;
+		color: lightgrey;
+		margin-top: 5px;
+	}
+}
+
+.about-image-container {
+	background: url('/assets/aboutMe.jpg');
+	background-size: cover;
+	background-position: 80%;
+	height: 100%;
+}
+
+.about-paragraphs {
+
+	// margin-top: 40px;
+	margin-bottom: 40px;
+
+	&.top {
+		width: 100%
+	} 
+
+	&.left {
+		// display: inline-block;
+		float: left;
+		width: calc(50% - 20px);
+		margin-right: 20px;
+	}
+
+	&.right {
+		// display: inline-block;
+		float: right;
+		width: calc(50% - 20px);
+		margin-left: 20px;
+	}
+}

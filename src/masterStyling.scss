@@ -19,6 +19,39 @@ $light-grey: #F7F7F7;
 $secondary-color : #2699FB;
 $grey-text-dark-bkg : #615E65;
 
+html {
+	font-family: 'Roboto', sans-serif;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	min-height: 800px;
+	width: 100%;
+
+	@media only screen and (max-width: $phone-large) {
+	   min-height: 500px;
+	   font-size: 0.7em;
+	}
+
+	@media only screen and (max-width: $screen-small) {
+	   min-height: 500px;
+	   font-size: 0.5em;
+	}
+}
+
+body {
+	height: 100%;
+	margin: 0!important;
+	padding: 0;
+	width: 100%;
+}
+
+#root {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
 // Text styling
 h1 {
 	font-size: 6em;
@@ -58,26 +91,40 @@ p {
 	margin-bottom: 20px;
 }
 
+// common elements
+@import './common/pageChange.scss';
 @import './common/common.scss';
 @import './common/navigation.scss';
-@import './common/footer.scss';
+@import './common/footerBar.scss';
 @import './common/nextButton.scss';
+@import './common/scrollPin.scss';
+
+// entry section elements
 @import './entry/about.scss';
 @import './entry/contact.scss';
 @import './entry/form.scss';
+@import './entry/gallery.scss';
 @import './entry/landing.scss';
 @import './entry/portfolio.scss';
-@import './entry/scrollComponent.scss';
-@import './portfolio/NumberNavigation.scss';
+@import './entry/dotNavigation.scss';
+@import './entry/projectTitle.scss';
+
+// portfolio section elements
 @import './portfolio/project.scss';
 @import './portfolio/SectionComponent.scss';
 @import './portfolio/scrollNavigation.scss';
-@import './about/index.scss';
-@import './about/skills.scss';
-@import './common/pageChange.scss';
 
+// about section elements
+@import './about/skills.scss';
+@import './about/aboutLanding.scss';
+@import './about/aboutMainSection.scss';
+@import './about/referenceQuote.scss';
+
+// cms section elements
 @import './cms/admin.scss';
 @import './cms/login/loginForm.scss';
 @import './cms/common/sideNavigation.scss';
 @import './cms/projects/projectCoreDisplay.scss';
+@import './cms/projects/show.scss';
+@import './cms/projects/input.scss';
 

@@ -1,43 +1,27 @@
 import React 			from 'react';
 import ReactSVG 		from 'react-svg';
-import SvgAboutImage 	from './SvgAboutImage.jsx';
 import { onScreen } 	from '../common/commonFunctions.js'
 import NextButton 		from '../common/nextButton.jsx'
 
 
 export default class About extends React.Component {
-	_isMounted = false;
 
 	constructor(props) {
 		super(props);
-		this.state = { 
-				visible: false, 
-			};
-		this.handleScroll = this.handleScroll.bind(this)
-
+		this.state = { visible: false };
 	}
 
 	componentDidMount() {
-		this._isMounted = true
-
-		if(this._isMounted) {
-			window.addEventListener("scroll", this.handleScroll)
-		}
+		this.handleScroll = this.handleScroll.bind(this)
+		window.addEventListener("scroll", this.handleScroll)
 	}
 
 	handleScroll = () => {
-
-		if(this._isMounted & onScreen(this.props.aboutRefProp, {elOffset:"top"})) {
-			this.setState({visible: true})
-		} else {
-			this.setState({visible: false})
-		}
+		let condition = onScreen(this.props.aboutRefProp, {elOffset:"top"})
+		this.setState(() => condition ? {visible: true} : {visible:false})	
 	}
 
-	componentWillUnmount() {
-		this._isMounted = false;
-		window.removeEventListener("scroll", this.handleScroll)
-	}
+	componentWillUnmount = () => window.removeEventListener("scroll", this.handleScroll)
 
 	render() {
 
@@ -45,15 +29,15 @@ export default class About extends React.Component {
 			<div 
 				className="about-container " 
 				id='about-container' 
-				ref={this.props.aboutRefProp}
-			>
-				<div className={this.state.visible ? "start about-page end" : "start about-page"}></div>
+				ref={this.props.aboutRefProp}>
+
+				<div className={`start about-page ${this.state.visible ? "end" : ""}`}></div>
 				<div 
 					id="about-text-container"
-					className={this.state.visible ? "fade-in-text" : ""}
-				>
-					<h2>I’m a passionate developer constantly improving. </h2>
-					<p style={{marginTop: "30px", marginBottom: "30px"}}>To sum it up</p>
+					className={this.state.visible ? "fade-in-text" : ""}>
+
+					<h2>I’m a passionate developer constantly improving.</h2>
+					<p style={{marginTop: "30px", marginBottom: "30px"}}>To sum it up:</p>
 					<span>
 						<h3 className="sub-heading">June 2014</h3>
 						<p>
@@ -78,7 +62,7 @@ export default class About extends React.Component {
 						marginTop:"50px"
 					}}>
 						<NextButton 
-							linkTo="/about"
+							linkTo="/contact"
 							backgroundColor="#2699FB"
 						/>
 					</div>

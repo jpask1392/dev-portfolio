@@ -7,7 +7,11 @@ import {
 	handleEmail,
 	getAllProjectId,
 	viewRecentProjects,
-	authenticateUser } 
+	authenticateUser,
+	editField,
+	deleteProject,
+	addSection,
+	deleteSection } 
 from '../controllers/controller.js';
 
 const routes = (app) => {
@@ -46,6 +50,28 @@ const routes = (app) => {
 
 		.delete((req, res) => {
 			res.send("DELETE request successful")
+		})
+
+	app.route('/api/edit')
+		.post((req, res) => {
+			editField(req, res)
+		})
+
+	app.route('/api/delete/:id')
+		.delete((req, res) => {
+			deleteProject(req, res)
+		})
+
+
+	// can combine the sections into one endpoint 
+	app.route('/api/addSection')
+		.post((req, res) => {
+			addSection(req, res)
+		})
+
+	app.route('/api/deleteSection')
+		.delete((req, res) => {
+			deleteSection(req, res)
 		})
 
 	// user authentication

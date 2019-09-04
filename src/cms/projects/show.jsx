@@ -1,6 +1,9 @@
 import React 		from 'react';
 import PropTypes 	from 'prop-types'
 import Input 		from './input.jsx'
+import AddSection 	from './addSection.jsx'
+import axios 		from 'axios'
+import underscore	from 'underscore'
 
 export default class ShowProject extends React.Component {
 	static propTypes = {
@@ -9,73 +12,167 @@ export default class ShowProject extends React.Component {
 
 	constructor(props) {
 		super(props);
-
-		this.state = {projectData: []} 
+		this.state = {projectData: [], visibleRPD: false, originalData: []} 
+		this.updateProjectData = this.updateProjectData.bind(this)
 	}
 
 	componentDidMount = () => {
-		// console.log("hi")
 		fetch(`/api/projects/${this.props.id}`)
-			.then(res => res.json())
-			.then(data => this.setState({projectData: data}))
+			.then(res 	=> res.json())
+			.then(data 	=> this.setState({projectData: data}))
+			.then(() => {
+				// This copying method allows for deep level copying
+				const dataCopy = JSON.parse(JSON.stringify(this.state.projectData))
+				this.setState({originalData: dataCopy });
+			})
 	}
 
-	// edit button next to each element which appears on hover
-	// the edit button should convert the text into an input block 
+	setRPD = () => {
+		this.setState(prevState => ({
+			visibleRPD: !prevState.visibleRPD
+		}))	
+	}
+
+	updateProjectData = newData => { this.setState({projectData: newData}) }
+
+	undoChanges = () => {this.setState({projectData: this.state.originalData})}
+
+	onSave = (e) => {
+		e.preventDefault()
+		// pass ID to select project to edit
+		const newData = this.state.projectData
+		// create object to pass new data to database
+		const body = {
+			_id				: newData._id,
+			projectName		: newData.projectName,
+			mainImagePath	: newData.mainImagePath,
+			sections 		: newData.sections,
+			position 		: newData.position
+		}
+
+		// post request to 'edit' endpoint with formData object as params
+		axios.post('/api/edit', body)
+			.then(res => {
+				if (res.status === 200) {
+					alert("saved")
+					// when the post is made call new data and update page
+					fetch(`/api/projects/${this.props.id}`)
+						.then(res => res.json())
+						.then(data 	=> this.setState({projectData: data}))
+						.then(() => {
+							// This copying method allows for deep level copying
+							const dataCopy = JSON.parse(JSON.stringify(this.state.projectData))
+							this.setState({originalData: dataCopy });
+						})
+				}
+			})
+
+	}
+
 
 	render() {
 		const data = this.state.projectData
-		return (
-			<div style={{whiteSpace:"pre-wrap"}}>
-				<Input/>
-				<h2>{data.projectName}</h2>
-				<br></br>
-				<h3><b>Title Introduction: </b>{data.titleIntro}</h3>
-				<h3><b>Title Main: </b>{data.titleMain}</h3>
-				<h3><b>Summary: </b></h3><p>{data.summary}</p>
+		// console.log(this.state.originalData)
+		// console.log(underscore._.isEqual(this.state.projectData, this.state.originalData))
+		if (data.length !== 0) {
+			return (
+				<div>
+					<h2>{data.projectName}</h2>
+					{!underscore._.isEqual(this.state.projectData, this.state.originalData) ? 
+						<form id="save" action="" onSubmit={(e) => this.onSave(e)}>
+							<button type="submit">Save Changes</button>
+							<button type="reset" onClick={() => this.undoChanges()}>
+							Undo Changes</button>
+						</form> : null
+					}
+					
+					<br></br>
 
-				<br></br>
-				<br></br>
-				<h3>Raw project data</h3>
-				{JSON.stringify(this.state.projectData, null, 2)}
-				
-			</div>
-		);
+					<Input 
+						header="Project Name" 
+						defaultText={data.projectName} 
+						data={data} 
+						update={this.updateProjectData}/>
+					<Input 
+						header="Header Image" 
+						defaultText={data.mainImagePath} 
+						data={data} 
+						update={this.updateProjectData}/>
+					<Input 
+						header="Position" 
+						defaultText={data.position} 
+						data={data} 
+						update={this.updateProjectData}/>
+					
+					<hr></hr>
+					<h2>Sections</h2>
+
+					<AddSection 
+						update={this.updateProjectData}
+						data={data}/>
+
+					{data.sections.map((section, i) => {
+						switch(section.type) {
+								case "title":
+									return (
+										<Input  
+											defaultText={section.text}
+											header="Section Title"
+											data={data}
+											index={i}
+											key={i}
+											removable={true}
+											update={this.updateProjectData}/> 
+									)
+										
+								case "image":
+									return (
+										<Input 
+											defaultText={section.src}
+											header="Section Image"
+											data={data}
+											index={i}
+											key={i}
+											removable={true}
+											update={this.updateProjectData}/> 
+									)
+								case "text":
+									return (
+										<Input 
+											defaultText={section.text}
+											header="Section Text"
+											data={data}
+											index={i}
+											key={i}
+											inputType="textarea"
+											removable={true}
+											update={this.updateProjectData}/> 
+									)
+								default: 
+									return null
+							}
+					})}
+
+					<hr></hr>
+					<div style={{marginTop:"40px", whiteSpace:"pre-wrap"}}>
+						<h2 
+							style={{display:"inline", cursor:"pointer"}}
+							onClick={() => this.setRPD()}>Raw project data</h2>
+						
+						<div 
+							style={this.state.visibleRPD === true ? 
+								{display:"block", marginTop: "20px"} : 
+								{display: "none", marginTop: "20px"}
+							}>
+							{JSON.stringify(this.state.projectData, null, 2)}
+						</div>
+					</div>
+				</div>
+			);	
+		} else {
+			return null
+		}
+		
 	}
 }
 
-/*
-	DATABASE SCHEMA
-	// an array of section
-	sections: [
-		// each section will be its own object
-		{
-			"Title" : "",
-			// create an array for the structure which hold objects
-			"structure" : [
-				// check the type front end and render the approriate component
-				{ "type":"image", "src":"../", "position": 1 },
-				{ "type":"text", "text":"Lorem Ipsum", "position":3 },
-				{ "type":"title", "text":"Lorem Ipsum", "position":2 }
-			]
-		}
-	]
-
-	RENDERING LOGIC
-	// mapping through 
-	sections.map((section, i) => {
-		<h3>{section.Title}</h3>
-		section.structure.map((element, i) => {
-			switch(element.type) {
-				case "image": 
-					return <Image src={element.src}/>
-				case "text":
-					return <Text text={element.text}/>
-				case "title":
-					return <Title text={element.text}/>
-				default: 
-					return null
-			}
-		})	
-	})
-*/

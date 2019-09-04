@@ -1,0 +1,51 @@
+.content-section-container  {
+
+	margin-top: 30px; 
+	margin-bottom: 30px;
+
+	&:hover span i {
+		opacity: 1;
+	}
+
+	> h3 {
+		display: inline-block;
+		margin-right: 20px;
+	}
+
+	> span i {
+		opacity: 0;
+		cursor: pointer;
+		transition: opacity 0.3s;
+	}
+}
+
+.edit-container {
+
+	> input, textarea {
+		color: black;
+		border: 1px solid black;
+		font-size: inherit;
+		margin-top: 10px;
+		background: white;
+
+	}
+}
+
+.save-cancel-container {
+	
+	> button {
+		margin-right: 10px;
+		cursor: pointer;
+		color: grey;
+		transition: color 0.3s;
+	}
+
+	> button:hover {
+		color: black;
+	}
+}
+
+.raw-project-data {
+
+}
+
