@@ -1,12 +1,24 @@
 import React 		from 'react';
 import PropTypes 	from 'prop-types'
 import axios 		from 'axios';
+import {
+	Title,
+	Text,
+	Image,
+	Code,
+	DefaultType
+} from './inputTypes.jsx'
 
 export default class Input extends React.Component {
 	static propTypes = {
-		defaultText: PropTypes.string,
+		// defaultText: PropTypes.object,
 		header: PropTypes.string
 	};
+
+	static defaultProps = {
+		inputType: "text",
+		removable: false,
+	}
 
 	// this file should be for editing the local copy of the data only 
 	// the save button at the top can push the updated data to the database
@@ -15,7 +27,8 @@ export default class Input extends React.Component {
 		this.state = {
 			mode: "view", 
 			value: this.props.defaultText,
-			projectData: {}
+			projectData: {},
+			targetID: null
 		}
 		this.onClick = this.onClick.bind(this)
 		this.onConfirmEdit = this.onConfirmEdit.bind(this)
@@ -37,7 +50,10 @@ export default class Input extends React.Component {
 			this.setState({mode:"view"})
 	}
 
-	onChange = (e) => {this.setState({value: e.target.value})}
+	onChange = (e) => {
+		console.log(e.target.id)
+		this.setState({value: e.target.value, targetID: e.target.id})
+	}
 
 	onConfirmEdit = () => {
 		// update array
@@ -52,9 +68,16 @@ export default class Input extends React.Component {
 			case "Project Name" 	: arr.projectName = newValue; 			break
 			case "Header Image" 	: arr.mainImagePath = newValue; 		break
 			case "Position" 		: arr.position = newValue; 				break
-			case "Section Title" 	: arr.sections[index].text = newValue; 	break
-			case "Section Text" 	: arr.sections[index].text = newValue; 	break
-			case "Section Image" 	: arr.sections[index].src = newValue; 	break
+			default: null
+		}
+
+		// switch case based on inputID
+		switch(this.state.targetID) {
+			case "SecTitleInput" 	: arr.sections[index].text = newValue; 	break
+			case "SecTextInput" 	: arr.sections[index].text = newValue; 	break
+			case "SecImgInput" 		: arr.sections[index].src = newValue; 	break
+			case "SecGistInput" 	: arr.sections[index].gist = newValue; 	break
+			case "SecGistFileInput" : arr.sections[index].file = newValue; 	break
 			default: null
 		}
 		// send the new array back to show component
@@ -120,37 +143,52 @@ export default class Input extends React.Component {
 						save={this.onSave}
 						edit={this.onConfirmEdit}/>}
 
-				{this.state.mode === "view" ? 
-					<p onDoubleClick={() => this.onClick()}>{this.props.defaultText}</p> : null}
+				{(() => {
+					const defaultText = this.props.defaultText
+					const mode = this.state.mode
 
-				{this.state.mode === "edit" && this.props.inputType === "text" ? 
-					<div className="edit-container"> 
-						<input 
-							id="type1" 
-							type={this.props.inputType} 
-							defaultValue={this.props.defaultText}
-							onChange={(e) => this.onChange(e)}/>
-					</div> : null}
-
-				{this.state.mode === "edit" && this.props.inputType === "textarea" ? 
-					<div className="edit-container"> 
-						<textarea 
-							type={this.props.inputType} 
-							defaultValue={this.props.defaultText}
-							onChange={(e) => this.onChange(e)}>
-						</textarea> 
-					</div> : null}
-
+					switch(this.props.header) {
+					case "Section Title": 
+						return <Title
+									mode={mode} 
+									onChange={this.onChange} 
+									default={defaultText}
+									onClick={this.onClick}/> 
+						break
+					case "Section Text": 
+						return <Text 
+									mode={mode} 
+									onChange={this.onChange} 
+									default={defaultText}
+									onClick={this.onClick}/> 
+						break
+					case "Section Image": 
+						return <Image 
+									mode={mode} 
+									onChange={this.onChange} 
+									default={defaultText}
+									onClick={this.onClick}/> 
+						break
+					case "Section Code": 
+						return <Code 
+									mode={mode} 
+									onChange={this.onChange} 
+									default={defaultText}
+									onClick={this.onClick}/> 
+						break
+					default: 
+						return <DefaultType 
+									mode={mode} 
+									onChange={this.onChange} 
+									default={defaultText}
+									onClick={this.onClick}/>
+					}	
+				}).bind(this)()}
 			</div>
 		)
 	}
 }
 
-// set default props
-Input.defaultProps = {
-	inputType: "text",
-	removable: false,
-}
 
 // buttons for rendering
 // here to clear up Input component render method

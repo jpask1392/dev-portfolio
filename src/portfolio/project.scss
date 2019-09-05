@@ -4,6 +4,12 @@
  	position: relative;
 }
 
+.project-brief-container {
+	> h3 {
+		text-transform: uppercase;
+	}
+}
+
 .project-cont {
 	height: 100%;
 	background-color: $feature-color;

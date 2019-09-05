@@ -2,6 +2,7 @@ import React 				from 'react';
 import PropTypes 			from 'prop-types'
 import SectionText 			from './sectionTextComponent.jsx';
 import { onScreen2 } 		from '../common/commonFunctions.js'
+import GistDisplay 			from './gistDisplay.jsx'
 import { connect } 			from 'react-redux'
 import {
 	updateVisProjectIndex,
@@ -46,13 +47,15 @@ class Section extends React.Component {
 		// this object looses scope within the self invoking function
 		const Ref = this.sectionRef
 		const section = this.props.section
+
 		return 	(		
-			<div>
+			<div className="section-content">
 				{(() => {
 				switch(section.type) {
 					case "title"	: return <Title Ref={Ref} txt={section.text}/>
 					case "image"	: return <Image src={section.src}/>
 					case "text"		: return <Text txt={section.text}/>
+					case "gistCode"	: return <GistDisplay gist={section.gist} file={section.file}/>
 					default			: return null
 				}
 				})()}

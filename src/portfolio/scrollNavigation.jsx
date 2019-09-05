@@ -2,7 +2,7 @@ import React 			from 'react';
 import { onScreen } 	from '../common/commonFunctions.js'
 import { connect } 		from 'react-redux'
 import PropTypes 		from 'prop-types';
-
+import store 			from '../redux/store/index'
 import {
 	updateVisProjectIndex,
 	updateVisSectionIndex
@@ -12,8 +12,7 @@ class ScrollNavigation extends React.Component {
 
 	// check type of incomming props
 	static propTypes = {
-		projectSections: PropTypes.array,
-		visibleSection: PropTypes.string
+		projectSections: PropTypes.array
 	};
 
 	constructor(props) {
@@ -23,8 +22,8 @@ class ScrollNavigation extends React.Component {
 
 	handleClick = (i) => {
 		// find the indexed element and collect it's current top position
-		var el = document.getElementsByClassName('section-content-container')[i]
-		var location = window.scrollY + el.getBoundingClientRect().top + 1
+		const el = document.getElementsByClassName('section-content')[i]
+		const location = window.scrollY + el.getBoundingClientRect().top + 1
 
 		window.scrollTo({
 			top: location,
@@ -34,19 +33,18 @@ class ScrollNavigation extends React.Component {
 	}
 
 	render() {
-
+		const visSectI = store.getState().visibleSectionIndex
 		return (
 			<div className= "scroll-navigation-container">
-				{this.state.projectSections.map((section, index) => {
-					return section.type === "title" ?
-						<h3 
-							key={section.text}
-							onClick={() => this.handleClick(index)}
-							className={`scroll-nav-header ${
-								(this.props.visibleSectionIndex === index) ?
-								"active-title" : "" }`}> {section.text}
-						</h3> : null
-					})}
+				{this.state.projectSections.map((section, i) =>
+					(section.type) === "title" ?
+					<h3 
+						key={section.text}
+						onClick={() => this.handleClick(i)}
+						className={`scroll-nav-header ${visSectI === i ? "active-title" : "" }`}> 
+						{section.text}
+					</h3> : null
+				)}
 			</div>
 		)
 	}

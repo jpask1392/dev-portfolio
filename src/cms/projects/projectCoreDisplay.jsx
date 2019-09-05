@@ -18,6 +18,7 @@ export default class ProjectCoreDisplay extends React.Component {
 
 	constructor(props) {
 		super(props);
+		this.state = {newArray: []}
 	}
 
 	// DRAGGABLE ELEMENT EVENTS
@@ -86,10 +87,16 @@ export default class ProjectCoreDisplay extends React.Component {
 
 	onDelete = () => {
 		if (confirm("Are you sure you want to delete this project?")) {
+			// delete from project array first and update state to rerender
+			var newArray = this.props.projectArray
+			newArray.splice(this.props.index, 1)
+
+			this.props.updateArray(newArray)
+
 			axios.delete(`/api/delete/${this.props.projectData._id}`)
 				.then(res => console.log(res))
+				.then(this.props.updateArray(newArray))
 		}
-		
 	}
 
 	render() {

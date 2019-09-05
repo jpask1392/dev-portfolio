@@ -2,73 +2,95 @@ const mongoose = require('mongoose');
 const server = '127.0.0.1:27017';
 const database = 'projectsDB';
 
-// run ./api/models/model.js
+// run node ./server/api/models/model.js
 
-// DEFINE THE PROJECT SCHEMA
-// TODO - ADD VADLIATION INFORMATION
-const projectSchema = new mongoose.Schema({
-  projectName: {
-    type: String,
-    required: true
-  },
-  titleIntro: String,
-  titleMain: String,
-  summary: String,
-  mainImagePath: String, 
-  sections: [
-        Object
-  ]
+// create a type schema 
+const sectionsSchema = new mongoose.Schema(
+	{ type: Object, _id: false }, 
+	{ discriminatorKey: 'type' })
+
+const projectSchema = new mongoose.Schema({ 
+	projectName: String,
+	mainImagePath: String,
+	position: Number,
+	sections: [ sectionsSchema ], 
 })
 
-// CREATE THE PROJECT MODEL USING THE SCHEMA
+projectSchema.path('sections')
+	.discriminator(
+		'image', 
+		new mongoose.Schema({
+			_id: false,
+			src: {type: String, required: true},
+			caption: {type: String}
+		})
+	)
+
+projectSchema.path('sections')
+	.discriminator(
+		'text', 
+		new mongoose.Schema({
+			_id: false,
+			text: {type: String, required: true}
+		})
+	)
+
+projectSchema.path('sections')
+	.discriminator(
+		'title', 
+		new mongoose.Schema({
+			_id: false,
+			text: {type: String, required: true}
+		})
+	)
+
+projectSchema.path('sections')
+	.discriminator(
+		'gistCode', 
+		new mongoose.Schema({
+			_id: false,
+			gist: {type: String, required: true},
+			file: String
+		})
+	)
+
 const projectModel = mongoose.model('Project', projectSchema)
 
-// MAKE THIS DATA AVAILABLE THROUGH A UI - LATER 
-// ADD THE REQUIRED DATA FOR UPLOADING TO THE DATABASE
-const newProject = new projectModel({
-  projectName: "Python2",
-  titleIntro: "",
-  titleMain: "Python Scripting",
-  position: 1,
-  summary: "Learning how to program with Python benefitted me greatly working within the field of Architecture. The language was able to interact with the major 3D CAD program ‘Revit’ in order to automate tasks, greatly improving efficiency and opened the ability to explore parametrically designed concepts.",
-  mainImagePath: "projects/python/python-image-one", 
-  sections: [
-    // each section will be its own object
-    {
-      "Title" : "",
-      // create an array for the structure which hold objects
-      "structure" : [
-        // check the type front end and render the approriate component
-        { "type":"image", "src":"../", "position": 1 },
-        { "type":"text", "text":"Lorem Ipsum", "position":3 },
-        { "type":"title", "text":"Lorem Ipsum", "position":2 }
-      ]
-    }
-  ],
-  "projectHeaderImage" : "projects/python/phone.png"
-
+// EXAMPLE 
+let newProject = new projectModel({
+	projectName: "TEST",
+	mainImagePath: "./",
+	position: 1,
+	sections: 
+		[
+			{ 
+				type: 'image', // this is needed for selection
+				src: './'
+			}, 
+			{
+				type: 'gistCode',
+				gist: "db60274212f52b00b18693bcdb335f88"
+			}
+		]
 })
-
 
 
 // SHOULD THIS BE TRIGGERED AT AN ENDPOINT?
 // CREATES A MONGOOSE SERVER CONNECTION PROMISE  
 mongoose.connect(`mongodb://${server}/${database}`, {useNewUrlParser: true})
+	.then(() => {
+		console.log('Database connection successful')
+		newProject.save(function (err, project) {
+			if (err) return console.error(err.message);
+			console.error("Project: " + newProject.projectName + " was added successfully");
+			});
+		}).catch(err => {
+		console.error('Database connection error')
+	})
 
- .then(() => {
-    console.log('Database connection successful')
-    newProject.save(function (err, project) {
-      if (err) return console.error(err);
-      console.error("Project: " + newProject.projectName + " was added successfully");
-    });
- })
 
- .catch(err => {
-   console.error('Database connection error')
- })
-
- mongoose.connection.on('disconnected', function(){
-    console.log("Mongoose default connection is disconnected");
+mongoose.connection.on('disconnected', function(){
+	console.log("Mongoose default connection is disconnected");
 });
 
  

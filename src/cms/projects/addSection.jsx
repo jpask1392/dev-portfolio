@@ -57,6 +57,11 @@ export default class AddSection extends React.Component {
 					type: "text",
 				 	text: submittedForm.elements["text"].value
 				}); break
+			case "GistForm":
+				arr.push({
+					type: "gistCode",
+				 	gist: submittedForm.elements["code"].value
+				}); break
 			default: null
 		}
 
@@ -77,12 +82,14 @@ export default class AddSection extends React.Component {
 						<option value="title">Title</option>
 						<option value="image">Image</option>
 						<option value="text">Text</option>
+						<option value="gistCode">Code</option>
 					</select>
 					{(() => {
 						switch(self.state.selectedOption) {
 							case "title"	: return <TitleForm onSave={this.onSave.bind(this)}/>
 							case "image"	: return <ImageForm onSave={this.onSave.bind(this)}/>
-							case "text"		: return <TextForm onSave={this.onSave.bind(this)}/> 
+							case "text"		: return <TextForm onSave={this.onSave.bind(this)}/>
+							case "gistCode"	: return <GistForm onSave={this.onSave.bind(this)}/> 
 						}
 					})()}	
 				</div>
@@ -126,6 +133,19 @@ const TextForm = (props) => {
 			<dl>
 				<dt>Text</dt>
 				<dd><textarea name="text" /></dd>
+			</dl>
+		</form>
+	)
+	
+}
+
+const GistForm = (props) => {
+	return (
+		<form id="GistForm" onSubmit={(e) => props.onSave(e)}>
+			<button type="submit" className="fas fa-check"></button>
+			<dl>
+				<dt>Code</dt>
+				<dd><input name="code"/></dd>
 			</dl>
 		</form>
 	)

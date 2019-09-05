@@ -72,6 +72,7 @@ export default class ShowProject extends React.Component {
 
 	render() {
 		const data = this.state.projectData
+
 		// console.log(this.state.originalData)
 		// console.log(underscore._.isEqual(this.state.projectData, this.state.originalData))
 		if (data.length !== 0) {
@@ -116,7 +117,7 @@ export default class ShowProject extends React.Component {
 								case "title":
 									return (
 										<Input  
-											defaultText={section.text}
+											defaultText={section}
 											header="Section Title"
 											data={data}
 											index={i}
@@ -128,7 +129,7 @@ export default class ShowProject extends React.Component {
 								case "image":
 									return (
 										<Input 
-											defaultText={section.src}
+											defaultText={section}
 											header="Section Image"
 											data={data}
 											index={i}
@@ -139,12 +140,23 @@ export default class ShowProject extends React.Component {
 								case "text":
 									return (
 										<Input 
-											defaultText={section.text}
+											defaultText={section}
 											header="Section Text"
 											data={data}
 											index={i}
 											key={i}
 											inputType="textarea"
+											removable={true}
+											update={this.updateProjectData}/> 
+									)
+								case "gistCode":
+									return (
+										<Input 
+											key={i}
+											defaultText={section}
+											header="Section Code"
+											data={data}
+											index={i}
 											removable={true}
 											update={this.updateProjectData}/> 
 									)
