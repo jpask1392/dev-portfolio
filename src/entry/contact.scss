@@ -19,10 +19,8 @@
 #contact-container {
 	margin: auto;
 	position: relative;
-	// height: 100%;
-	overflow: hidden;
-	// top: 50%;
-	height: 100%;
+	// overflow: hidden;
+	min-height: 100%;
 
 	> div p i {
 		font-size: 40px;
@@ -34,11 +32,6 @@
 			color: $feature-color;
 		}
 	}
-
-	@media only screen and (max-width: $phone-large) {
-	   margin-left: 15px;
-	   margin-right: 15px;
-	}
 }
 
 .contact-text-container {
@@ -48,6 +41,26 @@
 	left: 8.3333%;
 	transform: translateY(-50%);
 
+	@media only screen and (max-width: $phone-large) {
+		width: auto;
+		position: relative;
+		transform: initial;
+		top: 0;
+		margin-left: 15px;
+		margin-right: 15px;
+		left: 0;
+		height: 90vh;
+	}
+}
+
+.contact-inner-text-container {
+
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	margin-top: 50px;
+
+
 	> h2 {
 		margin-bottom: 50px;
 	}
@@ -55,15 +68,6 @@
 	> p {
 		margin-top: 30px;
 		margin-bottom: 30px;
-	}
-
-	@media only screen and (max-width: $phone-large) {
-	   width: 100%;
-	   position: relative;
-	   transform: initial;
-	   top: 0;
-	   left:0;
-	   height: 100vh;
 	}
 }
 
@@ -94,40 +98,19 @@
 	}
 }
 
+
 .contact-nav-container {
 	position: absolute;
 	bottom: 0;
-	right:0
-}
-
-.phone-ringing {
-	font-size: 6em;
-	color: white;
-	position: absolute;
-	left:50%;
-	top: 50%;
-	transform-origin: center;
-	transform: translate(-50%, -50%);
-	animation: ringing-phone 0.3s ease-in-out;
-	animation-iteration-count: infinite
-
-}
-
-@keyframes ringing-phone {
- 	0%,100% { transform: translate(-50%, -50%) rotate(-10deg)}
- 	50% {transform: translate(-50%, -50%) rotate(10deg)}
-}
-
-.contact-nav-container {
-
-	width: 100%;
+	width: 41.6666%;
+	left: 8.3333%;
 	height: 100px;
 
 	> #nav-container {
 
 		> nav {
 			float: left;
-			left: 8.333%;
+			right: auto;
 		}
 
 		> nav ul {
@@ -147,7 +130,10 @@
 		> nav ul li a.active:before {
 			border: 1px black solid;	
 		}
+	}
 
+	@media only screen and (max-width: $phone-large) {
+		display: none;
 	}
 }
 

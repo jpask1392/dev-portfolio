@@ -1,6 +1,5 @@
 import React, { Component } 	from 'react';
 import { Link } 				from "react-router-dom";
-import ImageLoader 				from '../portfolio/imageLoader.jsx'
 import { onScreen } 			from '../common/commonFunctions.js'
 import styled, { keyframes } 	from 'styled-components';
 import { connect } 				from 'react-redux'
@@ -10,7 +9,6 @@ import {
 } from '../redux/actions/index'
 
 class Gallery extends Component {
-	_isMounted = false;
 	constructor(props) {
 		super(props)
 		this.state = { visible: false }
@@ -19,7 +17,6 @@ class Gallery extends Component {
 	}
 
 	componentDidMount() {
-		this._isMounted = true
 		window.addEventListener("scroll", this.handleScroll)
 		window.addEventListener("resize", this.getFirstElementInfo)
 		// check on load if the image is on screen
@@ -28,28 +25,22 @@ class Gallery extends Component {
 
 	// need to set a visible project index in the Redux state 
 	handleScroll = () => {
-		if (this._isMounted) {
-			// set visible to rotate image
-			// can propbably do this with prevProps
-   			if(onScreen(this.projectRef, {elOffset: "middle"})) {
-	    		this.setState({visible: true})
-	    	} else {
-	    		this.setState({visible: false})
-	    	}
+		// set visible to rotate image
+		// can propbably do this with prevProps
+		(onScreen(this.projectRef, {elOffset: "middle"})) ?
+    		this.setState({visible: true}) : 
+    		this.setState({visible: false})
 
-	    	// check what this function is doing!
-	    	if(onScreen(this.projectRef, {elOffset: "top", screenOffset:"middle"}) | onScreen(this.projectRef, {elOffset: "bottom", screenOffset:"middle"})) 
-	    	{	
-	    		// update visible project index with dispatch
-	    		this.props.dispatch(updateVisProjectIndex(this.props.index))
-	    	}
-   		}
+    	// check what this function is doing
+    	if(onScreen(this.projectRef, {elOffset: "top", screenOffset:"middle"}) | 
+    		onScreen(this.projectRef, {elOffset: "bottom", screenOffset:"middle"})) 
+    	{	
+    		// update visible project index with dispatch
+    		this.props.dispatch(updateVisProjectIndex(this.props.index))
+    	}
 	} 
 
-    componentWillUnmount = () => {
-    	this._isMounted = false
-    	window.removeEventListener("scroll", this.handleScroll)
-    }
+    componentWillUnmount = () => window.removeEventListener("scroll", this.handleScroll)
 
     render() {
     	const project = this.props.data;
@@ -58,12 +49,23 @@ class Gallery extends Component {
 	    	<Wrapper 
 	    		y={this.props.imgInitLocation}
 	    		clickedIndex={this.props.clickedIndex}
-	    		currentIndex={this.props.index}>
+	    		currentIndex={this.props.index}
+	    		className="gallery-wrapper">
 		    	<div className="project-container">
 				<Link 
 					className="link-to-project"
 					to={"projects/" + project['_id']}
-					onClick={(e) => this.props.Changing(e, this.props.index)}>
+					onClick={(e) => { 
+						this.props.Changing(e, this.props.index) 
+						return (
+							ga('send', {
+							  hitType: 'event',
+							  eventCategory: 'Videos',
+							  eventAction: 'sdkjfnjksdfsdf',
+							  eventLabel: 'Fall sdf,sdnfjk'
+							})
+						)
+					}}>
 					<div 	
 						ref={this.projectRef}
 						className={`individual-project ${this.state.visible ? "rotate" : ""}`}
@@ -102,5 +104,3 @@ const moveVertically = (y) => keyframes`
     0% { transform : translateY(${y}px) }
     100% { transform : translateY(0px) }
 `
-
-

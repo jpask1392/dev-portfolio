@@ -33,6 +33,14 @@
 	top:50%;
 	position: relative;
 	transform: translateY(-50%);
+
+	@media only screen and (max-width: $phone-large) {
+		height: 100vh;
+		// top: 0;
+		left: inherit!important;
+		width: 80%!important;
+		margin: auto;
+	}
 }
 
 .sections-container {
@@ -42,14 +50,6 @@
 	@media only screen and (max-width: $phone-large) {
 	   padding-bottom: 0px;
 	}
-}
-
-.sections-inner-container {
-	width: 50%;
-	position: relative;
-	left: 16.6666%;
-	margin-top: 100px;
-	max-width: 700px
 }
 
 .project-page-pin-container {

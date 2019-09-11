@@ -15,11 +15,24 @@
 	opacity: 0;
 	min-width: 400px;
 
-	@media only screen and (max-width: $phone-large) {
-	   left: 8.3333%;
-	   width: 83.3333%;
-	   min-width: auto;
+	> p {
+		text-transform: uppercase;
+		color: grey;
 	}
+
+	@media only screen and (max-width: $phone-large) {
+	   left: 0;
+	   width: auto;
+	   padding-left: 15px;
+	   padding-right: 15px;
+	   min-width: auto;
+
+		> span p {
+			margin-bottom: 20px;
+		}
+	}
+
+
 }
 
 .fade-in-text {
@@ -41,7 +54,7 @@
 
 	&.about-page {
 		background-size: cover;
-		background-image: url('/assets/image31.jpg');
+		background-image: url('/assets/homeAboutImg.jpg');
 	}
 
 	&.contact-page {
@@ -54,10 +67,12 @@
 }
 
 .end {
+	
 	right: 0;
+
 	@media only screen and (max-width: $phone-large) {
-		   display: none;
-		}
+	   display: none;
+	}
 
 	&.about-page {
 		width: 25%;
@@ -67,31 +82,9 @@
 		width: 50%;
 
 		@media only screen and (max-width: $phone-large) {
-		   width: 100%;
+			transition:none;
+			width: 100%;
+			left:0;
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

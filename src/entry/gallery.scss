@@ -15,6 +15,16 @@
 
 }
 
+.gallery-wrapper {
+	@media only screen and (max-width: $phone-large) {
+		height: 100vh;
+		top: 0;
+		left: inherit!important;
+		width: 80%!important;
+		margin: auto;
+	}
+}
+
 .individual-project {
 	background-size: contain;
 	background-repeat: no-repeat;
@@ -33,12 +43,5 @@
 
 	&.rotate {
 		transform: translate(-50%, 50%) rotate(0deg);
-	}
-
-
-	@media only screen and (max-width: $phone-large) {
-		// margin-left: 0px;
-		// margin-right: 0px;
-		// margin-bottom: 5px;
 	}
 }

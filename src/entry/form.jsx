@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Route, Link } from "react-router-dom";
 import { createBrowserHistory } from 'history';
+import NextButton				from '../common/nextButton.jsx'
 
 const history = createBrowserHistory();
 
@@ -95,8 +96,10 @@ export default class Form extends React.Component {
 						</dd>
 
 					</dl>
-					
-					<button type='submit' >SEND</button>
+				
+					<button type='submit' >
+						<NextButton color="white" text="Send"/>
+					</button>
 				</form>
 
 			

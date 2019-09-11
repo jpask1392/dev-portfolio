@@ -2,29 +2,35 @@ import React 			from 'react';
 import ReactSVG 		from 'react-svg';
 import { onScreen } 	from '../common/commonFunctions.js'
 import NextButton 		from '../common/nextButton.jsx'
+import { Link }			from 'react-router-dom'
 
 
 export default class About extends React.Component {
-
+	_isMounted = false 
 	constructor(props) {
 		super(props);
 		this.state = { visible: false };
 	}
 
-	componentDidMount() {
-		this.handleScroll = this.handleScroll.bind(this)
+	componentDidMount = () => {
+		this._isMounted = true
 		window.addEventListener("scroll", this.handleScroll)
+		this.handleScroll = this.handleScroll.bind(this)
 	}
 
 	handleScroll = () => {
-		let condition = onScreen(this.props.aboutRefProp, {elOffset:"top"})
-		this.setState(() => condition ? {visible: true} : {visible:false})	
+		if (this._isMounted) {
+			let condition = onScreen(this.props.aboutRefProp, {elOffset:"top"})
+			this.setState(() => condition ? {visible: true} : {visible:false})		
+		}
 	}
 
-	componentWillUnmount = () => window.removeEventListener("scroll", this.handleScroll)
+	componentWillUnmount = () => {
+		this._isMounted = false
+		window.removeEventListener("scroll", this.handleScroll)
+	}
 
 	render() {
-
 		return (
 			<div 
 				className="about-container " 
@@ -61,10 +67,9 @@ export default class About extends React.Component {
 						float:"right",
 						marginTop:"50px"
 					}}>
-						<NextButton 
-							linkTo="/contact"
-							backgroundColor="#2699FB"
-						/>
+					<Link to="/about">
+						<NextButton color="#2699FB" text="Read More"/>
+					</Link>
 					</div>
 				</div>
 			</div>

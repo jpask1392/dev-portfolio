@@ -39,6 +39,15 @@ export default class App extends Component {
 		this.setState({translateValue: newValue})
 	}
 
+	PageTracker = pageName => 
+		ga('send', {
+			hitType: 'event',
+			eventCategory: 'Page views',
+			eventAction: 'Navigation tab clicked',
+			eventLabel: `${pageName} page visited`
+		})
+		
+
 	render() {
 		return (
 		<BrowserRouter>
@@ -54,7 +63,9 @@ export default class App extends Component {
 	                  timeout={1000}>
 						<Switch location={location}>
 
-							<Route path="/" exact={true} render={(props) => 
+							<Route path="/" exact={true} render={(props) => {
+								document.title = "Home | Jamie Pask"
+								return (
 								<div style={{height:"100%"}}>
 									<PageChange />
 									<Home
@@ -63,22 +74,26 @@ export default class App extends Component {
 										imgInitLocation={this.state.translateValue}
 									/>
 								</div>
+								)}
 							}/>
 
-							<Route path="/about" exact render={(props) =>
-									<div style={{height:"100%"}}>
-										<PageChange />
-										<Navigation/>
-										<About location={props.location}/>
-									</div>
-								} />
+							<Route path="/about" exact render={(props) => {
+									document.title = `About | Jamie Pask`
+									return (
+										<div style={{height:"100%"}}>
+											<PageChange />
+											<Navigation/>
+											<About location={props.location}/>
+										</div>
+									)}
+								}/>
 
 							<Route path="/sent" exact component={MessageSent} />
 
 							<Route path="/projects" exact render={(props) => {
 
 								document.title = `Projects | Jamie Pask`
-
+								this.PageTracker(document.title)
 								
 								return (
 									<div className='full-height'>
@@ -91,7 +106,9 @@ export default class App extends Component {
 											updateTranslateValue={this.updateTranslateValue.bind(this)}
 											imgInitLocation={this.state.translateValue}
 										/> 
+										
 									</div>
+
 								)
 							}} />
 
@@ -118,10 +135,8 @@ export default class App extends Component {
 									<div className='full-height'>
 										<Background />
 										<PageChange />
-										<Navigation />
-										<Contact
-											location={props.location}
-										/>
+										<Navigation burgerColor="black"/>
+										<Contact />
 									</div>
 								)
 							}} />
@@ -152,5 +167,6 @@ ReactDOM.render(
   	</Provider>,
   	document.getElementById('root')
 );
+
 
 

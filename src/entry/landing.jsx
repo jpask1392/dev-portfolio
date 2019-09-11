@@ -5,7 +5,6 @@ export default class Landing extends Component {
 
 	constructor(props) {
 		super(props)
-
 		this.state = {eyeRotationX: 0, eyeRotationY: 0}
 	}
 
@@ -37,9 +36,7 @@ export default class Landing extends Component {
 		return Y
 	}
 
-	componentWillUnmount() {
-		window.removeEventListener('mousemove', this.handleMouseMove)
-	}
+	componentWillUnmount = () => window.removeEventListener('mousemove', this.handleMouseMove)
 
 	render() {
 	
@@ -51,7 +48,15 @@ export default class Landing extends Component {
 						<span className="smile"></span>
 					</h1>
 					<h2 style={{color:"#615E65", marginTop:"50px"}}>
-						Proficient in <a>Javascript</a> with React, Node environment, MongoDB, testing frameworks, PHP & SQL, Python and more.
+						Proficient in 
+						<a> Javascript </a> 
+						with 
+						<a> React </a>, 
+						Node environment, 
+						<a> MongoDB </a>, 
+						testing frameworks, PHP & SQL, 
+						<a> Python </a> and 
+						<a> more </a>.
 					</h2>
 				</div>
 			</div>

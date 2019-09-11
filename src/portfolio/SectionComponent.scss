@@ -15,6 +15,27 @@
 	}
 }
 
+.section-content {
+	> div h2 {
+		padding-top: 30px;
+	}
+}
+
+.sections-inner-container {
+	width: 50%;
+	position: relative;
+	left: 16.6666%;
+	margin-top: 100px;
+	max-width: 700px;
+
+	@media only screen and (max-width: $phone-large) {
+	   	left: inherit;
+	   	padding-left: 15px;
+	   	width: auto;
+	   	padding-right: 15px;
+	}
+}
+
 // IMAGE CONTAINER HOLDS ALL IMAGES
 .image-container {
 	height: 100%;
@@ -26,3 +47,5 @@
    		margin-left: 15px;
 	}
 }
+
+

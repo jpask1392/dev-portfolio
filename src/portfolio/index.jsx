@@ -4,8 +4,14 @@ import ProjectEntry 		from './projectEntry.jsx';
 import ScrollPin 			from '../common/scrollPin.jsx'
 import FooterBar 			from '../common/footerBar.jsx'
 import ScrollNavigation 	from './ScrollNavigation.jsx';
+import { Link }				from 'react-router-dom'
+import { connect } 			from 'react-redux'
+import {
+	updateVisProjectIndex,
+	updateVisSectionIndex
+} from '../redux/actions/index'
 
-export default class Project extends React.Component {
+class Project extends React.Component {
 	_isMounted = false;
 
 	constructor(props) {
@@ -24,6 +30,9 @@ export default class Project extends React.Component {
 
 		this._isMounted = true;
 
+		// reset the visible index state here
+		this.props.dispatch(updateVisProjectIndex(0))
+
 		if(this._isMounted) {
 			const currentProjectID = this.props.projectId
 			let currentIndex;
@@ -38,11 +47,16 @@ export default class Project extends React.Component {
 			fetch('/api/projects/allIds')
 				.then(response => response.json())
 				.then(projects => {
+
 					currentIndex = projects.map((project) => project._id).indexOf(currentProjectID)
-					this.setState({
-						nextProjectName: projects[currentIndex + 1].projectName,
-						nextProjectId: projects[currentIndex + 1]._id
-					})
+
+					this.setState(() => 
+						(projects.length > currentIndex + 1) ?
+							{nextProjectName: projects[currentIndex + 1].projectName,
+							nextProjectId: projects[currentIndex + 1]._id} :
+							{nextProjectName: projects[0].projectName,
+							nextProjectId: projects[0]._id} 
+					)
 				})
 		}
 	}
@@ -108,8 +122,14 @@ export default class Project extends React.Component {
 			 		nextProject={this.state.nextProjectName}
 			 		linkTo={`/projects/${this.state.nextProjectId}`}/>
 
-
 			</div>
 		)} else { return null }
 	}
 }
+
+const mapStateToProps = (state, ownProps) => state
+
+// Connect the component to the store
+Project = connect(mapStateToProps)(Project)
+
+export default Project

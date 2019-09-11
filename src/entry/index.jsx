@@ -11,7 +11,7 @@ import Background 				from '../common/background.jsx'
 import PropTypes 				from 'prop-types'
 
 export default class Home extends React.Component {
-	_isMounted = false;
+	_isMounted = false
 
 	static propTypes = {
 		location 				: PropTypes.object,
@@ -21,33 +21,32 @@ export default class Home extends React.Component {
 
 		constructor(props) {
 		super(props);
-
 		this.state = {
 			visibleSection: "",
 			pinLocation: "83.3333%",
 			pinColor: "light",
-			translateValue: null
+			translateValue: null,
 		}
 
 		this.landingRef = React.createRef();
 		this.aboutRef = React.createRef();
 		this.aboutRefBuffer = React.createRef();
-		this.portfolioRef = React.createRef();
 		this.portfolioRefBuffer = React.createRef();
+		this.portfolioRef = React.createRef();
 		this.contactRef = React.createRef();
 		this.contactRefBuffer = React.createRef();
 
 	}
 
 	componentDidMount = () => {
-		document.title = "Home | Jamie Pask"
 		this._isMounted = true
-		if(this._isMounted) { window.addEventListener("scroll", this.handleScroll) }
+		
+		window.addEventListener("scroll", this.handleScroll)
 	}
 
 	handleScroll = () => {
 
-		if(onScreen(this.aboutRef)) {
+		if(this._isMounted && onScreen(this.aboutRef)) {
 			this.setState({visibleSection: "about"})
 		} else if(onScreen(this.portfolioRef)) {
 			this.setState({visibleSection: "portfolio"})
@@ -79,14 +78,16 @@ export default class Home extends React.Component {
 	}
 
 	render() {
-		const object = {
+
+		const bkgColors = {
 			lightBackRefs: [this.aboutRefBuffer, this.aboutRef, this.contactRef], 
 			darkBackRefs: [this.landingRef, this.portfolioRef]
 		}
+
 		return (
 			<div style={{height: "100%"}}>
-		
-				<Background colors={object}/>
+
+				<Background colors={bkgColors}/>
 				
 				<div
 					style={{left:this.state.pinLocation}}
@@ -111,7 +112,6 @@ export default class Home extends React.Component {
 				</div>
 				
 				<Portfolio 
-					location={this.props.location}
 					portfolioRefProp={this.portfolioRef}
 					visibleSection={this.state.visibleSection}
 					updateTranslateValue={this.props.updateTranslateValue}
@@ -123,11 +123,13 @@ export default class Home extends React.Component {
 				</div>
 				
 				<Contact 
-					location={this.props.location}
 					contactRefProp={this.contactRef}
 					visibleSection={this.state.visibleSection}/>
 
+				
+
 			</div>
 		);
+
 	}
 }

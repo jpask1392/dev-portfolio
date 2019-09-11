@@ -24,16 +24,14 @@ html {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	min-height: 800px;
+	min-height: 500px;
 	width: 100%;
 
 	@media only screen and (max-width: $phone-large) {
-	   min-height: 500px;
 	   font-size: 0.7em;
 	}
 
 	@media only screen and (max-width: $screen-small) {
-	   min-height: 500px;
 	   font-size: 0.5em;
 	}
 }
@@ -75,6 +73,10 @@ h3 {
 	margin: 0;
 	padding: 0;
 	font-weight: 700; 
+
+	@media only screen and (max-width: $phone-large) {
+		font-size: 20px;
+	}
 }
 
 
@@ -84,6 +86,10 @@ p {
 	line-height: 2;
 	margin: 0;
 	padding: 0;
+
+	@media only screen and (max-width: $phone-large) {
+		font-size: 16px;
+	}
 }
 
 .sub-heading {
@@ -98,6 +104,8 @@ p {
 @import './common/footerBar.scss';
 @import './common/nextButton.scss';
 @import './common/scrollPin.scss';
+@import './common/loadingIcon.scss';
+@import './common/imageLoader.scss';
 
 // entry section elements
 @import './entry/about.scss';
@@ -127,4 +135,6 @@ p {
 @import './cms/projects/projectCoreDisplay.scss';
 @import './cms/projects/show.scss';
 @import './cms/projects/input.scss';
+@import './cms/projects/index.scss';
+@import './cms/projects/addNewProject.scss';
 

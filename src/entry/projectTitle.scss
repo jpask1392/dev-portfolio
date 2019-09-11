@@ -8,6 +8,12 @@
 	transition: opacity 1s;
 	position: absolute;
 
+	span {
+		@media only screen and (max-width: $phone-large) {
+		  	display: none;
+		}
+	}
+
 	&.fixed {
 		position: fixed!important;
 		opacity: 1;
@@ -22,6 +28,14 @@
 
 	> p {
 		color: $grey-text-dark-bkg;
+	}
+
+	.project-summary {
+		margin-bottom: 30px;
+
+		@media only screen and (max-width: $phone-large) {
+		  	display: none;
+		}
 	}
 
 	@media only screen and (max-width: $phone-large) {

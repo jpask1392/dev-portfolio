@@ -6,52 +6,69 @@
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
+
+	@media only screen and (max-width: $phone-large) {
+		width: calc(100% - 30px);
+		padding-left: 15px;
+		padding-right: 15px;
+		margin-top: 0;
+	}
+
+	> h2 {
+		@media only screen and (max-width: $phone-large) {
+			margin-bottom: 40px;
+		}
+	}
 }
 
-form {
-	margin: auto;	
-}
+#form-container form {
+	margin: auto;
 
-input, textarea {
-	width: 100%;
-	padding: 10px 10px 10px 10px;
-	border:1px solid white;
-	box-sizing: border-box;
-	height: 2.5em;
-	font-size: 1em;
-	background: none;
-	color: white
-}
+	> dl dt {
+		@media only screen and (max-width: $phone-large) {
+			font-size: 2em;
+		}
+	}
 
-textarea {
-	height: 15em;
-	background: none;
+	> dl dd input, dl dd textarea {
+		width: 100%;
+		padding: 10px 10px 10px 10px;
+		border:1px solid white;
+		color: white;
+		background: none;
+	}
+
+	dl dd textarea {
+		height: 15em;
+		background: none;
+		@media only screen and (max-width: $phone-large) {
+			height: 120px;
+		}
+	}
+
+	input:focus, textarea:focus {
+		outline-color: $light-grey;
+	}
+
+	button {
+		float: right;
+
+		> a {
+			color: white;
+		}
+	}
+
+	dl dd input {
+		@media only screen and (max-width: $phone-large) {
+			height: 40px;
+		}
+	}
+
 }
 
 input:focus, textarea:focus {
 	outline-color: $light-grey;
-	// border-bottom: 3px solid $feature-color;
 }
-
-dt {
-	color: $grey-text-dark-bkg;
-	margin-bottom: 5px;
-}
-
-dd {
-	margin: 0
-}
-
-// button {
-// 	width: 90px;
-// 	height: 30px;
-// 	background-color: $feature-color;
-// 	border: none;
-// 	cursor: pointer;
-// 	float: right;
-// 	color: white;
-// 	clear: both;
-// }
 
 .input-error-container {
 	width: 100%;

@@ -3,6 +3,7 @@ import PropTypes 			from 'prop-types'
 import SectionText 			from './sectionTextComponent.jsx';
 import { onScreen2 } 		from '../common/commonFunctions.js'
 import GistDisplay 			from './gistDisplay.jsx'
+import ImageLoader			from '../common/imageLoader.jsx'
 import { connect } 			from 'react-redux'
 import {
 	updateVisProjectIndex,
@@ -53,7 +54,7 @@ class Section extends React.Component {
 				{(() => {
 				switch(section.type) {
 					case "title"	: return <Title Ref={Ref} txt={section.text}/>
-					case "image"	: return <Image src={section.src}/>
+					case "image"	: return <Image src={section.src} caption={section.caption}/>
 					case "text"		: return <Text txt={section.text}/>
 					case "gistCode"	: return <GistDisplay gist={section.gist} file={section.file}/>
 					default			: return null
@@ -74,7 +75,7 @@ Section = connect(mapStateToProps)(Section)
 export default Section
 
 // components defined to clean up Section render method
-const Image = (props) => <img src={props.src}></img>
+const Image = (props) => <ImageLoader src={props.src} caption={props.caption}/>
 const Text = (props) => <p>{props.txt}</p>
 const Title = (props) => 
 	<div>
