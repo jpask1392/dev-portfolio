@@ -5,6 +5,13 @@
 	margin: 100px 0px 100px 0px;
 	clear: both;
 	display: inline-block;
+
+	@media only screen and (max-width: $phone-large) {
+		width: auto;
+		left: 0px;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
 }
 
 .quote {

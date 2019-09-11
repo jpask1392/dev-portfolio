@@ -3,49 +3,49 @@
 		"skillName": "ReactJS",
 		"skillImage": "./assets/skillsIcons/ReactLogo.png",
 		"skillSummary": "Strong understanding of the React Library",
-		"skillBack": "The successful completion of my current portfolio picks up on several key features of React, from state control to conditonal rendering methods. View this project to see more <a href=\"/projects\">Click</a>"
+		"skillBack": "The React library was used to create all front end elements of my latest portfolio. The code compilation technologies, Babel and Webpack enabled React’s more useful features such as JSX and with the inclusion of ES6, I was able to create cleaner source code. View more on this project <a href=\"/projects\">here</a>"
 	},
 	{
 		"skillName": "MongoDB",
 		"skillImage": "./assets/skillsIcons/MongoDB.png",
 		"skillSummary": "MongoDB used for current portfolio project data storage",
-		"skillBack": "To gain an increased knowledge of the interaction between backend databases and frontend libraries, I opted for the NoSQL technology MongoDB. I am currently looking to build my own CMS to provide a UI to control the backend data."
+		"skillBack": "The noSQL technology MongoDB was used to store all project data of my latest web developer portfolio. Restful API design was explored and created for various end points. A full CMS was developed and deployed to allow database control via UI. View more on this project <a href=\"/projects\">here</a>"
 	},
 	{
 		"skillName": "PHP",
 		"skillImage": "./assets/skillsIcons/PHP.png",
 		"skillSummary": "Architectural design portfolio built with PHP",
-		"skillBack": "PHP was used to convert a static HTML site to a more dynamic, data driven site. I enjoyed its syntax and a lot of it's features. "
+		"skillBack": "The PHP language was used to convert my previous Architecture portfolio, a very static HTML site, to a more dynamic, data driven site. Through credible online courses, I studied how to design and create a PHP website with concern of typical security threats. View more on this project <a href=\"/projects\">here</a>"
 	},
 	{
 		"skillName": "SQL",
 		"skillImage": "./assets/skillsIcons/SQL.png",
 		"skillSummary": "SQL used for architectural design portfolio project data storage",
-		"skillBack": "I have successfully implemented a SQL database into my architecture portfolio project - <a href=\"\">see this link</a> for more information on the project. A CMS was also incorporated for ease of data control."
+		"skillBack": "The SQL database language was used to store all project data of my Architecture portfolio. A CMS was designed and deployed through the construction of SQL commands using dynamic data, whilst cleansing to prevent malicious attacks. View more on this project <a href=\"/projects\">here</a>"
 	},
 	{
 		"skillName": "Python",
 		"skillImage": "./assets/skillsIcons/Python.png",
 		"skillSummary": "Python used for task automation",
-		"skillBack": "I have successfully completed several automation scripts in Python for previous Architectural employers to greatly improve workflow efficiency. This is the reason I got into programming. I am looking to build on this knowledge by implementing a Python backend in web development for a future project."
+		"skillBack": "The Python language has been used on the completion of many scripts written in previous architecture firms for task automation, greatly improving workflow efficiency. View more on this project <a href=\"/projects\">here.</a> I would hope that future projects in Python will include machine learning and AI programs."
 	},
 	{
 		"skillName": "NodeJS",
 		"skillImage": "./assets/skillsIcons/Node.png",
 		"skillSummary": "Current developer portfolio built with Node",
-		"skillBack": "ksjdklsdlks"
+		"skillBack": "The NodeJS runtime was used in conjunction with ReactJS, ExpressJS for backend code and MongoDB to create my web developer portfolio. Building a full stack system in javascript allowed for a much more coherent, maintainable application. View more on this project <a href=\"/projects\">here</a>"
 	},
 	{
 		"skillName": "Adobe",
 		"skillImage": "./assets/skillsIcons/Abode.png",
 		"skillSummary": "Design work all produced using Adobe software",
-		"skillBack": "I have used Adobe's services for years for a wide range of purposes"
+		"skillBack": "Adobe’s software suite has been part of my skill arsenal for many years. My background in Architecture naturally led me to explore photoshop for image rendering whilst a genuine interest in graphic design led me to explore Illustrator for logo designs and XD for web/app design projects."
 	},
 	{
 		"skillName": "Amazon Web Services",
 		"skillImage": "./assets/skillsIcons/aws.png",
 		"skillSummary": "Design work all produced using Adobe software",
-		"skillBack": "ksjdklsdlks"
+		"skillBack": "AWS’s Elastic Beanstalk hosting service has been used to deploy, host and maintain my current web developer portfolio on the cloud. I am currently looking to build a more complete knowledge of the technology through personal projects."
 	}
 
 ]

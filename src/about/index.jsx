@@ -2,15 +2,16 @@ import React 			from 'react';
 import Background 		from '../common/background.jsx'
 import SkillTile 		from './skill-tile.jsx'
 import tileData 		from './skillsData.json'
-import AboutSelfImage 	from './aboutSelfImage.jsx'
 import ScrollPin 		from '../common/scrollPin.jsx'
 import FooterBar 		from '../common/footerBar.jsx'
 import { onScreen }		from '../common/commonFunctions'
 import AboutLanding		from './aboutLanding.jsx'
 import AboutMainSection from './aboutMainSection.jsx'
 import ReferenceQuote 	from './referenceQuote.jsx'
+import { Link }			from 'react-router-dom'
 
 export default class About extends React.Component {
+	_isMounted = false
 	constructor(props) {
 		super(props);
 
@@ -27,16 +28,24 @@ export default class About extends React.Component {
 	}
 
 	componentDidMount = () => {
+		this._isMounted = true
 		document.title = "About | Jamie Pask"
 		window.addEventListener("scroll", () => this.handleScroll())
 	}
 
+	// variable to store if mounted information to prevent onScreen function persisting
 	handleScroll = () => {
-		let condition = onScreen(this.landingRef, {elOffset: "top"})
-		this.setState(() => condition ? { pinVisible: true } : { pinVisible: false })
+		if (this._isMounted) {
+			let condition = onScreen(this.landingRef, {elOffset: "top"})
+			this.setState(() => condition ? { pinVisible: true } : { pinVisible: false })	
+		}
+		
 	}
 
-	componentWillUnmount = () => window.removeEventListener("scroll", this.handleScroll)
+	componentWillUnmount = () => {
+		this._isMounted = false 
+		window.removeEventListener("scroll", this.handleScroll)
+	}
 
 	render() {
 		const bkgColors = {
@@ -75,9 +84,9 @@ export default class About extends React.Component {
 						)}
 					</div>
 				</div>
-
+				
 				<FooterBar linkTo="/contact"/>
-
+				
 			</div>
 		);
 	}

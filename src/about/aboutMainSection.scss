@@ -3,6 +3,32 @@
 	position: relative;
 	display: flex;
 
+	@media only screen and (max-width: $phone-large) {
+		display: block;
+	}
+
+}
+
+#about-me-image {
+	min-width: 33%;
+	max-width: 41.666%;
+	margin: 0;
+	flex-grow: 1;
+	height: 90vh;
+
+	@media only screen and (max-width: $phone-large) {
+		min-width: inherit;
+		max-width: inherit;
+		width: 100%;
+		height: 60vh;
+	}
+}
+
+.about-image-container {
+	background: url('/assets/aboutMe.jpg');
+	background-size: cover;
+	background-position: 80%;
+	height: 100%;
 }
 
 .about-text-container {
@@ -18,28 +44,15 @@
 	> h2 {
 		margin-bottom: 40px;
 	}
-}
 
-#about-me-image {
-	min-width: 33%;
-	max-width: 41.666%;
-	margin: 0;
-	flex-grow: 1;
-	height: 90vh;
-
-	> figcaption {
-		float: right;
-		font-style: italic;
-		color: lightgrey;
-		margin-top: 5px;
+	@media only screen and (max-width: $phone-large) {
+		width: auto;
+		margin-right: auto;
+		margin-left: auto;
+		max-width: auto;
+		padding-left: 15px;
+		padding-right: 15px;
 	}
-}
-
-.about-image-container {
-	background: url('/assets/aboutMe.jpg');
-	background-size: cover;
-	background-position: 80%;
-	height: 100%;
 }
 
 .about-paragraphs {
@@ -56,6 +69,12 @@
 		float: left;
 		width: calc(50% - 20px);
 		margin-right: 20px;
+
+		@media only screen and (max-width: $phone-large) {
+			width: 100%;
+			margin-right: auto;
+			float: none;
+		}
 	}
 
 	&.right {
@@ -63,5 +82,11 @@
 		float: right;
 		width: calc(50% - 20px);
 		margin-left: 20px;
+
+		@media only screen and (max-width: $phone-large) {
+			width: 100%;
+			margin-left: auto;
+			float: none;
+		}
 	}
 }
