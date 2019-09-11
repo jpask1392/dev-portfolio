@@ -1,5 +1,11 @@
 import React from 'react';
 import axios from 'axios'
+import {
+	TitleInput,
+	TextInput,
+	ImageInput,
+	GistInput
+} from './inputTypes.jsx'
 
 export default class AddSection extends React.Component {
 	static propTypes = {
@@ -13,6 +19,7 @@ export default class AddSection extends React.Component {
 			visible: false,
 			projectData: {}
 		}
+		this.onSave = this.onSave.bind(this)
 	}
 
 	componentDidMount = () => {
@@ -26,44 +33,40 @@ export default class AddSection extends React.Component {
 		this.setState({selectedOption: selectedOption})
 	}
 
-	showHide = () => {
-		this.setState(prevState => ({visible: !prevState.visible}))
-	}
+	showHide = () => this.setState(prevState => ({visible: !prevState.visible}))
 
 	onSave = (e) => {
 		e.preventDefault()
+
 		const fullArr = this.state.projectData
-		const projectID = this.state.projectData._id
-		const submittedFormId = e.target.id
-		const submittedForm = document.forms[submittedFormId]
+		const arr = this.state.projectData.sections
+		const form = document.forms['newSectionForm']
 
-		var arr = this.state.projectData.sections
-		// add new data to array
-
-		switch(submittedFormId) {
-			case "titleForm":
-				arr.push({
+		switch(this.state.selectedOption) {
+			case "title": 
+				arr.push({ 
 					type: "title",
-				 	text: submittedForm.elements["title"].value
+					text: form['title'].value
 				}); break
-			case "imageForm":
+			case "image":
 				arr.push({
 					type: "image",
-			 		title: submittedForm.elements["imageTitle"].value,
-			 		src: submittedForm.elements["imageSrc"].value
+					src: form['imgSrc'].value,
+					caption: form['imgCaption'].value
 				}); break
-			case "textForm":
+			case "text":
 				arr.push({
 					type: "text",
-				 	text: submittedForm.elements["text"].value
+					text: form['text'].value
 				}); break
-			case "GistForm":
+			case "gistCode": 
 				arr.push({
 					type: "gistCode",
-				 	gist: submittedForm.elements["code"].value
+					gist: form['gistId'].value,
+					gistFile: form['gistFile'].value
 				}); break
 			default: null
-		}
+		} 
 
 		fullArr.sections = arr
 		this.props.update(fullArr)
@@ -72,7 +75,6 @@ export default class AddSection extends React.Component {
 	}
 
 	render() {
-		const self = this
 		return (
 			<div>
 				<button className="fas fa-plus" onClick={this.showHide} ></button>
@@ -84,70 +86,21 @@ export default class AddSection extends React.Component {
 						<option value="text">Text</option>
 						<option value="gistCode">Code</option>
 					</select>
-					{(() => {
-						switch(self.state.selectedOption) {
-							case "title"	: return <TitleForm onSave={this.onSave.bind(this)}/>
-							case "image"	: return <ImageForm onSave={this.onSave.bind(this)}/>
-							case "text"		: return <TextForm onSave={this.onSave.bind(this)}/>
-							case "gistCode"	: return <GistForm onSave={this.onSave.bind(this)}/> 
-						}
-					})()}	
+
+					<form id="newSectionForm" onSubmit={(e) => this.onSave(e)}>
+						<button type="submit" className="fas fa-check"></button>
+						{(() => {
+							switch(this.state.selectedOption) {
+								case "title"	: return <TitleInput/>
+								case "image"	: return <ImageInput/>
+								case "text"		: return <TextInput/>
+								case "gistCode"	: return <GistInput/> 
+							}
+						}).bind(this)()}
+					</form>
 				</div>
 			</div>
 		);
 	}
 }
 
-
-// form components
-const TitleForm = (props) => {
-	return (
-		<form id="titleForm" onSubmit={(e) => props.onSave(e)}>
-			<button type="submit" className="fas fa-check"></button>
-			<dl>
-				<dt>Title</dt>
-				<dd><input name="title"/></dd>
-			</dl>
-		</form>
-	)
-}
-
-const ImageForm = (props) => {
-	return (
-		<form id="imageForm" onSubmit={(e) => props.onSave(e)}>
-			<button type="submit" className="fas fa-check"></button>
-			<dl>
-				<dt>Image Title</dt>
-				<dd><input name="imageTitle"/></dd>
-				<dt>Image source</dt>
-				<dd><input name="imageSrc"/></dd>
-			</dl>
-		</form>
-	)	
-}
-
-const TextForm = (props) => {
-	return (
-		<form id="textForm" onSubmit={(e) => props.onSave(e)}>
-			<button type="submit" className="fas fa-check"></button>
-			<dl>
-				<dt>Text</dt>
-				<dd><textarea name="text" /></dd>
-			</dl>
-		</form>
-	)
-	
-}
-
-const GistForm = (props) => {
-	return (
-		<form id="GistForm" onSubmit={(e) => props.onSave(e)}>
-			<button type="submit" className="fas fa-check"></button>
-			<dl>
-				<dt>Code</dt>
-				<dd><input name="code"/></dd>
-			</dl>
-		</form>
-	)
-	
-}

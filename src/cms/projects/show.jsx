@@ -37,6 +37,7 @@ export default class ShowProject extends React.Component {
 
 	undoChanges = () => {this.setState({projectData: this.state.originalData})}
 
+	// build a new project object on save and make a post request
 	onSave = (e) => {
 		e.preventDefault()
 		// pass ID to select project to edit
@@ -47,7 +48,8 @@ export default class ShowProject extends React.Component {
 			projectName		: newData.projectName,
 			mainImagePath	: newData.mainImagePath,
 			sections 		: newData.sections,
-			position 		: newData.position
+			position 		: newData.position,
+			summary 		: newData.summary
 		}
 
 		// post request to 'edit' endpoint with formData object as params
@@ -97,6 +99,11 @@ export default class ShowProject extends React.Component {
 					<Input 
 						header="Header Image" 
 						defaultText={data.mainImagePath} 
+						data={data} 
+						update={this.updateProjectData}/>
+					<Input 
+						header="Summary" 
+						defaultText={data.summary} 
 						data={data} 
 						update={this.updateProjectData}/>
 					<Input 

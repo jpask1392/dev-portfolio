@@ -10,6 +10,7 @@ export default class SideNavgiation extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			visible: true,
 			sections: [
 				{name: "Dashboard", link: "/admin/dashboard"}, 
 				{name: "Users", link: "/admin/users"}, 
@@ -18,9 +19,21 @@ export default class SideNavgiation extends React.Component {
 		}
 	}
 
+	toggleVisible = () => this.setState(prevProps => ({ visible: !prevProps.visible })) 
+	
+
 	render() {
+		
 		return (
-			<div id="side-nav-container">
+			<React.Fragment>
+			<button
+				className="side-nav-toggle-btn" 
+				onClick={this.toggleVisible}>
+					SHOW/HIDE
+				</button>
+			<div 
+				id="side-nav-container" 
+				className={this.state.visible ? "side-nav-show" : "side-nav-hide"}>
 				<div className="side-nav-header"></div>
 				<ul>
 				{this.state.sections.map((section) => 	
@@ -32,6 +45,7 @@ export default class SideNavgiation extends React.Component {
 					</li>
 				)}
 				</ul>
+				
 				<button 
 					type="button"
 					onClick={() => { 
@@ -40,6 +54,7 @@ export default class SideNavgiation extends React.Component {
 					}}>Logout
 				</button>
 			</div>
+			</React.Fragment>
 		);
 	}
 }

@@ -32,11 +32,6 @@ export default class ProjectCoreDisplay extends React.Component {
 		[dragged] = this.props.projectArray.splice(this.props.index, 1)
 	}
 
-	// triggered when the item is dropped
-	onDrop = (e) => {
-		e.preventDefault()
-	}
-
 	// triggers when the drag has stopped
 	onDragEnd = (e) => {
 		e.target.style.opacity = ''
@@ -52,20 +47,12 @@ export default class ProjectCoreDisplay extends React.Component {
 
 	// DROP ZONE EVENTS
 
-	// drop zone needs to allow a drop
-	// this function allow the drop
-	// the only HTML elemnts that allow a drop by default is 'input'
-	onDragOver = (e) => {
-		e.preventDefault()
-	}
-
 	// triggered when the element enters a draggable zone
 	onDragEnter = (e) => {
 		e.preventDefault()
 		// only trigger if e.target.className is the draggable element
 		// Necessary as the dragover was triggering on child elements
 		if(e.target.className === "project-core-container") {
-
 			// if the dragged over element equals the dragged - do nothing
 			if(dragged !== this.props.projectArray[e.target.id]) {
 				// get the current index of e.target
@@ -81,9 +68,10 @@ export default class ProjectCoreDisplay extends React.Component {
 		}
 	}
 
-	onDragLeave = (e) => {
-		e.preventDefault()
-	}
+	// triggered when the item is dropped
+	onDrop = e => e.preventDefault()
+	onDragOver = e => e.preventDefault()
+	onDragLeave = e => e.preventDefault()
 
 	onDelete = () => {
 		if (confirm("Are you sure you want to delete this project?")) {
@@ -94,17 +82,15 @@ export default class ProjectCoreDisplay extends React.Component {
 			this.props.updateArray(newArray)
 
 			axios.delete(`/api/delete/${this.props.projectData._id}`)
-				.then(res => console.log(res))
 				.then(this.props.updateArray(newArray))
 		}
 	}
 
 	render() {
 		return (
-			<div>
-			 <div 
-			 	id={this.props.index}
-		    	className="project-core-container" 
+			<li 
+				id={this.props.index}
+				className="project-core-container" 
 				draggable="true"
 				onDrop={(e) => this.onDrop(e)}
 				onDragStart={(e) => this.onDragStart(e)}
@@ -112,12 +98,23 @@ export default class ProjectCoreDisplay extends React.Component {
 				onDragEnter={(e) => this.onDragEnter(e)}
 				onDragOver={(e) => this.onDragOver(e)}
 				onDragLeave={(e) => this.onDragLeave(e)}>
-				<h3>{this.props.projectData.projectName}</h3>
-				<p>{this.props.projectData.position}</p>
-				<button onClick={() => this.onDelete()}>Delete</button>
-				<NavLink to={`/admin/view_project/${this.props.projectData['_id']}`}>View</NavLink>
-			</div>
-			</div>
+					<span className="core-display-title-container">
+						<i className="fas fa-grip-vertical"></i>
+						<h2>{this.props.projectData.projectName}</h2>
+					</span>
+					<div className="core-display-btns-container">
+						<button onClick={() => this.onDelete()}>
+							<i className="fas fa-trash"></i>
+						</button>
+						<NavLink 
+							to={`/admin/view_project/${this.props.projectData['_id']}`}>
+							<button>
+								<i className="fas fa-eye"></i>
+							</button>
+						</NavLink>
+					</div>
+			</li>
 		);
 	}
 }
+

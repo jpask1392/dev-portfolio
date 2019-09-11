@@ -1,0 +1,39 @@
+.add-project-btn {
+	background-color: black;
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	position: relative;
+	border-radius: 30px;
+	float: right;
+	margin-bottom: 30px;
+
+	> button {
+		color: white;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%)
+	}
+}
+
+.new-project-form-container {
+	
+	> button {
+		width: 100px;
+		height: 30px;
+		color: white;
+		background-color: black;
+		margin-left: 10px;
+		float: right;
+	}
+}
+
+#newProjectForm {
+	clear: both;
+}
+
+#newProjectForm dd {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}

@@ -4,6 +4,7 @@
 	background: $background-color;
 	position: fixed;
 	top: 0;
+	overflow: hidden;
 
 	> ul {
 		margin: 0;
@@ -41,7 +42,19 @@
 	> ul li a.active {
 		background-color: black;
 	}
+}
 
-
+.side-nav-show {
 
 }
+
+.side-nav-hide {
+	width: 0!important;
+}
+
+.side-nav-toggle-btn {
+	position: fixed;
+	color: white;
+	z-index: 100
+}
+

@@ -11,8 +11,13 @@ import {
 
 export default class Input extends React.Component {
 	static propTypes = {
-		// defaultText: PropTypes.object,
-		header: PropTypes.string
+		projectData: PropTypes.object,
+		header: PropTypes.string,
+		defaultText: PropTypes.oneOfType([PropTypes.string , PropTypes.object]),
+		index: PropTypes.number,
+		removable: PropTypes.bool,
+		update: PropTypes.func,
+		inputType: PropTypes.string,
 	};
 
 	static defaultProps = {
@@ -33,51 +38,52 @@ export default class Input extends React.Component {
 		this.onClick = this.onClick.bind(this)
 		this.onConfirmEdit = this.onConfirmEdit.bind(this)
 		this.moveUp = this.moveUp.bind(this)
+		this.onChange = this.onChange.bind(this)
 	}
 
-	componentDidMount = () => {
-		// copy the data 
-		var arr = this.props.data
-		var arrCopy = {...arr}
-		this.setState({projectData: arrCopy})
-
-	}
+	componentDidMount = () => { this.setState({projectData: this.props.data})}
 
 	// disable edit mode if user is not authorized 
 	onClick = () => {
+		// console.log("on click", this.state.projectData)
 		this.state.mode === "view" ? 
 			this.setState({mode:"edit"}): 
 			this.setState({mode:"view"})
 	}
 
 	onChange = (e) => {
-		console.log(e.target.id)
 		this.setState({value: e.target.value, targetID: e.target.id})
 	}
 
 	onConfirmEdit = () => {
+		// console.log("After confirm clicked", this.state.projectData)
 		// update array
 		// get current array 
-		let arr = this.state.projectData
+		let arr = this.props.data
+
+		let prefix;
+		arr.sections === undefined ? prefix = arr : prefix = arr.sections
 		// get the value of entered data
 		let newValue = this.state.value
 		// get the index of value if sections
 		let index = this.props.index
 		// update the array based on title passed through props
 		switch(this.props.header) {
-			case "Project Name" 	: arr.projectName = newValue; 			break
-			case "Header Image" 	: arr.mainImagePath = newValue; 		break
-			case "Position" 		: arr.position = newValue; 				break
+			case "Project Name" 	: arr.projectName = newValue; 		break
+			case "Header Image" 	: arr.mainImagePath = newValue; 	break
+			case "Position" 		: arr.position = newValue; 			break
+			case "Summary" 			: arr.summary = newValue; 			break
 			default: null
 		}
 
 		// switch case based on inputID
 		switch(this.state.targetID) {
-			case "SecTitleInput" 	: arr.sections[index].text = newValue; 	break
-			case "SecTextInput" 	: arr.sections[index].text = newValue; 	break
-			case "SecImgInput" 		: arr.sections[index].src = newValue; 	break
-			case "SecGistInput" 	: arr.sections[index].gist = newValue; 	break
-			case "SecGistFileInput" : arr.sections[index].file = newValue; 	break
+			case "SecTitleInput" 	: prefix[index].text = newValue; 	break
+			case "SecTextInput" 	: prefix[index].text = newValue; 	break
+			case "SecImgInput" 		: prefix[index].src = newValue; 	break
+			case "SecImgCapInput" 	: prefix[index].caption = newValue; break
+			case "SecGistInput" 	: prefix[index].gist = newValue; 	break
+			case "SecGistFileInput" : prefix[index].file = newValue; 	break
 			default: null
 		}
 		// send the new array back to show component
@@ -87,38 +93,58 @@ export default class Input extends React.Component {
 	}
 
 	onDelete = () => {
-		const fullArr = this.state.projectData
+		const fullArr = this.props.data
 		const index = this.props.index
-		const arr = this.state.projectData.sections
-		arr.splice(index, 1)
-		fullArr.sections = arr
-		this.props.update(fullArr)
+		let arr;
+		if (this.props.data.sections === undefined) {
+			arr = this.props.data
+			arr.splice(index, 1)
+			this.props.update(arr)
+		} else {
+			arr = this.props.data.sections
+			arr.splice(index, 1)
+			fullArr.sections = arr
+			this.props.update(fullArr)
+		}
+		
 	}
 
 	moveUp = () => {
 		// swap items with es6
 		// [a, b] = [b, a]
-		const fullArr = this.state.projectData
-		const arr = this.state.projectData.sections
+		let fullArr = this.state.projectData
+		let arr
+		this.state.projectData.sections === undefined ? 
+			arr = this.props.data : 
+			arr = this.props.data.sections
+
 		const a = this.props.index;
 		const b = this.props.index - 1;
 		if (a > 0) {
 			// perform swap
 			[arr[a], arr[b]] = [arr[b], arr[a]]
-			fullArr.sections = arr
+			this.state.projectData.sections === undefined ? 
+				fullArr = arr : 
+				fullArr.sections = arr
 			this.props.update(fullArr)
 		}
 	}
 
 	moveDown = () => {
-		const fullArr = this.state.projectData
-		const arr = this.state.projectData.sections
+		let fullArr = this.state.projectData
+		let arr
+		this.state.projectData.sections === undefined ? 
+			arr = this.props.data : 
+			arr = this.props.data.sections
+
 		const a = this.props.index;
 		const b = this.props.index + 1;
 		if (a < arr.length - 1) {
 			// perform swap
 			[arr[a], arr[b]] = [arr[b], arr[a]]
-			fullArr.sections = arr
+			this.props.data.sections === undefined ? 
+				fullArr = arr : 
+				fullArr.sections = arr
 			this.props.update(fullArr)
 		}
 	}
@@ -136,7 +162,8 @@ export default class Input extends React.Component {
 						removable={this.props.removable}
 						delete={this.onDelete}
 						moveUp={this.moveUp}
-						moveDown={this.moveDown}/> : 
+						moveDown={this.moveDown}
+						data={this.state.projectData}/> : 
 
 					<EditModeButtons 
 						click={this.onClick} 
@@ -206,7 +233,7 @@ const ViewModeButtons = (props) =>
 	
 const EditModeButtons = (props) => 
 	<span className="save-cancel-container">
-		<button onClick={() => props.edit()} className="fas fa-check"></button>
-		<button onClick={() => props.click()} className="fas fa-times"></button>
+		<button type="button" onClick={() => props.edit()} className="fas fa-check"></button>
+		<button type="button" onClick={() => props.click()} className="fas fa-times"></button>
 	</span>
 

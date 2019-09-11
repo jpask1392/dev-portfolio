@@ -1,0 +1,14 @@
+#project-list-container {
+	position: absolute;
+	left: 8.3333%;
+	right: 8.3333%;
+	margin-bottom: 50px;
+
+	> ul {
+		clear: right;
+	}
+
+	> h3 {
+		display: inline;
+	}
+}
