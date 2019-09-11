@@ -10,7 +10,7 @@ const sectionsSchema = new mongoose.Schema(
 	{ discriminatorKey: 'type' })
 
 const projectSchema = new mongoose.Schema({ 
-	projectName: String,
+	projectName: {type: String, required: true},
 	mainImagePath: String,
 	position: Number,
 	sections: [ sectionsSchema ], 
@@ -54,7 +54,7 @@ projectSchema.path('sections')
 		})
 	)
 
-const projectModel = mongoose.model('Project', projectSchema)
+export const projectModel = mongoose.model('Project', projectSchema)
 
 // EXAMPLE 
 let newProject = new projectModel({
@@ -77,21 +77,21 @@ let newProject = new projectModel({
 
 // SHOULD THIS BE TRIGGERED AT AN ENDPOINT?
 // CREATES A MONGOOSE SERVER CONNECTION PROMISE  
-mongoose.connect(`mongodb://${server}/${database}`, {useNewUrlParser: true})
-	.then(() => {
-		console.log('Database connection successful')
-		newProject.save(function (err, project) {
-			if (err) return console.error(err.message);
-			console.error("Project: " + newProject.projectName + " was added successfully");
-			});
-		}).catch(err => {
-		console.error('Database connection error')
-	})
+// mongoose.connect(`mongodb://${server}/${database}`, {useNewUrlParser: true})
+// 	.then(() => {
+// 		console.log('Database connection successful')
+// 		newProject.save(function (err, project) {
+// 			if (err) return console.error(err.message);
+// 			console.error("Project: " + newProject.projectName + " was added successfully");
+// 			});
+// 		}).catch(err => {
+// 		console.error('Database connection error')
+// 	})
 
 
-mongoose.connection.on('disconnected', function(){
-	console.log("Mongoose default connection is disconnected");
-});
+// mongoose.connection.on('disconnected', function(){
+// 	console.log("Mongoose default connection is disconnected");
+// });
 
  
 

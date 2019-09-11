@@ -11,7 +11,8 @@ import {
 	editField,
 	deleteProject,
 	addSection,
-	deleteSection } 
+	deleteSection,
+	addProject } 
 from '../controllers/controller.js';
 
 const routes = (app) => {
@@ -62,8 +63,13 @@ const routes = (app) => {
 			deleteProject(req, res)
 		})
 
+	app.route('/api/addNewProject')
+		.post((req, res) => {
+			addProject(req, res)
+		})
 
-	// can combine the sections into one endpoint 
+
+	// can combine the sections into one endpoint?
 	app.route('/api/addSection')
 		.post((req, res) => {
 			addSection(req, res)

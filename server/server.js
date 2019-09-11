@@ -19,7 +19,6 @@ const proxy = require('proxy-middleware');
 
 // variables
 const PORT = process.env.PORT || 9000;
-console.log(PORT)
 // const server = '127.0.0.1:27017';
 // const database = 'learning_mongodb';
 
@@ -56,9 +55,10 @@ app.use(function (req, res, next) {
 // 	res.sendFile(__dirname + "/public/index.html");
 // })
 
+const currentDateTime = new Date() 
 
 app.listen(PORT, () => {
-	console.log(`Server running on port ${PORT}`);
+	console.log(`Server running on port ${PORT} on ${currentDateTime}`);
 })
 
 
