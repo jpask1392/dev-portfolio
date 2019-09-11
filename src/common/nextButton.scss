@@ -1,72 +1,64 @@
-$larger-dot-size: 12px;
-$dot-size: 10px;
-$animation-timer: 0.8s;
-$animation-delay: calc(#{$animation-timer} / 2);
+$next-arrow-width: 35px;
 
 .next-button-container {
 
 	cursor: pointer;
-	margin-top: 20px;
 	display: block;
+	position: relative;
+	height: $next-arrow-width;
+	width: $next-arrow-width;
 
 	> span {
 
-		width: $dot-size;
-		height: $dot-size;
-		border-radius: 50px;
 		display: inline-block;
-		margin-right: 6px;
-		background-color: $secondary-color;
-		opacity:0.7;
+		opacity:1;
+		height: 2px;
+		position: absolute;
+		margin-top: 50%;
+		animation: next-arrow-animation 1.5s infinite ease-in-out;
 
 		&:nth-child(1) {
-			animation: 
-				larger 
-				0.8s
-				infinite
-				alternate
-				ease-in-out;
-			// animation-iteration-count: infinite;
-			// animation-direction: alternate;
-
+			transform: rotate(-45deg) translateY(-0.5px);
+			right: 0;
+			transform-origin: center right;
+			width: $next-arrow-width/3;
 		}
 
 		&:nth-child(2) {
-			animation: 
-				larger 
-				$animation-timer 
-				infinite
-				alternate
-				ease-in-out;
-			animation-delay: $animation-delay;
+			transform: translateX(-1px);
+			left:0;
+			right: 0;
 		}
 
 		&:nth-child(3) {
-			animation: 
-				larger 
-				$animation-timer 
-				infinite
-				alternate
-				ease-in-out;
-			animation-delay: calc(#{$animation-delay} * 2);
+			width: $next-arrow-width/3;
+			transform: rotate(45deg) translateY(0.5px);
+			transform-origin: center right;
+			right: 0;
 		}
 
-		&:nth-child(4) {
-			animation: 
-				larger 
-				$animation-timer 
-				infinite
-				alternate
-				ease-in-out;
-			animation-delay: calc(#{$animation-delay} * 3);
-		}
+	}
+
+	&:hover span {
+		animation-play-state: paused;
 	}
 }
 
-@keyframes larger {
-	to {	
-			transform: scale(1.2);
-			// border-radius: $larger-dot-size!important;
-			opacity: 1
-		}
+@keyframes next-arrow-animation {
+	0%, 100% 	{ right: 0;  }
+	50%			{ right: 10px;  }
 }
+
+.next-btn-text {
+	position: absolute;
+	display: inline-block;
+	right: 100%;
+	margin-right: 20px;
+	transform: translateY(-50%);
+	top:50%;
+	white-space: nowrap;
+}
+
+
+
+

@@ -44,7 +44,6 @@ hr {
 .newone-enter .background-color{
 	// min-height: 100%;
   	opacity: 1;
-
 }
 
 // these affect all child elements
@@ -141,16 +140,43 @@ hr {
 	overflow: hidden
 }
 
+button {
+	border: none;
+	background: none;
+	cursor: pointer;
+}
 
+figure {
+	margin: 0;
+	display: inline-block;
+}
 
+figcaption {
+	float: right;
+	font-style: italic;
+	color: lightgrey;
+	margin-top: 5px;
+}
 
+input, textarea {
+	width: 100%;
+	padding: 10px 10px 10px 10px;
+	box-sizing: border-box;
+	border:1px solid black;
+	height: 2.5em;
+	font-size: 1em;
+}
 
+textarea {
+	height: 15em;
+	background: none;
+}
 
+dt {
+	color: $grey-text-dark-bkg;
+	margin-bottom: 5px;
+}
 
-
-
-
-
-
-
-
+dd {
+	margin: 0
+}

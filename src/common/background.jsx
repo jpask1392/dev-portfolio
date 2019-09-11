@@ -26,6 +26,7 @@ export default class Background extends React.Component {
 		const lightBackRefs = this.props.colors.lightBackRefs
 		const darkBackRefs = this.props.colors.darkBackRefs
 
+
 		lightBackRefs.map((ref) => {
 			this.setState(() => onScreen(ref) ? {backgroundColor: lightBackground} : null)
 		})
@@ -41,7 +42,7 @@ export default class Background extends React.Component {
 		return (
 			<div 
 				className="background-color" 
-				style={{background: this.state.backgroundColor}}>
+				style={{background: this.state.backgroundColor, zIndex: "-100"}}>
 			</div>
 		);
 	}

@@ -1,6 +1,7 @@
 import React 		from 'react';
 import NextButton 	from '../common/nextButton.jsx'
-import {withRouter}	from 'react-router-dom'
+import {withRouter, Link}	from 'react-router-dom'
+
 
 const FooterBar = props =>
 	<div 
@@ -10,12 +11,17 @@ const FooterBar = props =>
 			{backgroundColor: "black"}}>
 
 		<div>
-			<h2>{props.location.pathname === "/about" ? 
-				"Want to reach out?" : 
-				`Next up: ${props.nextProject}`}</h2>
+			{props.location.pathname === "/about" ? 
+				<h2 className="footer-text-container">Want to reach out?</h2> : 
+				<span className="footer-text-container">
+					<p>Next Up:</p>
+					<h2>{props.nextProject}</h2>
+				</span>}
 
 			<div className="footer-arrow-container">
-				<NextButton linkTo={props.linkTo} backgroundColor="white"/>
+				<Link to={props.linkTo}>
+					<NextButton color="white"/>
+				</Link>
 			</div>
 
 		</div>

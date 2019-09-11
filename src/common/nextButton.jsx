@@ -1,16 +1,11 @@
-import React 		from 'react';
-import { Link } 	from "react-router-dom";
+import React from 'react';
 
-const NextButton = (props) => {
-  return (
-    <Link 
-    	to={props.linkTo} 
-    	className="next-button-container">
-    	<span style={{backgroundColor:props.backgroundColor}}></span>
-    	<span style={{backgroundColor:props.backgroundColor}}></span>
-    	<span style={{backgroundColor:props.backgroundColor}}></span>
-    </Link>
-  )
-}
+const NextButton = (props) => 
+    <div className="next-button-container">
+    	<span style={{backgroundColor:props.color}}></span>
+    	<span style={{backgroundColor:props.color}}></span>
+    	<span style={{backgroundColor:props.color}}></span>
+    	<h3 style={{color:props.color}} className="next-btn-text">{props.text}</h3>
+    </div>
 
 export default NextButton;

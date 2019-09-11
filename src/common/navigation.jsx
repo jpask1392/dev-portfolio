@@ -1,18 +1,23 @@
-import React, { Component } from 'react';
-import { CSSTransition } from 'react-transition-group';
-import { Route, NavLink } from "react-router-dom";
+import React 					from 'react';
+import { CSSTransition } 		from 'react-transition-group';
+import { withRouter, NavLink } 	from "react-router-dom";
 
-export default class Navigation extends Component {
+class Navigation extends React.Component {
+
+	static defaultProps = {
+		burgerColor: "white"
+	}
 
 	constructor(props) {
 		super(props);
 		this.state = { 
 			navClicked: false,
+			burgerColor: this.props.burgerColor,
 			pages: [
-				{title: 'Home', link: '/'},
-				{title: 'About', link: '/about'},
-				{title: 'Projects', link: '/projects'},
-				{title: 'Contact', link: '/contact'}
+				{title: 'Home', link: '/', exact: true},
+				{title: 'About', link: '/about', exact: false},
+				{title: 'Projects', link: '/projects', exact: false},
+				{title: 'Contact', link: '/contact', exact: false}
 			]
 		}
 
@@ -30,6 +35,14 @@ export default class Navigation extends Component {
 				document.body.classList.add("no-scroll")
 				this.setState({navClicked:true});
 			}
+
+			this.setState(() => {
+				if(this.props.location.pathname === '/contact') {
+					this.state.navClicked ?
+						{burgerColor:"black"}:
+						{burgerColor:"white"}
+				}
+			})
 		}
 	}
 
@@ -38,14 +51,18 @@ export default class Navigation extends Component {
 		return (
 			<div id="nav-container">
 				<nav>
-					<BurgerIcon active={this.state.navClicked} clickFunction={this.ButtonClick}/>
+					<BurgerIcon 
+						active={this.state.navClicked} 
+						clickFunction={this.ButtonClick}
+						burgerColor={this.state.burgerColor}/>
+
 					<ul className={this.state.navClicked ? "full-page-nav-visible" : ''}>
 						<span>
 						{this.state.pages.map((page) => 
 							<li key={page.title}>
 								<NavLink
 									to={page.link}
-									exact={true}
+									exact={page.exact}
 									onClick={() => this.ButtonClick()}>
 									{page.title}
 								</NavLink>
@@ -59,11 +76,22 @@ export default class Navigation extends Component {
 	}
 }
 
+export default withRouter(Navigation)
+
 const BurgerIcon = (props) =>
 	<div id='burger-icon' onClick={() =>  props.clickFunction()}>
-		<span className={"burger-icon-line-one" + (props.active ? '-active' : '')}></span>
-		<span className={"burger-icon-line-two" + (props.active ? '-active' : '')}></span>
-		<span className={"burger-icon-line-three" + (props.active ? '-active' : '')}></span>
+		<span 
+			style={{background: props.burgerColor}} 
+			className={"burger-icon-line-one" + (props.active ? '-active' : '')}>
+		</span>
+		<span 
+			style={{background: props.burgerColor}} 
+			className={"burger-icon-line-two" + (props.active ? '-active' : '')}>
+		</span>
+		<span 
+			style={{background: props.burgerColor}} 
+			className={"burger-icon-line-three" + (props.active ? '-active' : '')}>
+		</span>
 	</div>
 
 
