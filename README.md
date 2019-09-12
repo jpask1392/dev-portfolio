@@ -1,51 +1,45 @@
 # Software Developer Portfolio
 
-## Running the package
+This is my latest software developer portfolio, designed and built implementing NodeJS, React and MongoDB. See below instructions to create a local copy of the project.
 
-Clone the git respositry to a local directory with
-```
-git clone https://github.com/jpask1392/dev-portfolio.git
-```
-cd to the directory 
-Instal dependencies 
-```
-npm i
-```
-Start the server
-```
-npm start
-```
-This will start a server specified in server.js. The server is run with nodemon. This server will run on port 3000
+## Requirements
 
-* start the webpack development server with 
-```
-npm run start:dev
-```
-This will run webpack-dev-server with the watch flag for automatic reloading when files are saved. Note that the dev server will be running on port 9000 with a proxy set up to port 3000 so that everything can run from the same place.
+Nodejs needs to be installed on your system in order for the 'npm' command to run correctly. The data collection requires a local copy of MongoDB. The respository includes a data JSON file for the data example. Note - images will not appear unless images are added to correct file locations.
+
+## Installation
+
+1. Locally download the repository:
+
+```$ git clone https://github.com/jpask1392/dev-portfolio.git ```
+
+2. Head to to the directory of the downloaded project
+
+3. Install the dependencies: 
+
+```$ npm i ```
+
+## Usage
+
+1. Start the server:
+
+```$ npm run start:dev ```
+
+2. Start the webpack dev server
+
+```$ npm run start:webpack ```
+
+This will run webpack-dev-server with the watch flag for automatic reloading when files are saved. Note that the dev server will be running on port 9000 with a proxy set up to port 3000.
 
 ## Deployment
 
-Run 
-```
-npm run build
-```
+Create a build of the project using specifications in the webpack.config files 
 
-to bundle all needed files
-
--------------------------------
-
-Then run 
-```
-eb deploy "instance name"
-```
-
-to deploy all files to Elastic Beanstalk instance
+```npm run build ```
 
 ## Code quality 
 	
 This project uses Eslint
 
-Run the following to lint all files
-```
-./node_modules/.bin/eslint "src/**"
-```
+Run the following to lint all files:
+
+```./node_modules/.bin/eslint "src/**" ```
