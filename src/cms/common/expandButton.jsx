@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react"
 
 const style = {
 	width: "30px",
@@ -7,15 +7,16 @@ const style = {
 	display: "block"
 }
 
-const ExpandButton = (props) => {
-  return (
-    <div style={{
-    	display:"inline-block"
-    }}>
-		<span style={style}></span>
-		<span></span>
-	</div>
-  )
+const ExpandButton = props => {
+	return (
+		<div
+			style={{
+				display: "inline-block"
+			}}>
+			<span style={style}></span>
+			<span></span>
+		</div>
+	)
 }
 
-export default ExpandButton;
+export default ExpandButton

@@ -36,7 +36,9 @@ export const editField = (req, res) => {
 		  "mainImagePath": req.body.mainImagePath,
 		  "summary": req.body.summary,
 		  "sections": req.body.sections,
-		  "position": req.body.position
+		  "position": req.body.position,
+		  "githubLink": req.body.githubLink,
+		  "bkgColor": req.body.bkgColor
 		}}
 	  )
 

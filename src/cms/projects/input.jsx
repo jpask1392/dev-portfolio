@@ -73,6 +73,8 @@ export default class Input extends React.Component {
 			case "Header Image" 	: arr.mainImagePath = newValue; 	break
 			case "Position" 		: arr.position = newValue; 			break
 			case "Summary" 			: arr.summary = newValue; 			break
+			case "Github Link" 		: arr.githubLink = newValue; 		break
+			case "Background Color" : arr.bkgColor = newValue; 			break
 			default: null
 		}
 

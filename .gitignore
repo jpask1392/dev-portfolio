@@ -3,12 +3,16 @@ assets/
 node_modules/
 build/
 documentation/
+coverage/
+.ebextensions/
+bin/
 
 #FILES
 package-lock.json
 dev-portfolio.sublime-project
 dev-portfolio.sublime-workspace
 credentials.json
+.vimrc
 
 # ELASTIC BEANSTALK FILES
 .elasticbeanstalk/*

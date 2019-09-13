@@ -19,7 +19,6 @@
 #contact-container {
 	margin: auto;
 	position: relative;
-	// overflow: hidden;
 	min-height: 100%;
 
 	> div p i {
@@ -29,7 +28,7 @@
 		color: black;
 
 		&:hover {
-			color: $feature-color;
+			color: $secondary-color;
 		}
 	}
 }
@@ -68,6 +67,10 @@
 	> p {
 		margin-top: 30px;
 		margin-bottom: 30px;
+	}
+
+	> span a {
+		font-size: 20px;
 	}
 }
 

@@ -1,5 +1,4 @@
-import React 				from 'react';
-import SideNavigation 		from '../common/sideNavigation.jsx'
+import React from "react"
 
 export default class AdminLanding extends React.Component {
 	// static propTypes = {
@@ -7,14 +6,10 @@ export default class AdminLanding extends React.Component {
 	// };
 
 	constructor(props) {
-		super(props);
+		super(props)
 	}
 
 	render() {
-		return (
-			<div id="dashboard-container">
-				kdmflksd
-			</div>
-		);
+		return <div id='dashboard-container'>kdmflksd</div>
 	}
 }

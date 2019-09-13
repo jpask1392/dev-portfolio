@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react"
 
 export default class AdminUser extends React.Component {
 	// static propTypes = {
@@ -6,16 +6,12 @@ export default class AdminUser extends React.Component {
 	// };
 
 	constructor(props) {
-		super(props);
+		super(props)
 	}
 
-	componentDidMount = () => {
-		
-	}
+	componentDidMount = () => {}
 
 	render() {
-		return (
-			<div>List of users</div>
-		);
+		return <div>List of users</div>
 	}
 }

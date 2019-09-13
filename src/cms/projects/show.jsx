@@ -49,7 +49,9 @@ export default class ShowProject extends React.Component {
 			mainImagePath	: newData.mainImagePath,
 			sections 		: newData.sections,
 			position 		: newData.position,
-			summary 		: newData.summary
+			summary 		: newData.summary,
+			githubLink 		: newData.githubLink,
+			bkgColor 		: newData.bkgColor
 		}
 
 		// post request to 'edit' endpoint with formData object as params
@@ -102,8 +104,18 @@ export default class ShowProject extends React.Component {
 						data={data} 
 						update={this.updateProjectData}/>
 					<Input 
+						header="Background Color" 
+						defaultText={data.bkgColor} 
+						data={data} 
+						update={this.updateProjectData}/>
+					<Input 
 						header="Summary" 
 						defaultText={data.summary} 
+						data={data} 
+						update={this.updateProjectData}/>
+					<Input 
+						header="Github Link" 
+						defaultText={data.githubLink} 
 						data={data} 
 						update={this.updateProjectData}/>
 					<Input 

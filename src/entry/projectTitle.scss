@@ -7,6 +7,7 @@
 	opacity: 0;
 	transition: opacity 1s;
 	position: absolute;
+	min-width: 120px;
 
 	span {
 		@media only screen and (max-width: $phone-large) {

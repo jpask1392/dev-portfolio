@@ -1,14 +1,15 @@
 .reference-quote-container {
 	position: relative;
 	width: 50%;
-	left: 25%;
+	left: 50%;
+	transform: translateX(-50%);
 	margin: 100px 0px 100px 0px;
 	clear: both;
 	display: inline-block;
+	min-width: 700px;
 
 	@media only screen and (max-width: $phone-large) {
 		width: auto;
-		left: 0px;
 		padding-left: 15px;
 		padding-right: 15px;
 	}

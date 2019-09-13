@@ -1,17 +1,20 @@
 #form-container {
 	width: 41.6666%;
-	overflow: hidden;
-	margin-top: 50px;
 	position: absolute;
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
+	min-width: 300px;
+	height: 70vh;
+	display: flex;
+	flex-direction: column;
 
 	@media only screen and (max-width: $phone-large) {
 		width: calc(100% - 30px);
 		padding-left: 15px;
 		padding-right: 15px;
 		margin-top: 0;
+		height: 90vh;
 	}
 
 	> h2 {
@@ -23,6 +26,16 @@
 
 #form-container form {
 	margin: auto;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	width: 100%;
+
+	> dl {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+	}
 
 	> dl dt {
 		@media only screen and (max-width: $phone-large) {
@@ -36,14 +49,15 @@
 		border:1px solid white;
 		color: white;
 		background: none;
+		border-radius: 0px;
 	}
 
 	dl dd textarea {
-		height: 15em;
 		background: none;
-		@media only screen and (max-width: $phone-large) {
-			height: 120px;
-		}
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		
 	}
 
 	input:focus, textarea:focus {

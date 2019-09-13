@@ -51,10 +51,8 @@ class Portfolio extends React.Component {
 
 	// triggered when project is clicked to create smooth transition to new page
 	Changing = (e, clickedIndex) => {
-		console.log("index: ", clickedIndex)
 		const clickedEl = document.getElementsByClassName("project-container")[clickedIndex]
 		const elTopLocation = clickedEl.getBoundingClientRect().top
-		// const elTopLocation = e.currentTarget.getBoundingClientRect().top
 		this.props.updateTranslateValue(elTopLocation)
 		this.setState({clickedIndex: clickedIndex})
 	}

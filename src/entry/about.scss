@@ -59,6 +59,7 @@
 
 	&.contact-page {
 		background-color: $background-color;
+		overflow: hidden;
 		@media only screen and (max-width: $phone-large) {
 		   position: relative!important;
 		   display: inline-block;
