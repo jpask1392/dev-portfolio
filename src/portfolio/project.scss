@@ -1,7 +1,7 @@
 #project-page-container {
 	height: 100%;
 	width: 100%;
- 	position: relative;
+	position: relative;
 }
 
 .project-brief-container {
@@ -19,8 +19,12 @@
 }
 
 @keyframes shrink {
-	from 	{height: 100%}
-	to 		{height: 97%}
+	from {
+		height: 100%;
+	}
+	to {
+		height: 97%;
+	}
 }
 
 #project-landing-container {
@@ -30,15 +34,15 @@
 	background-repeat: no-repeat;
 	height: 50%;
 	background-position: center;
-	top:50%;
+	top: 50%;
 	position: relative;
 	transform: translateY(-50%);
 
 	@media only screen and (max-width: $phone-large) {
 		height: 100vh;
 		// top: 0;
-		left: inherit!important;
-		width: 80%!important;
+		left: inherit !important;
+		width: 80% !important;
 		margin: auto;
 	}
 }
@@ -48,7 +52,7 @@
 	position: relative;
 
 	@media only screen and (max-width: $phone-large) {
-	   padding-bottom: 0px;
+		padding-bottom: 0px;
 	}
 }
 
@@ -60,28 +64,13 @@
 }
 
 .project-page-pin-container #pin-head {
-	stroke: white
+	stroke: white;
 }
 
 .project-page-pin-container #pin-stem {
-	stroke: white
+	stroke: white;
 }
 
 .project-page-pin-container #pin-text {
-	fill: white
+	fill: white;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
