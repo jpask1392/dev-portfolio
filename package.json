@@ -53,6 +53,7 @@
     "react-transition-group": "^2.9.0",
     "redux": "^4.0.4",
     "styled-components": "^5.0.0-beta.6-ej4",
+    "swagger-ui-react": "^3.23.11",
     "underscore": "^1.9.1",
     "validator": "^10.11.0"
   },
