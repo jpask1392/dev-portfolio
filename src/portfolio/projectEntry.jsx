@@ -5,6 +5,7 @@ import styled, { keyframes } from "styled-components"
 export default class projectEntry extends React.Component {
 	constructor(props) {
 		super(props)
+		this.imageSize = "-1x"
 	}
 
 	componentDidMount() {
@@ -13,6 +14,17 @@ export default class projectEntry extends React.Component {
 		setTimeout(() => {
 			document.body.classList.remove("no-scroll")
 		}, 1000)
+		this.imageSizeCalculator()
+		
+	}
+
+	// optimize image size depending on screen width
+	imageSizeCalculator = () => {
+		if (window.innerWidth < 1100 && window.innerWidth > 800) {
+			this.imageSize = "-2x"
+		} else if (window.innerWidth <= 800) {
+			this.imageSize = "-3x"
+		}
 	}
 
 	render() {
@@ -29,7 +41,10 @@ export default class projectEntry extends React.Component {
 					className='dont-show'
 					style={{
 						backgroundImage:
-							"url(/assets/" + this.props.data["mainImagePath"]
+							"url(/assets/" + 
+							this.props.data.mainImage["src"] +
+							this.imageSize +
+							this.props.data.mainImage["fileType"]
 					}}></div>
 			</div>
 		)

@@ -1,7 +1,7 @@
-#login-form{
+#login-form {
 	height: 500px;
 	width: 300px;
-	box-shadow: rgba(0,0,0,0.1) 5px 5px 15px;
+	box-shadow: rgba(0, 0, 0, 0.1) 5px 5px 15px;
 	display: flex;
 	flex-direction: column;
 
@@ -17,7 +17,7 @@
 		// position: absolute;
 		bottom: 0;
 		height: 70px;
-		background:#E2E2E2;
+		background: #e2e2e2;
 	}
 }
 
@@ -41,16 +41,13 @@
 	// height: calc(100% - 75px);
 	background: white;
 	flex-grow: 1;
-	box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 
 	> form {
 		position: absolute;
 		width: 225px;
 		overflow: hidden;
 	}
-
-	
-	
 }
 
 .input-container {
@@ -81,13 +78,11 @@ input[name="rememberMe"] {
 
 #form-error-container {
 	width: 100%;
-	background: #F85656;
+	background: #f85656;
 
 	> p {
 		color: white;
 		text-align: center;
 		font-size: 0.9em;
-	} 
+	}
 }
-
-

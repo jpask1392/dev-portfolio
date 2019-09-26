@@ -6,7 +6,7 @@
 	// display: none;
 	background-color: black;
 	opacity: 0;
-	pointer-events:none
+	pointer-events: none;
 }
 
 .name-writing-wrapper {
@@ -44,13 +44,20 @@
 }
 
 @keyframes fade-out {
-	0% {opacity: 1}
-	60% {opacity: 1}
-	100% {opacity: 0; display: none}
+	0% {
+		opacity: 1;
+	}
+	60% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		display: none;
+	}
 }
 
 @keyframes draw {
-  to {
-    stroke-dashoffset: 0;
-  }
+	to {
+		stroke-dashoffset: 0;
+	}
 }

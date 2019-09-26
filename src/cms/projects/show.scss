@@ -17,6 +17,10 @@
 		cursor: pointer;
 		transition: opacity 0.3s;
 	}
+
+	> p {
+		white-space: pre-line;
+	}
 }
 
 .edit-container {
@@ -27,7 +31,10 @@
 		font-size: inherit;
 		margin-top: 10px;
 		background: white;
+	}
 
+	> textarea {
+		height: 200px;
 	}
 }
 

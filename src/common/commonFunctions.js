@@ -44,14 +44,13 @@ export const onScreen = (elementRef,
 	}
 }
 
-export const onScreen2 = (elementRef, 
-	options={
-		elOffset: "top",
-		screenOffset: "top"
-	}) => {
-
-	// LOGIC - IF THE TOP OF THE ELEMENT IS AT THE BOTTOM OF THE SCREEN RETURN TRUE 
-	// LOGIC - IF THE BOTTOM OF THE ELEMENT IS GREATER THAN THE TOP OF SCREEN RETURN FALSE
+export const onScreen2 = (elementRef, options) => {
+	
+	// if the options are not set 
+	// set default
+	if(!options) {
+		options = { elOffset: "top",screenOffset: "top"}
+	}
 
 	let topOfEl = elementRef.current.getBoundingClientRect().top
 	let elHeight = elementRef.current.clientHeight

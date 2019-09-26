@@ -6,7 +6,6 @@
 	@media only screen and (max-width: $phone-large) {
 		display: block;
 	}
-
 }
 
 #about-me-image {
@@ -25,7 +24,7 @@
 }
 
 .about-image-container {
-	background: url('/assets/aboutMe.jpg');
+	background: url("/assets/aboutMe.jpg");
 	background-size: cover;
 	background-position: 80%;
 	height: 100%;
@@ -56,16 +55,13 @@
 }
 
 .about-paragraphs {
-
-	// margin-top: 40px;
 	margin-bottom: 40px;
 
 	&.top {
-		width: 100%
-	} 
+		width: 100%;
+	}
 
 	&.left {
-		// display: inline-block;
 		float: left;
 		width: calc(50% - 20px);
 		margin-right: 20px;
@@ -78,7 +74,6 @@
 	}
 
 	&.right {
-		// display: inline-block;
 		float: right;
 		width: calc(50% - 20px);
 		margin-left: 20px;

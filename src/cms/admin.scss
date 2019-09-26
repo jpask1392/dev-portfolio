@@ -1,12 +1,13 @@
 .admin-container {
 	min-height: 100%;
-	background-color: #EBEBEB;
+	background-color: #ebebeb;
 	overflow: overlay;
 }
 
 .content-container {
 	position: relative;
 	margin-left: 300px;
+	max-width: 900px;
 }
 
 .content-header {

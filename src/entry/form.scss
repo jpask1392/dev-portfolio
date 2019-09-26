@@ -43,10 +43,11 @@
 		}
 	}
 
-	> dl dd input, dl dd textarea {
+	> dl dd input,
+	dl dd textarea {
 		width: 100%;
 		padding: 10px 10px 10px 10px;
-		border:1px solid white;
+		border: 1px solid white;
 		color: white;
 		background: none;
 		border-radius: 0px;
@@ -57,10 +58,10 @@
 		position: absolute;
 		top: 0;
 		bottom: 0;
-		
 	}
 
-	input:focus, textarea:focus {
+	input:focus,
+	textarea:focus {
 		outline-color: $light-grey;
 	}
 
@@ -77,10 +78,10 @@
 			height: 40px;
 		}
 	}
-
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
 	outline-color: $light-grey;
 }
 
@@ -97,7 +98,7 @@ input:focus, textarea:focus {
 	// position: relative;
 	height: 25px;
 	margin: 0;
-	padding:0;
+	padding: 0;
 	display: block;
 }
 
@@ -110,4 +111,3 @@ input:focus, textarea:focus {
 	margin: 0;
 	padding: 0;
 }
-

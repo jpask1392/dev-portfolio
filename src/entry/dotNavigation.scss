@@ -1,5 +1,4 @@
 .scroll-dots {
-
 	width: 8.3333%;
 	right: 8.3333%;
 	top: 50%;
@@ -9,13 +8,13 @@
 	position: absolute;
 
 	&.fixed {
-		position: fixed!important;
+		position: fixed !important;
 		opacity: 1;
 		z-index: 2;
 	}
 
 	@media only screen and (max-width: $phone-large) {
-	  	display: none;
+		display: none;
 	}
 
 	> h2 {
@@ -57,23 +56,23 @@
 }
 
 .active-dot {
-	width: 20px!important;
-	height: 20px!important;
-	border: none!important;
+	width: 20px !important;
+	height: 20px !important;
+	border: none !important;
 
-	background-color: $secondary-color!important;
+	background-color: $secondary-color !important;
 }
-
 
 .view-all-button {
 	position: relative;
 	width: 100%;
 
-	> h3, a {
+	> h3,
+	a {
 		position: absolute;
 		transform: rotate(90deg);
 		transform-origin: left;
-		left:50%;
+		left: 50%;
 		color: white;
 		text-decoration: none;
 		white-space: nowrap;

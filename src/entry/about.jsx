@@ -1,50 +1,42 @@
 import React from "react"
-import { onScreen } from "../common/commonFunctions.js"
 import NextButton from "../common/nextButton.jsx"
 import { Link } from "react-router-dom"
+import PropTypes from "prop-types"
 
 export default class About extends React.Component {
-	_isMounted = false
+	
+	static propTypes = {
+		aboutRefProp: PropTypes.object.isRequired,
+		visibleSection: PropTypes.string.isRequired
+	}
+
 	constructor(props) {
 		super(props)
-		this.state = { visible: false }
+		this.isVisible = false
 	}
 
-	componentDidMount = () => {
-		this._isMounted = true
-		window.addEventListener("scroll", this.handleScroll)
-		this.handleScroll = this.handleScroll.bind(this)
-	}
-
-	handleScroll = () => {
-		if (this._isMounted) {
-			let condition = onScreen(this.props.aboutRefProp, {
-				elOffset: "top"
-			})
-			this.setState(() =>
-				condition ? { visible: true } : { visible: false }
-			)
+	// UNSAFE_ prefix added in latest version of React
+	UNSAFE_componentWillUpdate = nextProps => {
+		if (nextProps.visibleSection !== this.props.visibleSection) {
+			// if nextProps is 'about' set isVisible to true
+			this.isVisible = nextProps.visibleSection === "about" ? true : false
 		}
 	}
 
-	componentWillUnmount = () => {
-		this._isMounted = false
-		window.removeEventListener("scroll", this.handleScroll)
-	}
-
 	render() {
+		const visible = this.isVisible
 		return (
 			<div
-				className='about-container '
+				className='about-container'
 				id='about-container'
 				ref={this.props.aboutRefProp}>
 				<div
 					className={`start about-page ${
-						this.state.visible ? "end" : ""
+						visible ? "end" : ""
 					}`}></div>
 				<div
 					id='about-text-container'
-					className={this.state.visible ? "fade-in-text" : ""}>
+					className={visible ? "fade-in-text" : ""}>
 					<h2>I’m a passionate developer constantly improving.</h2>
 					<p style={{ marginTop: "30px", marginBottom: "30px" }}>
 						To sum it up:

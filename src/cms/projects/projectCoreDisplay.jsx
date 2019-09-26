@@ -26,10 +26,8 @@ export default class ProjectCoreDisplay extends React.Component {
 	// triggered when the item has started its drag
 	onDragStart = e => {
 		e.dataTransfer.dropEffect = "move"
-		e.target.style.opacity = 0.3
-
-		// remove the dragged element from the array
-		;[dragged] = this.props.projectArray.splice(this.props.index, 1)
+		e.target.style.opacity = // remove the dragged element from the array
+		(0.3)[dragged] = this.props.projectArray.splice(this.props.index, 1)
 	}
 
 	// triggers when the drag has stopped
@@ -78,11 +76,9 @@ export default class ProjectCoreDisplay extends React.Component {
 			// delete from project array first and update state to rerender
 			var newArray = this.props.projectArray
 			newArray.splice(this.props.index, 1)
-
 			this.props.updateArray(newArray)
-
 			axios
-				.delete(`/api/delete/${this.props.projectData._id}`)
+				.delete(`/api/projects/${this.props.projectData._id}`)
 				.then(this.props.updateArray(newArray))
 		}
 	}

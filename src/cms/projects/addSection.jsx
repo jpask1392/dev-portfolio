@@ -1,6 +1,12 @@
 import React from "react"
 import axios from "axios"
-import { TitleInput, TextInput, ImageInput, GistInput } from "./inputTypes.jsx"
+import {
+	TitleInput,
+	TextInput,
+	ImageInput,
+	GistInput,
+	SwaggerApiInput
+} from "./inputTypes.jsx"
 
 export default class AddSection extends React.Component {
 	static propTypes = {
@@ -65,6 +71,14 @@ export default class AddSection extends React.Component {
 					gistFile: form["gistFile"].value
 				})
 				break
+			case "swaggerAPI":
+				arr.push({
+					type: "swaggerAPI",
+					swagOwner: form["SwagOwner"].value,
+					swagAPI: form["SwagAPI"].value,
+					swagVersion: form["SwagVersion"].value
+				})
+				break
 			default:
 				null
 		}
@@ -94,6 +108,7 @@ export default class AddSection extends React.Component {
 						<option value='image'>Image</option>
 						<option value='text'>Text</option>
 						<option value='gistCode'>Code</option>
+						<option value='swaggerAPI'>SwaggerAPI</option>
 					</select>
 
 					<form id='newSectionForm' onSubmit={e => this.onSave(e)}>
@@ -108,6 +123,8 @@ export default class AddSection extends React.Component {
 									return <TextInput />
 								case "gistCode":
 									return <GistInput />
+								case "swaggerAPI":
+									return <SwaggerApiInput />
 							}
 						}).bind(this)()}
 					</form>

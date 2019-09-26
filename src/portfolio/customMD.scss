@@ -1,0 +1,64 @@
+body {
+	font-size: 16px;
+}
+pre {
+	display: block;
+	margin-top: 0;
+	margin-bottom: 1rem;
+	font-size: 0.7rem;
+	line-height: 1.4;
+	white-space: pre;
+	// overflow: auto;
+	background-color: #f9f9f9;
+	// border: 1px solid #ddd;
+	padding: 0.5rem;
+	// max-height: 800px;
+	font-family: monospace;
+	code {
+		color: inherit;
+		background-color: transparent;
+		padding: 0;
+		display: block;
+	}
+	.line-number {
+		display: block;
+		float: left;
+		margin: 0 1em 0 -1em;
+		// border-right: 1px solid #ddd;
+		text-align: right;
+		span {
+			display: block;
+			padding: 0 0.5em 0 1em;
+			color: #ccc;
+		}
+	}
+	.cl {
+		display: block;
+		clear: both;
+	}
+}
+
+.gist .markdown-body .highlight pre,
+.gist .markdown-body pre {
+    font-size: 100%!important;
+    background: #272822!important;
+}
+
+.gist .markdown-body .highlight {
+    margin-bottom: 0!important;
+}
+
+.gist .gist-file article {
+    background: #272822!important;
+}
+
+summary {
+    color: white;
+    font-size: 85%;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+details {
+    margin-bottom: 0!important;
+}

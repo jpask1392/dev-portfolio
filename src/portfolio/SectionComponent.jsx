@@ -1,6 +1,5 @@
 import React from "react"
 import PropTypes from "prop-types"
-import SectionText from "./sectionTextComponent.jsx"
 import { onScreen2 } from "../common/commonFunctions.js"
 import GistDisplay from "./gistDisplay.jsx"
 import ImageLoader from "../common/imageLoader.jsx"
@@ -9,6 +8,8 @@ import {
 	updateVisProjectIndex,
 	updateVisSectionIndex
 } from "../redux/actions/index"
+import SwaggerUI from "swagger-ui-react"
+import "../../node_modules/swagger-ui-react/swagger-ui.css"
 
 class Section extends React.Component {
 	_isMounted = false
@@ -59,6 +60,7 @@ class Section extends React.Component {
 							return (
 								<Image
 									src={section.src}
+									fileType={section.fileType}
 									caption={section.caption}
 								/>
 							)
@@ -69,6 +71,15 @@ class Section extends React.Component {
 								<GistDisplay
 									gist={section.gist}
 									file={section.file}
+								/>
+							)
+						case "swaggerAPI":
+							return (
+								<SwaggerUI
+									url={`https://api.swaggerhub.com/apis/
+											${section.swagOwner}/
+											${section.swagAPI}/
+											${section.swagVersion}`}
 								/>
 							)
 						default:
@@ -90,8 +101,8 @@ Section = connect(mapStateToProps)(Section)
 export default Section
 
 // components defined to clean up Section render method
-const Image = props => <ImageLoader src={props.src} caption={props.caption} />
-const Text = props => <p>{props.txt}</p>
+const Image = props => <ImageLoader src={props.src} fileType={props.fileType} caption={props.caption} />
+const Text = props => <p dangerouslySetInnerHTML={{ __html: `${props.txt}` }} />
 const Title = props => (
 	<div>
 		<h2 ref={props.Ref}>{props.txt}</h2>

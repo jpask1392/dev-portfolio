@@ -1,5 +1,4 @@
-import React, { Component } from "react"
-import ReactDOM from "react-dom"
+import React from "react"
 import Navigation from "../common/navigation.jsx"
 import Landing from "./landing.jsx"
 import About from "./about.jsx"
@@ -11,10 +10,7 @@ import Background from "../common/background.jsx"
 import PropTypes from "prop-types"
 
 export default class Home extends React.Component {
-	_isMounted = false
-
 	static propTypes = {
-		location: PropTypes.object,
 		updateTranslateValue: PropTypes.func,
 		imgInitLocation: PropTypes.number
 	}
@@ -23,10 +19,11 @@ export default class Home extends React.Component {
 		super(props)
 		this.state = {
 			visibleSection: "",
-			pinLocation: "83.3333%",
-			pinColor: "light",
 			translateValue: null
 		}
+		this.visibleSection = ""
+		this.pinLocation = "83.3333%"
+		this.pinColor = "light"
 
 		this.landingRef = React.createRef()
 		this.aboutRef = React.createRef()
@@ -37,14 +34,11 @@ export default class Home extends React.Component {
 		this.contactRefBuffer = React.createRef()
 	}
 
-	componentDidMount = () => {
-		this._isMounted = true
-
+	componentDidMount = () =>
 		window.addEventListener("scroll", this.handleScroll)
-	}
 
 	handleScroll = () => {
-		if (this._isMounted && onScreen(this.aboutRef)) {
+		if (onScreen(this.aboutRef)) {
 			this.setState({ visibleSection: "about" })
 		} else if (onScreen(this.portfolioRef)) {
 			this.setState({ visibleSection: "portfolio" })
@@ -56,24 +50,26 @@ export default class Home extends React.Component {
 
 		switch (this.state.visibleSection) {
 			case "home":
-				this.setState({ pinLocation: "83.3333%", pinColor: "light" })
+				this.pinLocation = "83.3333%"
+				this.pinColor = "light"
 				break
 			case "about":
-				this.setState({ pinLocation: "8.3333%", pinColor: "dark" })
+				this.pinLocation = "8.3333%"
+				this.pinColor = "dark"
 				break
 			case "portfolio":
-				this.setState({ pinLocation: "83.3333%", pinColor: "light" })
+				this.pinLocation = "83.3333%"
+				this.pinColor = "light"
 				break
 			case "contact":
-				this.setState({ pinLocation: "41.6666%", pinColor: "dark" })
+				this.pinLocation = "41.6666%"
+				this.pinColor = "dark"
 				break
 		}
 	}
 
-	componentWillUnmount = () => {
-		this._isMounted = false
+	componentWillUnmount = () =>
 		window.removeEventListener("scroll", this.handleScroll)
-	}
 
 	render() {
 		const bkgColors = {
@@ -89,10 +85,8 @@ export default class Home extends React.Component {
 			<div style={{ height: "100%" }}>
 				<Background colors={bkgColors} />
 
-				<div
-					style={{ left: this.state.pinLocation }}
-					id='pin-container'>
-					<ScrollPin pinColor={this.state.pinColor} />
+				<div style={{ left: this.pinLocation }} id='pin-container'>
+					<ScrollPin pinColor={this.pinColor} />
 				</div>
 
 				<Navigation />
@@ -101,7 +95,10 @@ export default class Home extends React.Component {
 
 				<div className='about-buffer' ref={this.aboutRefBuffer}></div>
 
-				<About aboutRefProp={this.aboutRef} />
+				<About
+					aboutRefProp={this.aboutRef}
+					visibleSection={this.state.visibleSection}
+				/>
 
 				<div
 					className='portfolio-buffer'

@@ -31,7 +31,7 @@ const AddNewProject = props => {
 		}
 
 		axios
-			.post("/api/addNewProject", { newProject })
+			.post("/api/projects", { newProject })
 			.then(res => {
 				if (res.status !== 200) {
 					console.log(res)

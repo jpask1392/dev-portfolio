@@ -1,5 +1,4 @@
 .title-info {
-
 	width: 8.3333%;
 	left: 8.3333%;
 	top: 50%;
@@ -11,12 +10,12 @@
 
 	span {
 		@media only screen and (max-width: $phone-large) {
-		  	display: none;
+			display: none;
 		}
 	}
 
 	&.fixed {
-		position: fixed!important;
+		position: fixed !important;
 		opacity: 1;
 		z-index: 2;
 	}
@@ -35,19 +34,19 @@
 		margin-bottom: 30px;
 
 		@media only screen and (max-width: $phone-large) {
-		  	display: none;
+			display: none;
 		}
 	}
 
 	@media only screen and (max-width: $phone-large) {
-	  	top: auto;
-	  	bottom: 0;
-	  	width: auto;
-	  	right: 0;
-	  	left: 0;
-	  	transform: initial;
-	  	z-index: 1;
-	  	background-color: black;
-	  	padding: 30px;
+		top: auto;
+		bottom: 0;
+		width: auto;
+		right: 0;
+		left: 0;
+		transform: initial;
+		z-index: 1;
+		background-color: black;
+		padding: 30px;
 	}
 }

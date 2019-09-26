@@ -28,10 +28,12 @@ class Project extends React.Component {
 
 	componentDidMount() {
 		this._isMounted = true
-
-		// reset the visible index state here
-		this.props.dispatch(updateVisProjectIndex(0))
-
+		// the timeout is set to avoid the state changing during page transition
+		setTimeout(() => {
+			// reset the visible index state here
+			this.props.dispatch(updateVisProjectIndex(0))
+		}, 300)
+		
 		if (this._isMounted) {
 			const currentProjectID = this.props.projectId
 			let currentIndex
@@ -70,7 +72,9 @@ class Project extends React.Component {
 		}
 	}
 
-	componentWillUnmount = () => (this._isMounted = false)
+	componentWillUnmount = () => {
+		this._isMounted = false
+	}
 
 	render() {
 		const data = this.state.data

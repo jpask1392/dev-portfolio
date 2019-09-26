@@ -6,13 +6,13 @@
 	cursor: move;
 }
 
-#project-list-container ul li{
+#project-list-container ul li {
 	background-color: white;
-	list-style-type: none
+	list-style-type: none;
 }
 
-#project-list-container ul li:nth-child(2n+0){
-	background-color: #F7F7F7;	
+#project-list-container ul li:nth-child(2n + 0) {
+	background-color: #f7f7f7;
 }
 
 .core-display-btns-container {
@@ -23,9 +23,10 @@
 	top: 50%;
 	transform: translateY(-50%);
 
-	> button i,  a button i {
+	> button i,
+	a button i {
 		font-size: 1.5em;
-		cursor: pointer
+		cursor: pointer;
 	}
 }
 
@@ -33,12 +34,12 @@
 	display: inline-block;
 	margin-left: 30px;
 	position: absolute;
-	top:50%;
+	top: 50%;
 	transform: translateY(-50%);
 
 	> h2 {
 		display: inline-block;
 		margin-left: 30px;
-		vertical-align: sub
+		vertical-align: sub;
 	}
 }

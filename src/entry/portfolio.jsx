@@ -55,6 +55,9 @@ class Portfolio extends React.Component {
 		const elTopLocation = clickedEl.getBoundingClientRect().top
 		this.props.updateTranslateValue(elTopLocation)
 		this.setState({clickedIndex: clickedIndex})
+		// disable title updated during this transition
+		this.transitioning = true
+
 	}
 
 	componentWillUnmount = () => {

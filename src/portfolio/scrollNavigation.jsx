@@ -42,13 +42,13 @@ class ScrollNavigation extends React.Component {
 								visSectI === i
 									? {
 											color: this.props.bkgColor,
-											fontWeight: "bold"
+											borderColor: this.props.bkgColor
 									  }
 									: { color: "grey" }
 							}
 							key={section.text}
 							onClick={() => this.handleClick(i)}
-							className='scroll-nav-header'>
+							className={`scroll-nav-header ${visSectI === i ? "active-title" : ""}`} >
 							{section.text}
 						</p>
 					) : null

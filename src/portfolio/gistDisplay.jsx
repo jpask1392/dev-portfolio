@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import addLineNumbers from "./customMD"
 
 export default class GistDisplay extends React.Component {
 	static propTypes = {
@@ -30,6 +31,10 @@ export default class GistDisplay extends React.Component {
 				src: gist.div
 			})
 			this.addStyleSheet(gist.stylesheet)
+			if (this.file === 'gallery.md') {
+				addLineNumbers()
+			}
+			
 		}
 
 		const domain = "https://gist.github.com/jpask1392/"

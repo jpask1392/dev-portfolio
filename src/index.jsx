@@ -25,11 +25,15 @@ export default class App extends Component {
 	constructor(props) {
 		super(props)
 		this.state = { translateValue: null }
+
+		this.updateTranslateValue = this.updateTranslateValue.bind(this)
 	}
 
 	updateTranslateValue = newValue => {
 		this.setState({ translateValue: newValue })
 	}
+
+	
 
 	PageTracker = pageName =>
 		ga("send", {
@@ -59,18 +63,13 @@ export default class App extends Component {
 													document.title =
 														"Home | Jamie Pask"
 													return (
-														<div
-															style={{
-																height: "100%"
-															}}>
+														<div>
 															<PageChange />
 															<Home
-																location={
-																	props.location
-																}
-																updateTranslateValue={this.updateTranslateValue.bind(
+																updateTranslateValue={
 																	this
-																)}
+																		.updateTranslateValue
+																}
 																imgInitLocation={
 																	this.state
 																		.translateValue

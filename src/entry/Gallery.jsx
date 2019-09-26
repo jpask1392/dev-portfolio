@@ -14,11 +14,13 @@ class Gallery extends Component {
 		this.state = { visible: false }
 		this.handleScroll = this.handleScroll.bind(this)
 		this.projectRef = React.createRef()
+		this.imageSize = "-1x"
 	}
 
 	componentDidMount() {
 		window.addEventListener("scroll", this.handleScroll)
 		window.addEventListener("resize", this.getFirstElementInfo)
+		this.imageSizeCalculator()
 		// check on load if the image is on screen
 		if (onScreen(this.projectRef, { elOffset: "middle" })) {
 			this.setState({ visible: true })
@@ -49,6 +51,15 @@ class Gallery extends Component {
 		}
 	}
 
+	// optimize image size depending on screen width
+	imageSizeCalculator = () => {
+		if (window.innerWidth < 1100 && window.innerWidth > 800) {
+			this.imageSize = "-2x"
+		} else if (window.innerWidth <= 800) {
+			this.imageSize = "-3x"
+		}
+	}
+
 	componentWillUnmount = () =>
 		window.removeEventListener("scroll", this.handleScroll)
 
@@ -67,12 +78,6 @@ class Gallery extends Component {
 						to={"projects/" + project["_id"]}
 						onClick={e => {
 							this.props.Changing(e, this.props.index)
-							return ga("send", {
-								hitType: "event",
-								eventCategory: "Videos",
-								eventAction: "sdkjfnjksdfsdf",
-								eventLabel: "Fall sdf,sdnfjk"
-							})
 						}}>
 						<div
 							ref={this.projectRef}
@@ -81,7 +86,10 @@ class Gallery extends Component {
 							}`}
 							style={{
 								backgroundImage:
-									"url(/assets/" + project["mainImagePath"]
+									"url(/assets/" +
+									project.mainImage["src"] +
+									this.imageSize +
+									project.mainImage["fileType"]
 							}}></div>
 					</Link>
 				</div>
