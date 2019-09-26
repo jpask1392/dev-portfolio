@@ -6,6 +6,7 @@ documentation/
 coverage/
 .ebextensions/
 bin/
+.vscode/
 
 #FILES
 package-lock.json
@@ -16,5 +17,6 @@ credentials.json
 
 # ELASTIC BEANSTALK FILES
 .elasticbeanstalk/*
+.elasticbeanstalk/
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
