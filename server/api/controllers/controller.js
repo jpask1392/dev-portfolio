@@ -97,26 +97,12 @@ export const viewAllProjects = (req, res) => {
 		if (err) throw err
 
 		let db = client.db(DBName)
+		let limitCount = parseInt(req.query.limit) || 0
 
 		db.collection("projects")
 			.find({})
 			.sort({ position: 1 })
-			.toArray(function(err, docs) {
-				res.json(docs)
-			})
-	})
-}
-
-export const viewRecentProjects = (req, res) => {
-	MongoClient.connect(url, { useNewUrlParser: true }, function(err, client) {
-		if (err) throw err
-
-		let db = client.db(DBName)
-
-		db.collection("projects")
-			.find({})
-			.sort({ position: 1 })
-			.limit(3)
+			.limit(limitCount)
 			.toArray(function(err, docs) {
 				res.json(docs)
 			})

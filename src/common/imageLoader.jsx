@@ -1,19 +1,15 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { onScreen } from "./commonFunctions"
 import LoadingIcon from "./loadingIcon.jsx"
 
 const ImageLoader = props => {
-	// can add the ability to change image size based on device being used
-
 	const [loaded, setLoaded] = useState(false)
 
 	// optimize image size based on screen size
 	let imageSize = "-1x"
-	if (window.innerWidth < 1100 && window.innerWidth > 800) {
-		imageSize = "-2x"
-	} else if (window.innerWidth <= 800) {
-		imageSize = "-3x"
-	}
+	window.innerWidth < 1100 && window.innerWidth > 800
+		? (imageSize = "-2x")
+		: (imageSize = "-3x")
 
 	// only add image optimisation tag if not a gif
 	let imagePath
@@ -25,8 +21,16 @@ const ImageLoader = props => {
 	TestImage.src = imagePath
 	TestImage.onload = () => setLoaded(true)
 
+	// var src = props.src
+
 	return loaded ? (
-		<ImgFig src={imagePath} caption={props.caption} />
+		<figure>
+			<ImgFig
+				src={props.src}
+				fileType={props.fileType}
+				caption={props.caption}
+			/>
+		</figure>
 	) : (
 		<span className='loading-icon-wrapper'>
 			<LoadingIcon />
@@ -37,8 +41,15 @@ const ImageLoader = props => {
 export default ImageLoader
 
 const ImgFig = props => (
-	<figure className=''>
-		<img src={props.src} />
+	<figure>
+		<img
+			src={props.src}
+			srcSet={`
+			${props.src}-1x${props.fileType} 900w,
+			${props.src}-2x${props.fileType} 600w,
+			${props.src}-3x${props.fileType} 320w
+		`}
+		/>
 		<figcaption>{props.caption}</figcaption>
 	</figure>
 )

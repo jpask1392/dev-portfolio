@@ -4,7 +4,6 @@ import { Link } from "react-router-dom"
 import PropTypes from "prop-types"
 
 export default class About extends React.Component {
-	
 	static propTypes = {
 		aboutRefProp: PropTypes.object.isRequired,
 		visibleSection: PropTypes.string.isRequired
@@ -12,19 +11,23 @@ export default class About extends React.Component {
 
 	constructor(props) {
 		super(props)
-		this.isVisible = false
+		this.state = { isVisible: false }
 	}
 
-	// UNSAFE_ prefix added in latest version of React
-	UNSAFE_componentWillUpdate = nextProps => {
-		if (nextProps.visibleSection !== this.props.visibleSection) {
-			// if nextProps is 'about' set isVisible to true
-			this.isVisible = nextProps.visibleSection === "about" ? true : false
+	componentDidUpdate = prevProps => {
+		if (prevProps.visibleSection !== this.props.visibleSection) {
+			this.setState(state => {
+				if (this.props.visibleSection === "about") {
+					return { isVisible: true }
+				} else if (state.isVisible) {
+					return { isVisible: false }
+				}
+			})
 		}
 	}
 
 	render() {
-		const visible = this.isVisible
+		const visible = this.state.isVisible
 		return (
 			<div
 				className='about-container'

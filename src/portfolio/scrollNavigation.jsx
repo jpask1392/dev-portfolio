@@ -1,12 +1,6 @@
 import React from "react"
-import { onScreen } from "../common/commonFunctions.js"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
-import store from "../redux/store/index"
-import {
-	updateVisProjectIndex,
-	updateVisSectionIndex
-} from "../redux/actions/index"
 
 class ScrollNavigation extends React.Component {
 	// check type of incomming props
@@ -16,7 +10,6 @@ class ScrollNavigation extends React.Component {
 
 	constructor(props) {
 		super(props)
-		this.state = { projectSections: this.props.projectSections }
 	}
 
 	handleClick = i => {
@@ -32,10 +25,11 @@ class ScrollNavigation extends React.Component {
 	}
 
 	render() {
-		const visSectI = store.getState().visibleSectionIndex
+		const visSectI = this.props.visibleSectionIndex
+		const projectSections = this.props.projectSections
 		return (
 			<div className='scroll-navigation-container'>
-				{this.state.projectSections.map((section, i) =>
+				{projectSections.map((section, i) =>
 					section.type === "title" ? (
 						<p
 							style={
@@ -48,7 +42,9 @@ class ScrollNavigation extends React.Component {
 							}
 							key={section.text}
 							onClick={() => this.handleClick(i)}
-							className={`scroll-nav-header ${visSectI === i ? "active-title" : ""}`} >
+							className={`scroll-nav-header ${
+								visSectI === i ? "active-title" : ""
+							}`}>
 							{section.text}
 						</p>
 					) : null
@@ -59,7 +55,9 @@ class ScrollNavigation extends React.Component {
 }
 
 // Function required from Redux to map Redux state to component props
-const mapStateToProps = (state, ownProps) => state
+const mapStateToProps = state => ({
+	visibleSectionIndex: state.visibleSectionIndex
+})
 
 // Connect the component to the store
 ScrollNavigation = connect(mapStateToProps)(ScrollNavigation)

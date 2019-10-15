@@ -24,16 +24,7 @@ import AdminIndex from "./cms/index.jsx"
 export default class App extends Component {
 	constructor(props) {
 		super(props)
-		this.state = { translateValue: null }
-
-		this.updateTranslateValue = this.updateTranslateValue.bind(this)
 	}
-
-	updateTranslateValue = newValue => {
-		this.setState({ translateValue: newValue })
-	}
-
-	
 
 	PageTracker = pageName =>
 		ga("send", {
@@ -65,16 +56,7 @@ export default class App extends Component {
 													return (
 														<div>
 															<PageChange />
-															<Home
-																updateTranslateValue={
-																	this
-																		.updateTranslateValue
-																}
-																imgInitLocation={
-																	this.state
-																		.translateValue
-																}
-															/>
+															<Home />
 														</div>
 													)
 												}}
@@ -126,13 +108,6 @@ export default class App extends Component {
 																visibleSection='portfolio'
 																location={
 																	props.location
-																}
-																updateTranslateValue={this.updateTranslateValue.bind(
-																	this
-																)}
-																imgInitLocation={
-																	this.state
-																		.translateValue
 																}
 															/>
 														</div>

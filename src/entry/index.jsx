@@ -8,6 +8,7 @@ import { onScreen } from "../common/commonFunctions.js"
 import ScrollPin from "../common/scrollPin.jsx"
 import Background from "../common/background.jsx"
 import PropTypes from "prop-types"
+import PortfolioContainer from "./portfolioContainer.jsx"
 
 export default class Home extends React.Component {
 	static propTypes = {
@@ -19,7 +20,7 @@ export default class Home extends React.Component {
 		super(props)
 		this.state = {
 			visibleSection: "",
-			translateValue: null
+			loaded: false
 		}
 		this.visibleSection = ""
 		this.pinLocation = "83.3333%"
@@ -34,37 +35,35 @@ export default class Home extends React.Component {
 		this.contactRefBuffer = React.createRef()
 	}
 
-	componentDidMount = () =>
+	componentDidMount = () => {
 		window.addEventListener("scroll", this.handleScroll)
+	}
 
 	handleScroll = () => {
+		if (onScreen(this.landingRef)) {
+			this.visibleSection = "home"
+			this.pinLocation = "83.3333%"
+			this.pinColor = "light"
+		}
 		if (onScreen(this.aboutRef)) {
-			this.setState({ visibleSection: "about" })
-		} else if (onScreen(this.portfolioRef)) {
-			this.setState({ visibleSection: "portfolio" })
-		} else if (onScreen(this.landingRef)) {
-			this.setState({ visibleSection: "home" })
-		} else if (onScreen(this.contactRef)) {
-			this.setState({ visibleSection: "contact" })
+			this.visibleSection = "about"
+			this.pinLocation = "8.3333%"
+			this.pinColor = "dark"
+		}
+		if (onScreen(this.portfolioRef)) {
+			this.visibleSection = "portfolio"
+			this.pinLocation = "83.3333%"
+			this.pinColor = "light"
+		}
+		if (onScreen(this.contactRef)) {
+			this.visibleSection = "contact"
+			this.pinLocation = "41.6666%"
+			this.pinColor = "dark"
 		}
 
-		switch (this.state.visibleSection) {
-			case "home":
-				this.pinLocation = "83.3333%"
-				this.pinColor = "light"
-				break
-			case "about":
-				this.pinLocation = "8.3333%"
-				this.pinColor = "dark"
-				break
-			case "portfolio":
-				this.pinLocation = "83.3333%"
-				this.pinColor = "light"
-				break
-			case "contact":
-				this.pinLocation = "41.6666%"
-				this.pinColor = "dark"
-				break
+		// only re-render component when the visible section changes
+		if (this.visibleSection !== this.state.visibleSection) {
+			this.setState({ visibleSection: this.visibleSection })
 		}
 	}
 
@@ -80,14 +79,15 @@ export default class Home extends React.Component {
 			],
 			darkBackRefs: [this.landingRef, this.portfolioRef]
 		}
+		let visibleSection = this.visibleSection
 
 		return (
 			<div style={{ height: "100%" }}>
-				<Background colors={bkgColors} />
-
 				<div style={{ left: this.pinLocation }} id='pin-container'>
 					<ScrollPin pinColor={this.pinColor} />
 				</div>
+
+				<Background colors={bkgColors} />
 
 				<Navigation />
 
@@ -97,18 +97,16 @@ export default class Home extends React.Component {
 
 				<About
 					aboutRefProp={this.aboutRef}
-					visibleSection={this.state.visibleSection}
+					visibleSection={visibleSection}
 				/>
 
 				<div
 					className='portfolio-buffer'
 					ref={this.portfolioRefBuffer}></div>
 
-				<Portfolio
+				<PortfolioContainer
 					portfolioRefProp={this.portfolioRef}
-					visibleSection={this.state.visibleSection}
-					updateTranslateValue={this.props.updateTranslateValue}
-					imgInitLocation={this.props.imgInitLocation}
+					visibleSection={visibleSection}
 				/>
 
 				<div
@@ -117,7 +115,7 @@ export default class Home extends React.Component {
 
 				<Contact
 					contactRefProp={this.contactRef}
-					visibleSection={this.state.visibleSection}
+					visibleSection={visibleSection}
 				/>
 			</div>
 		)

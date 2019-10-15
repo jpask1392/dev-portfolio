@@ -1,14 +1,9 @@
 // Action Constants
 import {
 	UPDATE_VIS_PROJECT_INDEX,
-	UPDATE_VIS_SECTION_INDEX
-} from '../constants/action-types'
-
-// Action Methods
-import {
-	updateVisProjectIndex,
-	updateVisSectionIndex
-} from '../actions/index'
+	UPDATE_VIS_SECTION_INDEX,
+	UPDATE_HOME_VIS_SECTION
+} from "../constants/action-types"
 
 const initialState = {
 	visibleProjectIndex: 0,
@@ -16,12 +11,14 @@ const initialState = {
 }
 
 export const rootReducer = (state = initialState, action) => {
-	switch(action.type) {
-		case UPDATE_VIS_PROJECT_INDEX: 
+	switch (action.type) {
+		case UPDATE_VIS_PROJECT_INDEX:
 			return { ...state, visibleProjectIndex: action.payload }
-		case UPDATE_VIS_SECTION_INDEX: 
+		case UPDATE_VIS_SECTION_INDEX:
 			return { ...state, visibleSectionIndex: action.payload }
-		default: 
+		case UPDATE_HOME_VIS_SECTION:
+			return { ...state, HomeVisSection: action.payload }
+		default:
 			return state
 	}
 }

@@ -27,13 +27,17 @@ export default class Background extends React.Component {
 
 		lightBackRefs.map(ref => {
 			this.setState(() =>
-				onScreen(ref) ? { backgroundColor: lightBackground } : null
+				onScreen(ref) && ref.current !== null
+					? { backgroundColor: lightBackground }
+					: null
 			)
 		})
 
 		darkBackRefs.map(ref => {
 			this.setState(() =>
-				onScreen(ref) ? { backgroundColor: darkBackground } : null
+				onScreen(ref) && ref.current !== null
+					? { backgroundColor: darkBackground }
+					: null
 			)
 		})
 	}

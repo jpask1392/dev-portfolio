@@ -5,21 +5,17 @@ import {
 	projectById,
 	handleEmail,
 	getAllProjectId,
-	viewRecentProjects,
 	authenticateUser,
 	editField,
 	deleteProject,
-	addSection,
-	deleteSection,
 	addProject
 } from "../controllers/controller.js"
 
 const routes = app => {
 	var errList = {}
 
-	// DATA COLLECTION ROUTES
+	// API END POINTS
 
-	// GET ALL PROJECTS
 	app.route("/api/projects")
 		.get((req, res) => {
 			viewAllProjects(req, res)
@@ -31,14 +27,6 @@ const routes = app => {
 			addProject(req, res)
 		})
 
-	app.route("/api/recentprojects").get((req, res) => {
-		viewRecentProjects(req, res)
-	})
-
-	app.route("/api/projects/allIds").get((req, res) => {
-		getAllProjectId(req, res)
-	})
-
 	app.route("/api/projects/:_id")
 		.get((req, res) => {
 			errList = {}
@@ -48,6 +36,10 @@ const routes = app => {
 			deleteProject(req, res)
 		})
 
+	app.route("/api/projects/allIds").get((req, res) => {
+		getAllProjectId(req, res)
+	})
+
 	app.route("api/section")
 		.post((req, res) => {
 			addSection(req, res)
@@ -56,15 +48,6 @@ const routes = app => {
 			deleteSection(req, res)
 		})
 
-	// can combine the sections into one endpoint?
-	// app.route("/api/addSection").post((req, res) => {
-	// 	addSection(req, res)
-	// })
-
-	// app.route("/api/deleteSection").delete((req, res) => {
-	// 	deleteSection(req, res)
-	// })
-
 	// user authentication
 	app.route("/users/authenticate").post((req, res) => {
 		authenticateUser(req, res)
@@ -72,8 +55,6 @@ const routes = app => {
 
 	app.route("/email/send").post((req, res) => {
 		errList = validations(req)
-
-		console.log(Object.keys(errList).length)
 
 		if (Object.keys(errList).length === 0) {
 			handleEmail(req)

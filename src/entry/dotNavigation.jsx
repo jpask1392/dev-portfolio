@@ -1,17 +1,17 @@
 import React from "react"
-import store from "../redux/store/index"
 import { withRouter, Link } from "react-router-dom"
+import { connect } from "react-redux"
 
-class DotNavigation extends React.Component {
-	static propTypes = {
-		// name: React.PropTypes.string,
+const DotNavigation = props => {
+	const data = props.data
+	let visibleIndex = props.visibleProjectIndex
+
+	let componentClassNames = ["scroll-dots", "fade-out"]
+	if (props.visible) {
+		componentClassNames.push("fixed")
 	}
 
-	constructor(props) {
-		super(props)
-	}
-
-	goToProject = i => {
+	const goToProject = i => {
 		var el = document.getElementsByClassName("project-container")[i]
 		var location = window.scrollY + el.getBoundingClientRect().top + 1
 
@@ -22,37 +22,27 @@ class DotNavigation extends React.Component {
 		})
 	}
 
-	render() {
-		let visibleIndex = store.getState().visibleProjectIndex
-		let data = this.props.data
+	return (
+		<div className={componentClassNames.join(' ')}>
+			{data.map((project, i) => (
+				<span
+					key={project["_id"]}
+					className={i === visibleIndex ? "active-dot" : ""}
+					onClick={() => goToProject(i)}>
+					<p className='tool-tip '>
+						{data.length !== 0 ? data[i]["projectName"] : null}
+					</p>
+				</span>
+			))}
 
-		return (
-			<div
-				className={
-					this.props.visible
-						? "scroll-dots fixed fade-out"
-						: "scroll-dots fade-out"
-				}>
-				{data.map((project, i) => (
-					<span
-						key={project["_id"]}
-						className={i === visibleIndex ? "active-dot" : ""}
-						onClick={() => this.goToProject(i)}>
-						<p className='tool-tip '>
-							{data.length !== 0 ? data[i]["projectName"] : null}
-						</p>
-					</span>
-				))}
-
-				{this.props.location.pathname === "/" ? (
-					<ViewAllButton />
-				) : null}
-			</div>
-		)
-	}
+			{props.location.pathname === "/" ? <ViewAllButton /> : null}
+		</div>
+	)
 }
 
-export default withRouter(DotNavigation)
+const mapStateToProps = state => ({
+	visibleProjectIndex: state.visibleProjectIndex
+})
 
 const ViewAllButton = () => (
 	<div className='view-all-button'>
@@ -61,3 +51,5 @@ const ViewAllButton = () => (
 		</Link>
 	</div>
 )
+
+export default connect(mapStateToProps)(withRouter(DotNavigation))

@@ -1,53 +1,47 @@
-import React, { Component } from "react"
+import React from "react"
 import { Link } from "react-router-dom"
 import { onScreen } from "../common/commonFunctions.js"
 import styled, { keyframes } from "styled-components"
 import { connect } from "react-redux"
-import {
-	updateVisProjectIndex,
-	updateVisSectionIndex
-} from "../redux/actions/index"
+import { updateVisProjectIndex } from "../redux/actions/index"
+import ImageLoader from '../common/imageLoader.jsx'
 
-class Gallery extends Component {
+class Gallery extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = { visible: false }
+		this.state = { visible: false, imgInitLocation: 0, clickedIndex: null }
 		this.handleScroll = this.handleScroll.bind(this)
 		this.projectRef = React.createRef()
 		this.imageSize = "-1x"
 	}
 
-	componentDidMount() {
+	componentDidMount = () => {
 		window.addEventListener("scroll", this.handleScroll)
-		window.addEventListener("resize", this.getFirstElementInfo)
+		onScreen(this.projectRef) ? this.setState({ visible: true }) : null
 		this.imageSizeCalculator()
-		// check on load if the image is on screen
-		if (onScreen(this.projectRef, { elOffset: "middle" })) {
-			this.setState({ visible: true })
-		}
 	}
 
-	// need to set a visible project index in the Redux state
-	handleScroll = () => {
-		// set visible to rotate image
-		// can propbably do this with prevProps
-		onScreen(this.projectRef, { elOffset: "middle" })
-			? this.setState({ visible: true })
-			: this.setState({ visible: false })
+	handleClick = clickedIndex => {
+		const clickedEl = document.getElementsByClassName("project-container")[
+			clickedIndex
+		]
+		const elTopLocation = clickedEl.getBoundingClientRect().top
+		this.setState({
+			imgInitLocation: elTopLocation,
+			clickedIndex: clickedIndex
+		})
+	}
 
-		// check what this function is doing
-		if (
-			onScreen(this.projectRef, {
-				elOffset: "top",
-				screenOffset: "middle"
-			}) |
-			onScreen(this.projectRef, {
-				elOffset: "bottom",
-				screenOffset: "middle"
-			})
-		) {
-			// update visible project index with dispatch
+	handleScroll = () => {
+		const screenOptions = {
+			screenOffset: "middle",
+			elOffset: "bottom"
+		}
+		if (onScreen(this.projectRef, { screenOptions })) {
+			this.setState({ visible: true })
 			this.props.dispatch(updateVisProjectIndex(this.props.index))
+		} else if (this.state.visible) {
+			this.setState({ visible: false })
 		}
 	}
 
@@ -65,44 +59,40 @@ class Gallery extends Component {
 
 	render() {
 		const project = this.props.data
+		const componentClasses = ["individual-project"]
+		if (this.state.visible) {
+			componentClasses.push("rotate")
+		}
+		const backgroundImage =
+			"url(assets/" +
+			project.mainImage["src"] +
+			this.imageSize +
+			project.mainImage["fileType"]
 
 		return (
 			<Wrapper
-				y={this.props.imgInitLocation}
-				clickedIndex={this.props.clickedIndex}
+				y={this.state.imgInitLocation}
+				clickedIndex={this.state.clickedIndex}
 				currentIndex={this.props.index}
 				className='gallery-wrapper'>
-				<div className='project-container'>
-					<Link
-						className='link-to-project'
-						to={"projects/" + project["_id"]}
-						onClick={e => {
-							this.props.Changing(e, this.props.index)
-						}}>
-						<div
-							ref={this.projectRef}
-							className={`individual-project ${
-								this.state.visible ? "rotate" : ""
-							}`}
-							style={{
-								backgroundImage:
-									"url(/assets/" +
-									project.mainImage["src"] +
-									this.imageSize +
-									project.mainImage["fileType"]
-							}}></div>
-					</Link>
-				</div>
+				<Link
+					className='project-container'
+					to={"projects/" + project["_id"]}
+					onClick={() => this.handleClick(this.props.index)}>
+					<div
+						ref={this.projectRef}
+						className={componentClasses.join(" ")}
+						// src={backgroundImage}
+						style={{ backgroundImage: backgroundImage }}
+					/>
+				</Link>
 			</Wrapper>
 		)
 	}
 }
 
-// Function required from Redux to map Redux state to component props
-const mapStateToProps = (state, ownProps) => state
-
 // Connect the component to the store
-Gallery = connect(mapStateToProps)(Gallery)
+Gallery = connect()(Gallery)
 
 // Export the connected component
 export default Gallery

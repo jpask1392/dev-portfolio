@@ -4,23 +4,16 @@ import { onScreen2 } from "../common/commonFunctions.js"
 import GistDisplay from "./gistDisplay.jsx"
 import ImageLoader from "../common/imageLoader.jsx"
 import { connect } from "react-redux"
-import {
-	updateVisProjectIndex,
-	updateVisSectionIndex
-} from "../redux/actions/index"
+import { updateVisSectionIndex } from "../redux/actions/index"
 import SwaggerUI from "swagger-ui-react"
 import "../../node_modules/swagger-ui-react/swagger-ui.css"
 
 class Section extends React.Component {
-	_isMounted = false
-
 	// specify prop types
 	static propTypes = {
 		section: PropTypes.object,
 		index: PropTypes.number,
 		currentProjectID: PropTypes.string,
-		index: PropTypes.number,
-		setVisibleSection: PropTypes.func
 	}
 
 	constructor(props) {
@@ -28,34 +21,35 @@ class Section extends React.Component {
 		this.sectionRef = React.createRef()
 	}
 
-	componentDidMount = () => {
-		this._isMounted = true
-		window.addEventListener("scroll", () => this.handleScroll())
-	}
+	componentDidMount = () =>
+		window.addEventListener("scroll", this.handleScroll)
 
 	// update visible section
 	handleScroll = () => {
 		const type = this.props.section.type
 		// if this component is visible update redux state
-		if (this._isMounted && type === "title" && onScreen2(this.sectionRef)) {
+		if (type === "title" && onScreen2(this.sectionRef)) {
 			// update redux with dispatch
 			this.props.dispatch(updateVisSectionIndex(this.props.index))
 		}
 	}
 
-	componentWillUnmount = () => (this._isMounted = false)
+	componentWillUnmount = () =>
+		window.removeEventListener("scroll", this.handleScroll)
 
 	render() {
-		// this object looses scope within the self invoking function
-		const Ref = this.sectionRef
 		const section = this.props.section
-
 		return (
 			<div className='section-content'>
 				{(() => {
 					switch (section.type) {
 						case "title":
-							return <Title Ref={Ref} txt={section.text} />
+							return (
+								<Title
+									Ref={this.sectionRef}
+									txt={section.text}
+								/>
+							)
 						case "image":
 							return (
 								<Image
@@ -91,17 +85,20 @@ class Section extends React.Component {
 	}
 }
 
-// Function required from Redux to map Redux state to component props
-const mapStateToProps = (state, ownProps) => state
-
 // Connect the component to the store
-Section = connect(mapStateToProps)(Section)
+Section = connect()(Section)
 
 // Export the connected component
 export default Section
 
 // components defined to clean up Section render method
-const Image = props => <ImageLoader src={props.src} fileType={props.fileType} caption={props.caption} />
+const Image = props => (
+	<ImageLoader
+		src={props.src}
+		fileType={props.fileType}
+		caption={props.caption}
+	/>
+)
 const Text = props => <p dangerouslySetInnerHTML={{ __html: `${props.txt}` }} />
 const Title = props => (
 	<div>
