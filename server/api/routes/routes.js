@@ -27,7 +27,7 @@ const routes = app => {
 			addProject(req, res)
 		})
 
-	app.route("/api/projects/:_id")
+	app.route("/api/projects/:projectName")
 		.get((req, res) => {
 			errList = {}
 			projectById(req, res)
@@ -76,6 +76,7 @@ const routes = app => {
 		res.sendFile(path.resolve("./public/index.html"))
 	})
 
+	// want this to be project name -- not id 
 	app.route("/projects/:_id").get((req, res) => {
 		res.sendFile(path.resolve("./public/index.html"))
 	})

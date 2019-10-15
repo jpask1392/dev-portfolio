@@ -15,7 +15,7 @@ const url =
 	process.env.PORT == 8081
 		? `mongodb+srv://${credentials.DB_USER}:${credentials.DB_PASS}@dev-portfolio-cpini.mongodb.net/test?retryWrites=true&w=majority`
 		: "mongodb://localhost:27017"
-		
+
 const DBName = "projectsDB"
 
 export const editField = (req, res) => {
@@ -96,28 +96,19 @@ export const viewAllProjects = (req, res) => {
 	MongoClient.connect(url, { useNewUrlParser: true }, function(err, client) {
 		if (err) throw err
 
+		// list filters available through queries
+		let projectionObj = {}
+		if(req.query.filter === "projectName") {
+			projectionObj.projectName = 1
+		}
+
 		let db = client.db(DBName)
 		let limitCount = parseInt(req.query.limit) || 0
 
 		db.collection("projects")
-			.find({})
+			.find({}, { projection: {...projectionObj} })
 			.sort({ position: 1 })
 			.limit(limitCount)
-			.toArray(function(err, docs) {
-				res.json(docs)
-			})
-	})
-}
-
-export const getAllProjectId = (req, res) => {
-	MongoClient.connect(url, { useNewUrlParser: true }, function(err, client) {
-		if (err) throw err
-
-		let db = client.db(DBName)
-
-		db.collection("projects")
-			.find({}, { projection: { _id: 1, projectName: 1 } })
-			.sort({ position: 1 })
 			.toArray(function(err, docs) {
 				res.json(docs)
 			})
@@ -129,14 +120,14 @@ export const projectById = (req, res) => {
 		if (err) throw err
 
 		let db = client.db(DBName)
-		let id = req.params._id
+		let projectName = req.params.projectName
 
-		db.collection("projects").findOne({ _id: new ObjectID(id) }, function(
-			err,
-			docs
-		) {
-			res.json(docs)
-		})
+		db.collection("projects").findOne(
+			{ projectName: projectName },
+			function(err, docs) {
+				res.json(docs)
+			}
+		)
 	})
 }
 
