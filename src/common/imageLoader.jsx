@@ -14,22 +14,32 @@ const ImageLoader = props => {
 	// only add image optimisation tag if not a gif
 	let imagePath
 	props.fileType === ".gif"
-		? (imagePath = `${props.src}${props.fileType}`)
-		: (imagePath = `${props.src}${imageSize}${props.fileType}`)
+		? (imagePath = `/assets/${props.src}${props.fileType}`)
+		: (imagePath = `/assets/${props.src}${imageSize}${props.fileType}`)
 
 	const TestImage = new Image()
 	TestImage.src = imagePath
 	TestImage.onload = () => setLoaded(true)
 
-	// var src = props.src
-
 	return loaded ? (
 		<figure>
-			<ImgFig
-				src={props.src}
-				fileType={props.fileType}
-				caption={props.caption}
+			<img
+				style={{ width: "100%" }}
+				srcSet={
+					props.fileType !== ".gif"
+						? `
+							/assets/${props.src}-1x${props.fileType} 900w,
+							/assets/${props.src}-2x${props.fileType} 600w,
+							/assets/${props.src}-3x${props.fileType} 320w
+						`
+						: `
+							/assets/${props.src}${props.fileType} 900w,
+							/assets/${props.src}${props.fileType} 600w,
+							/assets/${props.src}${props.fileType} 320w
+						`
+				}
 			/>
+			<figcaption>{props.caption}</figcaption>
 		</figure>
 	) : (
 		<span className='loading-icon-wrapper'>
@@ -39,17 +49,3 @@ const ImageLoader = props => {
 }
 
 export default ImageLoader
-
-const ImgFig = props => (
-	<figure>
-		<img
-			src={props.src}
-			srcSet={`
-			${props.src}-1x${props.fileType} 900w,
-			${props.src}-2x${props.fileType} 600w,
-			${props.src}-3x${props.fileType} 320w
-		`}
-		/>
-		<figcaption>{props.caption}</figcaption>
-	</figure>
-)

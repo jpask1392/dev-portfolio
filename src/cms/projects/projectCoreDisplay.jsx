@@ -105,7 +105,7 @@ export default class ProjectCoreDisplay extends React.Component {
 					</button>
 					<NavLink
 						to={`/admin/view_project/${
-							this.props.projectData["_id"]
+							this.props.projectData["projectName"]
 						}`}>
 						<button>
 							<i className='fas fa-eye'></i>

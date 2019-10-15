@@ -1,6 +1,7 @@
 import React from "react"
 import NextButton from "../common/nextButton.jsx"
 import { withRouter, Link } from "react-router-dom"
+import { formatTitle } from "../common/commonFunctions"
 
 const FooterBar = props => (
 	<div
@@ -16,7 +17,7 @@ const FooterBar = props => (
 			) : (
 				<span className='footer-text-container'>
 					<p>Next Up:</p>
-					<h2>{props.nextProject}</h2>
+					<h2>{formatTitle(props.nextProject)}</h2>
 				</span>
 			)}
 

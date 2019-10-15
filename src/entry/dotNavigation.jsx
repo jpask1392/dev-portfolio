@@ -1,6 +1,7 @@
 import React from "react"
 import { withRouter, Link } from "react-router-dom"
 import { connect } from "react-redux"
+import { formatTitle } from "../common/commonFunctions"
 
 const DotNavigation = props => {
 	const data = props.data
@@ -12,7 +13,7 @@ const DotNavigation = props => {
 	}
 
 	const goToProject = i => {
-		var el = document.getElementsByClassName("project-container")[i]
+		var el = document.getElementsByClassName("gallery-wrapper")[i]
 		var location = window.scrollY + el.getBoundingClientRect().top + 1
 
 		window.scrollTo({
@@ -23,14 +24,16 @@ const DotNavigation = props => {
 	}
 
 	return (
-		<div className={componentClassNames.join(' ')}>
+		<div className={componentClassNames.join(" ")}>
 			{data.map((project, i) => (
 				<span
 					key={project["_id"]}
 					className={i === visibleIndex ? "active-dot" : ""}
 					onClick={() => goToProject(i)}>
 					<p className='tool-tip '>
-						{data.length !== 0 ? data[i]["projectName"] : null}
+						{data.length !== 0
+							? formatTitle(data[i]["projectName"])
+							: null}
 					</p>
 				</span>
 			))}

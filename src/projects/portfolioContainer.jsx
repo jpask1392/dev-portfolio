@@ -1,47 +1,32 @@
 import React from "react"
-import Portfolio from "./portfolio.jsx"
+import Portfolio from "../entry/portfolio.jsx"
 import { connect } from "react-redux"
-import { onScreen } from "../common/commonFunctions"
 
 class PortfolioContainer extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
 			data: [],
-			isVisible: false
 		}
 	}
 
 	componentDidMount = () => {
-		fetch("/api/projects?limit=3")
+		fetch("/api/projects")
 			.then(response => response.json())
 			.then(data => this.setState({ data }))
 	}
 
-	componentDidUpdate = prevProps => {
-		if (prevProps.visibleSection !== this.props.visibleSection) {
-			this.setState(state => {
-				if (this.props.visibleSection === "portfolio") {
-					return { isVisible: true }
-				} else if (state.isVisible) {
-					return { isVisible: false }
-				}
-			})
-		}
-	}
-
 	render() {
 		let data = this.state.data
-		let visible = this.state.isVisible
 
 		return (
-			<div id='portfolio-container' ref={this.props.portfolioRefProp}>
+			<div id='portfolio-container'>
 				{data.length !== 0 ? (
 					<Portfolio
-						isVisible={visible}
+						isVisible={true}
 						data={data}
 						visibleProjectIndex={this.props.visibleProjectIndex}
-						subText="RECENT WORK"
+						subText="ALL PROJECTS"
 					/>
 				) : null}
 			</div>

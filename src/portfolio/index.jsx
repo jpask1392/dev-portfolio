@@ -6,10 +6,7 @@ import FooterBar from "../common/footerBar.jsx"
 import ScrollNavigation from "./ScrollNavigation.jsx"
 import { Link } from "react-router-dom"
 import { connect } from "react-redux"
-import {
-	updateVisProjectIndex,
-	updateVisSectionIndex
-} from "../redux/actions/index"
+import { updateVisProjectIndex } from "../redux/actions/index"
 
 class Project extends React.Component {
 	_isMounted = false
@@ -33,39 +30,33 @@ class Project extends React.Component {
 			// reset the visible index state here
 			this.props.dispatch(updateVisProjectIndex(0))
 		}, 300)
-		
-		if (this._isMounted) {
-			const currentProjectID = this.props.projectId
-			let currentIndex
 
+		if (this._isMounted) {
+			// const currentProjectID = this.props.projectId
+			let currentIndex
 			// fetchs all imformation on current project
-			fetch(`/api/projects/${this.props.projectId}`)
+			fetch(`/api/projects/${this.props.projectName}`)
 				.then(response => response.json())
 				.then(data => this.setState({ data: data }))
-				.then(
-					() =>
-						(document.title = `${this.state.data.projectName} | Jamie Pask`)
-				)
 
 			// fetchs id and project name for next project in the list
-			fetch("/api/projects/allIds")
-				.then(response => response.json())
-				.then(projects => {
-					currentIndex = projects
-						.map(project => project._id)
-						.indexOf(currentProjectID)
-
+			// get all project names in an array
+			fetch("/api/projects?filter=projectName")
+				.then(res => res.json())
+				.then(allProjects => {
+					currentIndex = allProjects.findIndex(
+						project =>
+							project.projectName === this.props.projectName
+					)
 					this.setState(() =>
-						projects.length > currentIndex + 1
+						currentIndex < allProjects.length - 1
 							? {
 									nextProjectName:
-										projects[currentIndex + 1].projectName,
-									nextProjectId:
-										projects[currentIndex + 1]._id
+										allProjects[currentIndex + 1]
+											.projectName
 							  }
 							: {
-									nextProjectName: projects[0].projectName,
-									nextProjectId: projects[0]._id
+									nextProjectName: allProjects[0].projectName
 							  }
 					)
 				})
@@ -129,7 +120,7 @@ class Project extends React.Component {
 					<FooterBar
 						bkgColor={data["bkgColor"]}
 						nextProject={this.state.nextProjectName}
-						linkTo={`/projects/${this.state.nextProjectId}`}
+						linkTo={`/projects/${this.state.nextProjectName}`}
 					/>
 				</div>
 			)

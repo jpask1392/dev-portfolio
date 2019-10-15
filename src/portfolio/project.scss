@@ -29,19 +29,14 @@
 
 #project-landing-container {
 	margin: auto;
-	background-size: contain;
-	width: 50%;
-	background-repeat: no-repeat;
-	height: 50%;
-	background-position: center;
+	width: 35%;
 	top: 50%;
 	position: relative;
 	transform: translateY(-50%);
 
 	@media only screen and (max-width: $phone-large) {
-		height: 100vh;
-		// top: 0;
-		left: inherit !important;
+		// height: 100vh;
+		// left: inherit !important;
 		width: 80% !important;
 		margin: auto;
 	}
@@ -76,5 +71,5 @@
 }
 
 .swagger-ui .wrapper {
-	padding: 0!important;
+	padding: 0 !important;
 }
