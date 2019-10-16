@@ -4,11 +4,10 @@ var history = require("connect-history-api-fallback")
 
 // dependencies
 const express = require("express")
+var compression = require("compression")
 const app = express()
 const path = require("path")
 const bodyParser = require("body-parser")
-// const mongoose = require("mongoose")
-// const proxy = require("proxy-middleware")
 
 // variables
 const PORT = process.env.PORT || 9000
@@ -18,6 +17,7 @@ app.use(
 		extended: true
 	})
 )
+app.use(compression())
 
 app.use(bodyParser.json())
 
