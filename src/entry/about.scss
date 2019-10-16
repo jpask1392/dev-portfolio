@@ -54,11 +54,6 @@
 	right: 0;
 	transition: all 0.3s;
 
-	&.about-page {
-		background-size: cover;
-		background-image: url("/assets/homeAboutImg.jpg");
-	}
-
 	&.contact-page {
 		background-color: $background-color;
 		overflow: hidden;

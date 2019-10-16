@@ -1,6 +1,5 @@
 import React from "react"
-import bcrypt from "bcryptjs"
-import { Link, withRouter } from "react-router-dom"
+import { withRouter } from "react-router-dom"
 import { userServices } from "./userServices"
 import { frontendValidations } from "../../../server/api/validations/loginFormValidations"
 

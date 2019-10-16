@@ -3,7 +3,7 @@ import Gallery from "./gallery.jsx"
 import DotNavigation from "./dotNavigation.jsx"
 import ProjectTitle from "./projectTitle.jsx"
 
-const Portfolio2 = props => {
+const Portfolio = props => {
 	let data = props.data
 	let visible = props.isVisible
 	let visibleProjectIndex = props.visibleProjectIndex
@@ -44,4 +44,4 @@ const Portfolio2 = props => {
 	)
 }
 
-export default Portfolio2
+export default Portfolio

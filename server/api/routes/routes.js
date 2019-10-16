@@ -4,7 +4,6 @@ import {
 	viewAllProjects,
 	projectById,
 	handleEmail,
-	getAllProjectId,
 	authenticateUser,
 	editField,
 	deleteProject,

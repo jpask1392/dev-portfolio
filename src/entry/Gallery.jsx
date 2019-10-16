@@ -9,9 +9,13 @@ import ImageLoader from "../common/imageLoader.jsx"
 class Gallery extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = { visible: false, imgInitLocation: null, clickedIndex: null }
-		this.handleScroll = this.handleScroll.bind(this)
+		this.state = {
+			visible: false,
+			imgInitLocation: null,
+			clickedIndex: null
+		}
 		this.projectRef = React.createRef()
+		this.visible = false
 	}
 
 	componentDidMount = () => {
@@ -20,14 +24,27 @@ class Gallery extends React.Component {
 	}
 
 	handleScroll = () => {
-		const screenOptions = {
-			screenOffset: "middle",
-			elOffset: "bottom"
+		const screenOptionsTop = {
+			screenOffset: "top",
+			elOffset: "middle"
 		}
-		if (onScreen(this.projectRef, { screenOptions })) {
+		const screenOptionsBottom = {
+			screenOffset: "bottom",
+			elOffset: "middle"
+		}
+		const conditionFromTop = onScreen(this.projectRef, {
+			...screenOptionsTop
+		})
+		const conditionFromBottom = onScreen(this.projectRef, {
+			...screenOptionsBottom
+		})
+
+		if ((conditionFromTop || conditionFromBottom) && !this.state.visible) {
 			this.setState({ visible: true })
 			this.props.dispatch(updateVisProjectIndex(this.props.index))
-		} else if (this.state.visible) {
+		}
+
+		if ((!conditionFromTop || !conditionFromBottom) && this.state.visible) {
 			this.setState({ visible: false })
 		}
 	}
@@ -58,6 +75,7 @@ class Gallery extends React.Component {
 						<ImageLoader
 							src={project.mainImage["src"]}
 							fileType={project.mainImage["fileType"]}
+							w='100%'
 						/>
 					</span>
 				</Link>
@@ -81,8 +99,7 @@ const Wrapper = styled.div`
 	margin: auto;
 	width: 35%;
 	top: 0;
-	
-	
+
 	display: flex;
 	align-items: center;
 	animation: ${props =>

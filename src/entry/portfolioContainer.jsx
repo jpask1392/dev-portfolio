@@ -8,7 +8,6 @@ class PortfolioContainer extends React.Component {
 		super(props)
 		this.state = {
 			data: [],
-			isVisible: false
 		}
 	}
 
@@ -18,22 +17,10 @@ class PortfolioContainer extends React.Component {
 			.then(data => this.setState({ data }))
 	}
 
-	componentDidUpdate = prevProps => {
-		if (prevProps.visibleSection !== this.props.visibleSection) {
-			this.setState(state => {
-				if (this.props.visibleSection === "portfolio") {
-					return { isVisible: true }
-				} else if (state.isVisible) {
-					return { isVisible: false }
-				}
-			})
-		}
-	}
-
 	render() {
 		let data = this.state.data
-		let visible = this.state.isVisible
-
+		let visible = this.props.visibleSection === "portfolio" ? true : false
+		console.log("re-render")
 		return (
 			<div id='portfolio-container' ref={this.props.portfolioRefProp}>
 				{data.length !== 0 ? (

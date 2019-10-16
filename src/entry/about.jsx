@@ -2,6 +2,7 @@ import React from "react"
 import NextButton from "../common/nextButton.jsx"
 import { Link } from "react-router-dom"
 import PropTypes from "prop-types"
+import ImageLoader from "../common/imageLoader.jsx"
 
 export default class About extends React.Component {
 	static propTypes = {
@@ -33,10 +34,15 @@ export default class About extends React.Component {
 				className='about-container'
 				id='about-container'
 				ref={this.props.aboutRefProp}>
-				<div
-					className={`start about-page ${
-						visible ? "end" : ""
-					}`}></div>
+				<div className={`start about-page ${visible ? "end" : ""}`}>
+					<span>
+						<ImageLoader
+							src='homeAboutImg'
+							fileType='.jpg'
+							h='100vh'
+						/>
+					</span>
+				</div>
 				<div
 					id='about-text-container'
 					className={visible ? "fade-in-text" : ""}>

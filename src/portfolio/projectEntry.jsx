@@ -32,6 +32,7 @@ export default class projectEntry extends React.Component {
 						<ImageLoader 
 							src={this.props.data.mainImage["src"]}
 							fileType={this.props.data.mainImage["fileType"]}
+							w="100%"
 						/> 
 					</div>
 			</div>

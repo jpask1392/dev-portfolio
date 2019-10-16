@@ -81,6 +81,59 @@ export const onScreen2 = (elementRef, options) => {
 	}
 }
 
+// try and simplify onScreen 1 here
+export const onScreen3 = (elementRef, options) => {
+	// set default options
+	options = {
+		elOffset: "top",
+		screenOffset: "top"
+	}
+
+	// element trigger location
+	let elHeight = elementRef.current.clientHeight
+
+	let topOfEl
+	if (options.elOffset === "top") {
+		// should equal ...
+		topOfEl = elementRef.current.getBoundingClientRect().top
+	}
+
+	if (options.elOffset === "middle") {
+		// should equal half elements height
+		topOfEl = elHeight / 2
+		// topOfEl =
+		// 	elementRef.current.getBoundingClientRect().top + elHeight / 2
+	}
+
+	if (options.elOffset == "bottom") {
+		// should equal bottom/height of element
+		topOfEl = elementRef.current.getBoundingClientRect().bottom
+	}
+
+	// screen trigger location
+	let windowTrigger
+	if (options.screenOffset === "top") {
+		// should equal 0
+		windowTrigger = 0
+	}
+
+	if (options.screenOffset === "middle") {
+		// should equal 0
+		windowTrigger = window.innerHeight / 2
+	}
+
+	if (options.screenOffset === "bottom") {
+		// should equal 0
+		windowTrigger = window.innerHeight
+	}
+
+	if (topOfEl === windowTrigger) {
+		return true
+	} else {
+		return false
+	}
+}
+
 export const formatTitle = projectName => {
 	let name = projectName
 	let formattedName = ""
