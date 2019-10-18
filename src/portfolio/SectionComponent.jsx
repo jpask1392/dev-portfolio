@@ -5,8 +5,9 @@ import GistDisplay from "./gistDisplay.jsx"
 import ImageLoader from "../common/imageLoader.jsx"
 import { connect } from "react-redux"
 import { updateVisSectionIndex } from "../redux/actions/index"
-import SwaggerUI from "swagger-ui-react"
-import "../../node_modules/swagger-ui-react/swagger-ui.css"
+
+// import SwaggerUI from "swagger-ui-react"
+// import "../../node_modules/swagger-ui-react/swagger-ui.css"
 
 class Section extends React.Component {
 	// specify prop types
@@ -67,15 +68,15 @@ class Section extends React.Component {
 									file={section.file}
 								/>
 							)
-						case "swaggerAPI":
-							return (
-								<SwaggerUI
-									url={`https://api.swaggerhub.com/apis/
-											${section.swagOwner}/
-											${section.swagAPI}/
-											${section.swagVersion}`}
-								/>
-							)
+						// case "swaggerAPI":
+						// 	return (
+						// 		<SwaggerUI
+						// 			url={`https://api.swaggerhub.com/apis/
+						// 					${section.swagOwner}/
+						// 					${section.swagAPI}/
+						// 					${section.swagVersion}`}
+						// 		/>
+						// 	)
 						default:
 							return null
 					}

@@ -33,9 +33,9 @@ const ImageLoader = props => {
 				srcSet={
 					props.fileType !== ".gif"
 						? `
-							/assets/${props.src}-3x${props.fileType} 600w,
-							/assets/${props.src}-2x${props.fileType} 900w,
-							/assets/${props.src}-1x${props.fileType} 2000w
+							/assets/${props.src}-3x${props.fileType} 800w,
+							/assets/${props.src}-2x${props.fileType} 1800w,
+							/assets/${props.src}-1x${props.fileType} 4000w
 						`
 						: `
 							/assets/${props.src}${props.fileType},
@@ -44,8 +44,8 @@ const ImageLoader = props => {
 						`
 				}
 				sizes='
-				(max-width: 768px) 200px,
-				(max-width: 900px) 100px,
+				(max-width: 768px) 100vw
+				(max-width: 900px) 100vw,
 				100vw
 				'
 			/>

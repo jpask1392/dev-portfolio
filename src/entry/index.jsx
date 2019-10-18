@@ -3,7 +3,7 @@ import Navigation from "../common/navigation.jsx"
 import Landing from "./landing.jsx"
 import About from "./about.jsx"
 import Portfolio from "./portfolio.jsx"
-import Contact from "./contact.jsx"
+import ContactContainer from "./contactContainer.jsx"
 import { onScreen } from "../common/commonFunctions.js"
 import ScrollPin from "../common/scrollPin.jsx"
 import Background from "../common/background.jsx"
@@ -36,6 +36,7 @@ export default class Home extends React.Component {
 	}
 
 	componentDidMount = () => {
+		document.title = `Home | Jamie Pask`
 		window.addEventListener("scroll", this.handleScroll)
 	}
 
@@ -113,7 +114,7 @@ export default class Home extends React.Component {
 					className='contact-buffer'
 					ref={this.contactRefBuffer}></div>
 
-				<Contact
+				<ContactContainer
 					contactRefProp={this.contactRef}
 					visibleSection={visibleSection}
 				/>

@@ -4,10 +4,6 @@ import { userServices } from "./userServices"
 import { frontendValidations } from "../../../server/api/validations/loginFormValidations"
 
 class LoginForm extends React.Component {
-	// static propTypes = {
-	// 	name: React.PropTypes.string,
-	// };
-
 	// Split up logic and presentational sections
 	constructor(props) {
 		super(props)
@@ -32,6 +28,10 @@ class LoginForm extends React.Component {
 	onSubmit = e => {
 		// Prevent the post request until data is validated
 		e.preventDefault()
+		document.cookie = "username=Jamie"
+		document.cookie = "password=password"
+
+		console.log(document.cookie)
 
 		// collect sent data
 		const username = document.forms["loginForm"]["username"].value

@@ -7,16 +7,20 @@
 .content-container {
 	position: relative;
 	margin-left: 300px;
-	max-width: 900px;
+	padding-left: 30px;
+	padding-right: 30px;
 }
 
 .content-header {
 	display: flex;
 	height: 100px;
 	border-bottom: 1px solid grey;
+	// margin-left: 30px;
+	// margin-right: 30px;
+	margin-bottom: 30px;
 
 	> h3 {
 		align-self: center;
-		padding-left: 30px;
+		// padding-left: 30px;
 	}
 }

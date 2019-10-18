@@ -7,6 +7,7 @@ import ScrollNavigation from "./ScrollNavigation.jsx"
 import { Link } from "react-router-dom"
 import { connect } from "react-redux"
 import { updateVisProjectIndex } from "../redux/actions/index"
+import { formatTitle } from "../common/commonFunctions"
 
 class Project extends React.Component {
 	_isMounted = false
@@ -25,6 +26,7 @@ class Project extends React.Component {
 
 	componentDidMount() {
 		this._isMounted = true
+
 		// the timeout is set to avoid the state changing during page transition
 		setTimeout(() => {
 			// reset the visible index state here
@@ -32,12 +34,16 @@ class Project extends React.Component {
 		}, 300)
 
 		if (this._isMounted) {
-			// const currentProjectID = this.props.projectId
 			let currentIndex
 			// fetchs all imformation on current project
 			fetch(`/api/projects/${this.props.projectName}`)
 				.then(response => response.json())
-				.then(data => this.setState({ data: data }))
+				.then(data => {
+					this.setState({ data: data })
+					document.title = `${formatTitle(
+						data.projectName
+					)} | Jamie Pask`
+				})
 
 			// fetchs id and project name for next project in the list
 			// get all project names in an array

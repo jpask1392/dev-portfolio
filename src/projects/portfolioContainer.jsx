@@ -11,6 +11,7 @@ class PortfolioContainer extends React.Component {
 	}
 
 	componentDidMount = () => {
+		document.title = `Projects | Jamie Pask`
 		fetch("/api/projects")
 			.then(response => response.json())
 			.then(data => this.setState({ data }))

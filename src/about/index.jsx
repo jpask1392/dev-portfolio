@@ -28,8 +28,8 @@ export default class About extends React.Component {
 	}
 
 	componentDidMount = () => {
-		this._isMounted = true
 		document.title = "About | Jamie Pask"
+		this._isMounted = true
 		window.addEventListener("scroll", () => this.handleScroll())
 	}
 

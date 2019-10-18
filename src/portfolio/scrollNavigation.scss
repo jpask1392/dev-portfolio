@@ -1,17 +1,16 @@
 .scroll-navigation-container {
-	right: 8.333%;
+	right: 50px;
 	top: 100px;
 	position: sticky;
 	position: -webkit-sticky;
-	float: right;
 	display: inline-block;
 	cursor: pointer;
-	width: 8.3333%;
+	width: 16.6666%;
 	border-left: solid 1px grey;
 	padding-left: 50px;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	white-space: pre;
+	float: right;
 
 	> h3 {
 		margin-top: 10px;
@@ -21,6 +20,10 @@
 	@media only screen and (max-width: $phone-large) {
 		display: none;
 	}
+}
+
+.scroll-nav-header {
+	// margin-bottom: 10px
 }
 
 .active-title {

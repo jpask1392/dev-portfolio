@@ -1,7 +1,6 @@
 import React from "react"
 import Portfolio from "./portfolio.jsx"
 import { connect } from "react-redux"
-import { onScreen } from "../common/commonFunctions"
 
 class PortfolioContainer extends React.Component {
 	constructor(props) {
@@ -20,7 +19,6 @@ class PortfolioContainer extends React.Component {
 	render() {
 		let data = this.state.data
 		let visible = this.props.visibleSection === "portfolio" ? true : false
-		console.log("re-render")
 		return (
 			<div id='portfolio-container' ref={this.props.portfolioRefProp}>
 				{data.length !== 0 ? (
