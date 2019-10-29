@@ -9,6 +9,8 @@ import {
 	HeaderImage,
 	DefaultType
 } from "./inputTypes.jsx"
+import EditModeButtons from "../common/editModeBtns.jsx"
+import ViewModeButtons from "../common/viewModeBtns.jsx"
 
 export default class Input extends React.Component {
 	static propTypes = {
@@ -196,73 +198,18 @@ export default class Input extends React.Component {
 	}
 
 	render() {
-		const defaultText = this.props.defaultText
 		return (
-			<div className='content-section-container'>
-				<h3>{this.props.header}</h3>
+            // 1. Render buttons
+            // 2. Check amount of inputs required
+            // 3. Render inputs
+			<div>
+				
+				<EditModeButtons />
+				<ViewModeButtons />
 
-				{this.state.mode === "view" ? (
-					<React.Fragment>
-						<ViewModeButtons
-							click={this.onClick}
-							removable={this.props.removable}
-							delete={this.onDelete}
-							moveUp={this.moveUp}
-							moveDown={this.moveDown}
-						/>
-						<p onDoubleClick={() => props.onClick()}>
-							{JSON.stringify(defaultText)}
-						</p>
-					</React.Fragment>
-				) : (
-					<React.Fragment>
-						<EditModeButtons
-							click={this.onClick}
-							save={this.onSave}
-							edit={this.onConfirmEdit}
-						/>
-						<div className='edit-container'>
-							<input
-								id={this.props.id}
-								defaultValue={defaultText}
-								onChange={e => props.onChange(e)}
-							/>
-						</div>
-					</React.Fragment>
-				)}
 			</div>
+
+
 		)
 	}
 }
-
-// buttons for rendering
-// here to clear up Input component render method
-const ViewModeButtons = props => (
-	<span className='view-mode-buttons'>
-		<i onClick={() => props.click()} className='fas fa-pen'></i>
-		{props.removable ? (
-			<React.Fragment>
-				<i onClick={() => props.delete()} className='fas fa-times'></i>
-				<i
-					onClick={() => props.moveUp()}
-					className='fas fa-chevron-up'></i>
-				<i
-					onClick={() => props.moveDown()}
-					className='fas fa-chevron-down'></i>
-			</React.Fragment>
-		) : null}
-	</span>
-)
-
-const EditModeButtons = props => (
-	<span className='save-cancel-container'>
-		<button
-			type='button'
-			onClick={() => props.edit()}
-			className='fas fa-check'></button>
-		<button
-			type='button'
-			onClick={() => props.click()}
-			className='fas fa-times'></button>
-	</span>
-)

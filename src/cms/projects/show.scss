@@ -23,6 +23,16 @@
 	}
 }
 
+.input-subtext {
+	margin-bottom: 0;
+    font-weight: 400;
+    font-style: italic;
+    font-size: small;
+    /* text-transform: uppercase; */
+    opacity: 0.5;
+
+}
+
 .edit-container {
 
 	> input, textarea {

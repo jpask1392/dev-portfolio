@@ -1,9 +1,11 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Input from "./input.jsx"
 import AddSection from "./addSection.jsx"
 import axios from "axios"
-import underscore from "underscore"
+import { isEqual } from "underscore"
+import DataDisplay from "./dataDisplay.jsx"
+import { generalDataArray, sectionDataDisplay } from "./adminProjectData"
+import { formatTitle } from "../../common/commonFunctions"
 
 export default class ShowProject extends React.Component {
 	static propTypes = {
@@ -12,8 +14,14 @@ export default class ShowProject extends React.Component {
 
 	constructor(props) {
 		super(props)
-		this.state = { projectData: [], visibleRPD: false, originalData: [] }
+		this.state = {
+			projectData: [],
+			visibleRPD: false,
+			originalData: []
+		}
 		this.updateProjectData = this.updateProjectData.bind(this)
+		this.generalDataDisplay = generalDataArray
+		this.sectionDataDisplay = sectionDataDisplay
 	}
 
 	componentDidMount = () => {
@@ -44,8 +52,7 @@ export default class ShowProject extends React.Component {
 	}
 
 	// build a new project object on save and make a post request
-	onSave = e => {
-		e.preventDefault()
+	onSave = () => {
 		// pass ID to select project to edit
 		const newData = this.state.projectData
 		// create object to pass new data to database
@@ -81,137 +88,121 @@ export default class ShowProject extends React.Component {
 
 	render() {
 		const data = this.state.projectData
+
 		if (data.length !== 0) {
 			return (
-				<div>
-					<h2>{data.projectName}</h2>
-					{!underscore._.isEqual(
-						this.state.projectData,
-						this.state.originalData
-					) ? (
-						<form
-							id='save'
-							action=''
-							onSubmit={e => this.onSave(e)}>
-							<button type='submit'>Save Changes</button>
-							<button
-								type='reset'
-								onClick={() => this.undoChanges()}>
-								Undo Changes
+				<div id='projectDataForm'>
+					<h2>{formatTitle(data.projectName)}</h2>
+					{!isEqual(data, this.state.originalData) ? (
+						<div>
+							<button type='button' onClick={this.onSave}>
+								Save
 							</button>
-						</form>
+							<button type='button' onClick={this.undoChanges}>
+								Cancel
+							</button>
+						</div>
 					) : null}
+					{this.generalDataDisplay.map((section, i) => (
+						<DataDisplay
+							key={i}
+							sectionHeading={section.sectionHeading}
+							inputs={section.inputs}
+							data={this.state.projectData}
+							refToDB={section.refToDB}
+							allProjectData={data}
+							update={this.updateProjectData}
+						/>
+					))}
 
-					<br></br>
-
-					<Input
-						header='Project Name'
-						defaultText={data.projectName}
-						data={data}
-						update={this.updateProjectData}
-					/>
-					<Input
-						header='Header Image'
-						defaultText={data.mainImage}
-						data={data}
-						update={this.updateProjectData}
-					/>
-					<Input
-						header='Background Color'
-						defaultText={data.bkgColor}
-						data={data}
-						update={this.updateProjectData}
-					/>
-					<Input
-						header='Summary'
-						defaultText={data.summary}
-						data={data}
-						update={this.updateProjectData}
-					/>
-					<Input
-						header='Github Link'
-						defaultText={data.githubLink}
-						data={data}
-						update={this.updateProjectData}
-					/>
-					<Input
-						header='Position'
-						defaultText={data.position}
-						data={data}
-						update={this.updateProjectData}
-					/>
-
-					<hr></hr>
 					<h2>Sections</h2>
-
-					<AddSection update={this.updateProjectData} data={data} />
+					<AddSection data={data}/>
 
 					{data.sections.map((section, i) => {
+						const sectionPrefix = this.sectionDataDisplay
 						switch (section.type) {
 							case "title":
 								return (
-									<Input
-										defaultText={section}
-										header='Section Title'
-										data={data}
-										index={i}
+									<DataDisplay
 										key={i}
+										sectionHeading={
+											sectionPrefix.title.title
+										}
+										inputs={sectionPrefix.title.inputs}
+										data={section}
+										refToDB={sectionPrefix.title.refToDB}
 										removable={true}
+										allProjectData={data}
 										update={this.updateProjectData}
-									/>
-								)
-
-							case "image":
-								return (
-									<Input
-										defaultText={section}
-										header='Section Image'
-										data={data}
 										index={i}
-										key={i}
-										removable={true}
-										update={this.updateProjectData}
 									/>
 								)
 							case "text":
 								return (
-									<Input
-										defaultText={section}
-										header='Section Text'
-										data={data}
-										index={i}
+									<DataDisplay
 										key={i}
-										inputType='textarea'
+										sectionHeading={
+											sectionPrefix.text.title
+										}
+										inputs={sectionPrefix.text.inputs}
+										data={section}
+										refToDB={sectionPrefix.text.refToDB}
 										removable={true}
+										allProjectData={data}
 										update={this.updateProjectData}
+										index={i}
+									/>
+								)
+							case "image":
+								return (
+									<DataDisplay
+										key={i}
+										sectionHeading={
+											sectionPrefix.image.title
+										}
+										inputs={sectionPrefix.image.inputs}
+										data={section}
+										refToDB={sectionPrefix.image.inputs}
+										removable={true}
+										allProjectData={data}
+										update={this.updateProjectData}
+										index={i}
 									/>
 								)
 							case "gistCode":
 								return (
-									<Input
+									<DataDisplay
 										key={i}
-										defaultText={section}
-										header='Section Code'
-										data={data}
-										index={i}
+										sectionHeading={
+											sectionPrefix.gistCode.title
+										}
+										inputs={sectionPrefix.gistCode.inputs}
+										data={section}
+										refToDB={sectionPrefix.gistCode.inputs}
 										removable={true}
+										allProjectData={data}
 										update={this.updateProjectData}
+										index={i}
 									/>
 								)
 							case "swaggerAPI":
 								return (
-									<Input
+									<DataDisplay
 										key={i}
-										defaultText={section}
-										header='Swagger API'
-										data={data}
-										index={i}
+										sectionHeading={
+											sectionPrefix.swaggerAPI.title
+										}
+										inputs={sectionPrefix.swaggerAPI.inputs}
+										data={section}
+										refToDB={sectionPrefix.swaggerAPI.inputs}
 										removable={true}
+										allProjectData={data}
 										update={this.updateProjectData}
+										index={i}
 									/>
 								)
 							default:
-								return null
+								null
 						}
 					})}
 

@@ -92,6 +92,15 @@ hr {
 	position: fixed !important;
 }
 
+.newone-exit .start {
+	position: relative;
+}
+
+.newone-exit #pin-container {
+	position: relative;
+	display: none;
+}
+
 .newone-exit .fade-out {
 	opacity: 0 !important;
 	transition: all 0.2s;
